@@ -1,0 +1,74 @@
+@if (course(); as c) {
+  <section class="detail-hero">
+    <img [src]="c.image" [alt]="c.title" class="detail-hero-img" loading="eager" fetchpriority="high" />
+    <div class="detail-hero-overlay"></div>
+    <div class="container-fhf detail-hero-content">
+      <a routerLink="/courses" class="back-link"><i class="pi pi-arrow-left"></i> All Courses</a>
+      <span class="detail-icon"><i [class]="c.icon"></i></span>
+      <h1 class="font-display">{{ c.title }}</h1>
+      <p>{{ c.summary }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-fhf detail-grid">
+      <div class="detail-body" [appScrollReveal]="0">
+        <h2>About This Course</h2>
+        <p>{{ c.description }}</p>
+
+        <div class="course-facts card-surface">
+          <div>
+            <i class="pi pi-user"></i>
+            <div>
+              <strong>{{ c.instructor }}</strong>
+              <span>Instructor</span>
+            </div>
+          </div>
+          <div>
+            <i class="pi pi-clock"></i>
+            <div>
+              <strong>{{ c.duration }}</strong>
+              <span>Duration</span>
+            </div>
+          </div>
+          <div>
+            <i class="pi pi-bookmark"></i>
+            <div>
+              <strong>{{ c.level }}</strong>
+              <span>Level</span>
+            </div>
+          </div>
+          <div>
+            <i class="pi pi-users"></i>
+            <div>
+              <strong>{{ c.seatsAvailable }}</strong>
+              <span>Seats Available</span>
+            </div>
+          </div>
+        </div>
+
+        <app-button variant="primary" routerLink="/contact">
+          <i class="pi pi-pencil"></i> Enroll Now
+        </app-button>
+      </div>
+
+      <aside class="detail-sidebar" [appScrollReveal]="100">
+        <h3>Other Courses</h3>
+        @for (other of otherCourses(); track other.id) {
+          <a class="sidebar-card" [routerLink]="['/courses', other.slug]">
+            <img [src]="other.image" [alt]="other.title" loading="lazy" />
+            <span>{{ other.title }}</span>
+          </a>
+        }
+      </aside>
+    </div>
+  </section>
+} @else {
+  <section class="section not-found">
+    <div class="container-fhf">
+      <h1>Course Not Found</h1>
+      <p>We couldn't find the course you're looking for.</p>
+      <a routerLink="/courses" class="btn-primary">Browse All Courses</a>
+    </div>
+  </section>
+}

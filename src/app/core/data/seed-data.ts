@@ -4,6 +4,7 @@
 import {
   BlogPost,
   CoreValue,
+  CourseItem,
   EventItem,
   GalleryItem,
   ProgramItem,
@@ -97,6 +98,51 @@ export const SEED_PROGRAMS: ProgramItem[] = [
     impactLabel: 'Women trained',
     impactValue: 275,
     progressPercent: 48,
+  },
+];
+
+export const SEED_COURSES: CourseItem[] = [
+  {
+    id: 'basic-computer-literacy',
+    slug: 'basic-computer-literacy',
+    title: 'Basic Computer Literacy',
+    summary: 'Foundational computer and internet skills for beginners.',
+    description:
+      'This course covers essential computer skills — typing, using the internet, email and common office applications — to help students and job seekers build confidence with everyday technology.',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
+    icon: 'pi pi-desktop',
+    instructor: 'Ayesha Khan',
+    duration: '6 weeks',
+    level: 'Beginner',
+    seatsAvailable: 25,
+  },
+  {
+    id: 'tailoring-fashion-design',
+    slug: 'tailoring-fashion-design',
+    title: 'Tailoring & Fashion Design',
+    summary: 'Hands-on stitching and design skills for a sustainable livelihood.',
+    description:
+      'Students learn pattern-making, cutting and stitching techniques, preparing them to start their own tailoring business or find employment in the garment industry.',
+    image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1200&q=80',
+    icon: 'pi pi-palette',
+    instructor: 'Sadia Malik',
+    duration: '10 weeks',
+    level: 'Beginner',
+    seatsAvailable: 20,
+  },
+  {
+    id: 'spoken-english',
+    slug: 'spoken-english',
+    title: 'Spoken English',
+    summary: 'Practical English speaking and communication skills.',
+    description:
+      'A conversation-focused English course designed to build fluency and confidence for the workplace, higher education and everyday communication.',
+    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80',
+    icon: 'pi pi-comments',
+    instructor: 'Bilal Ahmed',
+    duration: '8 weeks',
+    level: 'Beginner',
+    seatsAvailable: 30,
   },
 ];
 

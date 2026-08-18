@@ -19,6 +19,20 @@ export interface ProgramItem {
   progressPercent: number;
 }
 
+export interface CourseItem {
+  id: string;
+  slug: string;
+  title: string;
+  summary: string;
+  description: string;
+  image: string;
+  icon: string;
+  instructor: string;
+  duration: string;
+  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  seatsAvailable: number;
+}
+
 export interface TimelineItem {
   year: string;
   title: string;

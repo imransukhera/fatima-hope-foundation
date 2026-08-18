@@ -8,13 +8,13 @@ export const environment = {
   appUrl: 'https://fatimahopefoundation.com',
 
   firebase: {
-    apiKey: 'REPLACE_ME_FIREBASE_API_KEY',
-    authDomain: 'REPLACE_ME.firebaseapp.com',
-    projectId: 'REPLACE_ME_PROJECT_ID',
-    storageBucket: 'REPLACE_ME.appspot.com',
-    messagingSenderId: 'REPLACE_ME_SENDER_ID',
-    appId: 'REPLACE_ME_APP_ID',
-    measurementId: 'REPLACE_ME_MEASUREMENT_ID',
+    apiKey: 'AIzaSyA-S_WvT0BkrNQ8YJxwaMvxJTIHD1Q4p38',
+    authDomain: 'fatimahopefounation.firebaseapp.com',
+    projectId: 'fatimahopefounation',
+    storageBucket: 'fatimahopefounation.firebasestorage.app',
+    messagingSenderId: '317588617940',
+    appId: '1:317588617940:web:5ed7f27b05ab9bbba25941',
+    measurementId: 'G-BJ3BKZ8S8N',
   },
 
   stripe: {
@@ -31,7 +31,7 @@ export const environment = {
   contact: {
     phone: '0301-6107018',
     whatsapp: '923016107018',
-    email: 'info@fatimahopefoundation.com',
+    email: 'helpinghandsfoundation086@gmail.com',
     website: 'https://fatimahopefoundation.com',
   },
 };

@@ -1,0 +1,33 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">Learn With Us</span>
+    <h1 class="font-display">Our Courses</h1>
+    <p>Free skill-development courses helping our community build brighter, self-reliant futures.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-fhf courses-grid">
+    @for (course of coursesService.courses(); track course.id; let i = $index) {
+      <article class="course-card card-surface" [appScrollReveal]="(i % 3) * 100">
+        <div class="course-image">
+          <img [src]="course.image" [alt]="course.title" loading="lazy" />
+          <span class="course-icon"><i [class]="course.icon"></i></span>
+        </div>
+        <div class="course-body">
+          <h3>{{ course.title }}</h3>
+          <p>{{ course.summary }}</p>
+
+          <div class="course-meta">
+            <span><i class="pi pi-clock"></i> {{ course.duration }}</span>
+            <span><i class="pi pi-bookmark"></i> {{ course.level }}</span>
+          </div>
+
+          <a [routerLink]="['/courses', course.slug]" class="course-link">
+            View Details <i class="pi pi-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>

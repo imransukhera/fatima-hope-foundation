@@ -19,6 +19,15 @@ export const routes: Routes = [
       import('./features/programs/program-detail/program-detail').then((m) => m.ProgramDetail),
   },
   {
+    path: 'courses',
+    loadComponent: () => import('./features/courses/courses').then((m) => m.Courses),
+  },
+  {
+    path: 'courses/:slug',
+    loadComponent: () =>
+      import('./features/courses/course-detail/course-detail').then((m) => m.CourseDetail),
+  },
+  {
     path: 'impact',
     loadComponent: () => import('./features/impact/impact').then((m) => m.Impact),
   },

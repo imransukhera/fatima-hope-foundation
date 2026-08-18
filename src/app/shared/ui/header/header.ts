@@ -25,6 +25,7 @@ export class Header {
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
     { label: 'Programs', path: '/programs' },
+    { label: 'Courses', path: '/courses' },
     { label: 'Impact', path: '/impact' },
     { label: 'Gallery', path: '/gallery' },
     { label: 'Events', path: '/events' },
