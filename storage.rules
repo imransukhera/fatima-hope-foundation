@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    function isValidImage() {
+      return request.resource.contentType.matches('image/.*')
+        && request.resource.size < 10 * 1024 * 1024;
+    }
+
+    function isValidDocument() {
+      return request.resource.contentType.matches('application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+        && request.resource.size < 5 * 1024 * 1024;
+    }
+
+    // Volunteer resumes: anyone can upload their own resume during
+    // application, but only admins can read/list/delete them afterward.
+    match /volunteers/resumes/{fileName} {
+      allow create: if isValidDocument();
+      allow read, delete: if isAdmin();
+    }
+
+    // Gallery and program images: public read, admin-managed uploads.
+    match /gallery/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidImage();
+    }
+
+    match /programs/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidImage();
+    }
+
+    match /blogs/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidImage();
+    }
+
+    // Default-deny everything else.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

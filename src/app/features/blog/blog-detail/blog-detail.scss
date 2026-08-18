@@ -1,0 +1,35 @@
+.blog-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary-light);
+}
+
+.blog-meta {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.article-body {
+  max-width: 720px;
+  margin-inline: auto;
+
+  .lede {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.85;
+    font-size: 1.02rem;
+  }
+}

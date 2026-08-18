@@ -1,0 +1,86 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">Transparency First</span>
+    <h1 class="font-display">Our Impact, In Real Numbers</h1>
+    <p>Every donation is tracked from your hand to a family in need. Here's the measurable difference we've made together.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-fhf stats-grid">
+    @for (stat of statsService.stats(); track stat.id; let i = $index) {
+      <div class="stat-card card-surface" [appScrollReveal]="i * 100">
+        <i [class]="stat.icon"></i>
+        <app-stat-counter [value]="stat.value" [suffix]="stat.suffix" />
+        <span>{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Growth chart -->
+<section class="section chart-section">
+  <div class="container-fhf">
+    <app-section-heading eyebrow="Growing Every Year" title="Families Helped, Year Over Year" [center]="true" />
+    <div class="bar-chart card-surface" [appScrollReveal]="0">
+      @for (bar of yearlyGrowth; track bar.year) {
+        <div class="bar-column">
+          <div class="bar-track">
+            <div class="bar-fill" [style.height.%]="bar.percent">
+              <span class="bar-value">{{ bar.familiesHelped }}</span>
+            </div>
+          </div>
+          <span class="bar-label">{{ bar.year }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Program progress -->
+<section class="section">
+  <div class="container-fhf">
+    <app-section-heading eyebrow="Where It Goes" title="Program Impact Breakdown" [center]="true" />
+    <div class="progress-list">
+      @for (program of programsService.programs(); track program.id; let i = $index) {
+        <div class="progress-row" [appScrollReveal]="i * 60">
+          <div class="progress-row-header">
+            <span><i [class]="program.icon"></i> {{ program.title }}</span>
+            <strong>{{ program.impactValue | number }} {{ program.impactLabel }}</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" [style.width.%]="program.progressPercent"></div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Regions / reach map -->
+<section class="section regions-section">
+  <div class="container-fhf regions-grid">
+    <div [appScrollReveal]="0">
+      <app-section-heading eyebrow="Where We Work" title="Our Reach Across Pakistan" />
+      <div class="regions-list">
+        @for (region of regions; track region.name) {
+          <div class="region-row">
+            <span>{{ region.name }}</span>
+            <div class="progress-track">
+              <div class="progress-fill progress-fill--gold" [style.width.%]="region.percent"></div>
+            </div>
+            <strong>{{ region.percent }}%</strong>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="map-embed glass" [appScrollReveal]="150">
+      <iframe
+        title="Fatima Hope Foundation service regions map"
+        [src]="mapUrl"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>

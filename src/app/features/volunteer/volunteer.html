@@ -1,0 +1,98 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">Join Our Mission</span>
+    <h1 class="font-display">Become a Volunteer</h1>
+    <p>Your time and skills can transform lives. Tell us about yourself and we'll match you to a program that fits.</p>
+  </div>
+</section>
+
+<section class="section volunteer-section">
+  <div class="container-fhf volunteer-wrap card-surface">
+    @if (submitted()) {
+      <div class="success-state">
+        <i class="pi pi-check-circle"></i>
+        <h3>Application Received!</h3>
+        <p>Thank you for stepping forward. Our volunteer coordinator will reach out to you shortly.</p>
+      </div>
+    } @else {
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="field-row">
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" type="text" formControlName="fullName" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" formControlName="phone" placeholder="03xx-xxxxxxx" />
+          </div>
+          <div class="field">
+            <label for="city">City</label>
+            <input id="city" type="text" formControlName="city" placeholder="Your city" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Skills You Can Offer</label>
+          <div class="skills-grid">
+            @for (skill of skillOptions; track skill) {
+              <button
+                type="button"
+                class="skill-chip"
+                [class.active]="selectedSkills().includes(skill)"
+                (click)="toggleSkill(skill)"
+              >{{ skill }}</button>
+            }
+          </div>
+          @if (selectedSkills().length === 0 && form.touched) {
+            <span class="error-msg">Please select at least one skill.</span>
+          }
+        </div>
+
+        <div class="field">
+          <label for="availability">Availability</label>
+          <select id="availability" formControlName="availability">
+            <option value="" disabled selected>Select your availability</option>
+            @for (option of availabilityOptions; track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="motivation">Why do you want to volunteer with us?</label>
+          <textarea id="motivation" rows="4" formControlName="motivation" placeholder="Tell us a bit about yourself..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Resume / CV (optional)</label>
+          <label class="file-upload">
+            <i class="pi pi-upload"></i>
+            <span>{{ resumeFileName() || 'Choose a file to upload' }}</span>
+            <input type="file" accept=".pdf,.doc,.docx" (change)="onFileSelected($event)" hidden />
+          </label>
+        </div>
+
+        @if (error()) {
+          <p class="error-msg error-msg--banner">
+            <i class="pi pi-exclamation-triangle"></i> Couldn't submit your application — please try again or WhatsApp us directly.
+          </p>
+        }
+
+        <button type="submit" class="btn-primary" [disabled]="submitting()">
+          @if (submitting()) {
+            <i class="pi pi-spin pi-spinner"></i> Submitting...
+          } @else {
+            <i class="pi pi-send"></i> Submit Application
+          }
+        </button>
+      </form>
+    }
+  </div>
+</section>

@@ -1,0 +1,54 @@
+@if (program(); as p) {
+  <section class="detail-hero">
+    <img [src]="p.image" [alt]="p.title" class="detail-hero-img" loading="eager" fetchpriority="high" />
+    <div class="detail-hero-overlay"></div>
+    <div class="container-fhf detail-hero-content">
+      <a routerLink="/programs" class="back-link"><i class="pi pi-arrow-left"></i> All Programs</a>
+      <span class="detail-icon"><i [class]="p.icon"></i></span>
+      <h1 class="font-display">{{ p.title }}</h1>
+      <p>{{ p.summary }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-fhf detail-grid">
+      <div class="detail-body" [appScrollReveal]="0">
+        <h2>About This Program</h2>
+        <p>{{ p.description }}</p>
+
+        <div class="impact-stat card-surface">
+          <i class="pi pi-chart-line"></i>
+          <div>
+            <strong>{{ p.impactValue | number }}</strong>
+            <span>{{ p.impactLabel }}</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" [style.width.%]="p.progressPercent"></div>
+          </div>
+        </div>
+
+        <app-button variant="primary" routerLink="/donate">
+          <i class="pi pi-heart-fill"></i> Support This Program
+        </app-button>
+      </div>
+
+      <aside class="detail-sidebar" [appScrollReveal]="100">
+        <h3>Other Programs</h3>
+        @for (other of otherPrograms(); track other.id) {
+          <a class="sidebar-card" [routerLink]="['/programs', other.slug]">
+            <img [src]="other.image" [alt]="other.title" loading="lazy" />
+            <span>{{ other.title }}</span>
+          </a>
+        }
+      </aside>
+    </div>
+  </section>
+} @else {
+  <section class="section not-found">
+    <div class="container-fhf">
+      <h1>Program Not Found</h1>
+      <p>We couldn't find the program you're looking for.</p>
+      <a routerLink="/programs" class="btn-primary">Browse All Programs</a>
+    </div>
+  </section>
+}

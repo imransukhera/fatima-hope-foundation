@@ -1,0 +1,167 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-blob hero-blob--one" aria-hidden="true"></div>
+  <div class="hero-blob hero-blob--two" aria-hidden="true"></div>
+
+  <div class="container-fhf hero-inner">
+    <div class="hero-copy" [appScrollReveal]="0">
+      <span class="eyebrow">Fatima Hope Foundation</span>
+      <h1 class="hero-title">
+        <span class="font-display">Giving Hope,</span><br />
+        <span class="text-gradient">Changing Lives</span>
+      </h1>
+      <p class="hero-subtitle">
+        We stand beside underprivileged families with food, medical care, education and
+        emergency relief — because every life deserves dignity and hope.
+      </p>
+      <div class="hero-actions">
+        <app-button variant="secondary" routerLink="/donate">
+          <i class="pi pi-heart-fill"></i> Donate Now
+        </app-button>
+        <app-button variant="primary" routerLink="/volunteer">
+          <i class="pi pi-users"></i> Become a Volunteer
+        </app-button>
+        <app-button variant="outline" routerLink="/about">
+          Learn More <i class="pi pi-arrow-right"></i>
+        </app-button>
+      </div>
+    </div>
+
+    <div class="hero-visual" [appScrollReveal]="150">
+      <div class="hero-image glass">
+        <img
+          src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=900&q=80"
+          alt="A child supported by Fatima Hope Foundation programs"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="floating-card floating-card--top glass">
+        <i class="pi pi-heart-fill"></i>
+        <div>
+          <strong>1000+</strong>
+          <span>Families Helped</span>
+        </div>
+      </div>
+      <div class="floating-card floating-card--bottom glass">
+        <i class="pi pi-shield"></i>
+        <div>
+          <strong>100%</strong>
+          <span>Transparent Giving</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <i class="pi pi-chevron-down"></i>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section stats-section">
+  <div class="container-fhf stats-grid">
+    @for (stat of statsService.stats(); track stat.id) {
+      <div class="stat-card card-surface" [appScrollReveal]="$index * 100">
+        <i [class]="stat.icon"></i>
+        <app-stat-counter [value]="stat.value" [suffix]="stat.suffix" />
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Programs preview -->
+<section class="section programs-section">
+  <div class="container-fhf">
+    <app-section-heading
+      eyebrow="What We Do"
+      title="Our Programs"
+      subtitle="From daily meals to life-saving surgeries — every program is designed to restore dignity and open doors to a better future."
+      [center]="true"
+    />
+
+    <div class="programs-grid">
+      @for (program of programsService.programs().slice(0, 6); track program.id) {
+        <a class="program-card card-surface" [routerLink]="['/programs', program.slug]" [appScrollReveal]="$index * 80">
+          <div class="program-image">
+            <img [src]="program.image" [alt]="program.title" loading="lazy" />
+            <span class="program-icon"><i [class]="program.icon"></i></span>
+          </div>
+          <div class="program-body">
+            <h3>{{ program.title }}</h3>
+            <p>{{ program.summary }}</p>
+            <span class="program-link">Read More <i class="pi pi-arrow-right"></i></span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Impact banner -->
+<section class="section impact-banner">
+  <div class="container-fhf impact-banner-inner glass" [appScrollReveal]="0">
+    <div>
+      <app-section-heading
+        eyebrow="Our Impact"
+        title="Real Change, Measured Transparently"
+        subtitle="Every donation is tracked from your hand to a family in need. See exactly how your generosity is transforming communities."
+      />
+      <app-button variant="primary" routerLink="/impact">
+        View Full Impact Dashboard <i class="pi pi-chart-line"></i>
+      </app-button>
+    </div>
+    <div class="impact-badge">
+      <i class="pi pi-verified"></i>
+      <span>Trusted by 1000+ families since 2015</span>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section testimonials-section">
+  <div class="container-fhf">
+    <app-section-heading
+      eyebrow="Voices of Hope"
+      title="Stories From The Families We Serve"
+      [center]="true"
+    />
+    <div class="testimonials-grid">
+      @for (t of testimonialsService.testimonials(); track t.id; let i = $index) {
+        <figure class="testimonial-card card-surface" [appScrollReveal]="i * 100">
+          <div class="stars" aria-hidden="true">
+            @for (s of [1,2,3,4,5]; track s) {
+              <i class="pi pi-star-fill"></i>
+            }
+          </div>
+          <blockquote>&ldquo;{{ t.quote }}&rdquo;</blockquote>
+          <figcaption>
+            <img [src]="t.image" [alt]="t.name" loading="lazy" />
+            <div>
+              <strong>{{ t.name }}</strong>
+              <span>{{ t.role }}</span>
+            </div>
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container-fhf final-cta-inner" [appScrollReveal]="0">
+    <h2 class="font-display">Your Generosity Can Change a Life Today</h2>
+    <p>Every rupee you give brings food, medicine, education and hope to a family who needs it most.</p>
+    <div class="hero-actions">
+      <app-button variant="secondary" routerLink="/donate">
+        <i class="pi pi-heart-fill"></i> Donate Now
+      </app-button>
+      <app-button variant="outline" routerLink="/volunteer">
+        <i class="pi pi-users"></i> Become a Volunteer
+      </app-button>
+    </div>
+  </div>
+</section>

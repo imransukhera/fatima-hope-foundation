@@ -1,0 +1,52 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">Moments of Hope</span>
+    <h1 class="font-display">Gallery</h1>
+    <p>Photos and videos from our food distributions, medical camps, education projects and volunteer activities.</p>
+  </div>
+</section>
+
+<section class="section gallery-section">
+  <div class="container-fhf">
+    <div class="filters">
+      @for (cat of categories(); track cat) {
+        <button
+          type="button"
+          class="filter-chip"
+          [class.filter-chip--active]="activeCategory() === cat"
+          (click)="setCategory(cat)"
+        >{{ cat }}</button>
+      }
+    </div>
+
+    <div class="gallery-grid">
+      @for (item of filteredItems(); track item.id; let i = $index) {
+        <button type="button" class="gallery-item" (click)="open(i)" [appScrollReveal]="(i % 6) * 60">
+          <img [src]="item.thumb" [alt]="item.title" loading="lazy" />
+          @if (item.type === 'video') {
+            <span class="play-badge"><i class="pi pi-play"></i></span>
+          }
+          <span class="gallery-caption">{{ item.title }}</span>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+@if (lightboxIndex() !== null) {
+  <div class="lightbox" (click)="close()">
+    <button type="button" class="lightbox-close" (click)="close()" aria-label="Close"><i class="pi pi-times"></i></button>
+    <button type="button" class="lightbox-nav lightbox-nav--prev" (click)="prev($event)" aria-label="Previous"><i class="pi pi-chevron-left"></i></button>
+
+    <img
+      class="lightbox-img"
+      [src]="filteredItems()[lightboxIndex()!].src"
+      [alt]="filteredItems()[lightboxIndex()!].title"
+      (click)="$event.stopPropagation()"
+    />
+
+    <button type="button" class="lightbox-nav lightbox-nav--next" (click)="next($event)" aria-label="Next"><i class="pi pi-chevron-right"></i></button>
+
+    <span class="lightbox-title">{{ filteredItems()[lightboxIndex()!].title }}</span>
+  </div>
+}

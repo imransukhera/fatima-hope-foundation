@@ -1,0 +1,81 @@
+<footer class="site-footer">
+  <div class="container-fhf grid">
+    <div class="col-brand">
+      <a routerLink="/" class="brand">
+        <span class="brand-mark">FH</span>
+        <span class="brand-text">
+          <strong>Fatima Hope Foundation</strong>
+        </span>
+      </a>
+      <p class="tagline font-display">Giving Hope, Changing Lives</p>
+      <p class="desc">
+        Improving the lives of underprivileged families through food, medical care,
+        education, orphan support and emergency relief.
+      </p>
+      <div class="socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="pi pi-youtube"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="pi pi-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>Quick Links</h4>
+      <a routerLink="/about">About Us</a>
+      <a routerLink="/programs">Our Programs</a>
+      <a routerLink="/impact">Our Impact</a>
+      <a routerLink="/gallery">Gallery</a>
+      <a routerLink="/volunteer">Volunteer</a>
+      <a routerLink="/events">Events</a>
+      <a routerLink="/blog">Blog</a>
+    </div>
+
+    <div class="col">
+      <h4>Get in Touch</h4>
+      <a [href]="'tel:' + contact.phone">
+        <i class="pi pi-phone"></i> {{ contact.phone }}
+      </a>
+      <a [href]="'mailto:' + contact.email">
+        <i class="pi pi-envelope"></i> {{ contact.email }}
+      </a>
+      <a [href]="'https://wa.me/' + contact.whatsapp" target="_blank" rel="noopener">
+        <i class="pi pi-whatsapp"></i> WhatsApp Us
+      </a>
+      <span class="static-line"><i class="pi pi-map-marker"></i> Karachi, Pakistan</span>
+    </div>
+
+    <div class="col">
+      <h4>Bank Transfer</h4>
+      <div class="bank-card glass">
+        <span class="static-line"><strong>{{ bank.bankName }}</strong></span>
+        <span class="static-line">{{ bank.accountTitle }}</span>
+        <span class="static-line mono">{{ bank.accountNumber }}</span>
+      </div>
+    </div>
+
+    <div class="col col-newsletter">
+      <h4>Stay Updated</h4>
+      <p class="desc">Subscribe for stories of impact and updates on our programs.</p>
+      @if (subscribed()) {
+        <p class="subscribed-msg"><i class="pi pi-check-circle"></i> Thank you for subscribing!</p>
+      } @else {
+        <form class="newsletter-form" (ngSubmit)="subscribe()">
+          <input
+            type="email"
+            name="newsletterEmail"
+            placeholder="Your email address"
+            required
+            [(ngModel)]="newsletterEmail"
+          />
+          <button type="submit" aria-label="Subscribe"><i class="pi pi-send"></i></button>
+        </form>
+      }
+    </div>
+  </div>
+
+  <div class="container-fhf bottom-bar">
+    <p>&copy; {{ year }} Fatima Hope Foundation. All rights reserved.</p>
+    <p class="powered">Designed with care to change lives.</p>
+  </div>
+</footer>

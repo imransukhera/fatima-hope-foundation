@@ -1,0 +1,62 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">Get Involved</span>
+    <h1 class="font-display">Events</h1>
+    <p>Join us at food distributions, medical camps and community drives — or look back at what we've accomplished together.</p>
+  </div>
+</section>
+
+@if (nextEvent(); as next) {
+  <section class="section countdown-section">
+    <div class="container-fhf countdown-card glass">
+      <div class="countdown-copy">
+        <span class="eyebrow">Next Up</span>
+        <h2>{{ next.title }}</h2>
+        <p><i class="pi pi-map-marker"></i> {{ next.location }}</p>
+      </div>
+      <div class="countdown-timer">
+        <div><strong>{{ countdown().days }}</strong><span>Days</span></div>
+        <div><strong>{{ countdown().hours }}</strong><span>Hours</span></div>
+        <div><strong>{{ countdown().minutes }}</strong><span>Min</span></div>
+        <div><strong>{{ countdown().seconds }}</strong><span>Sec</span></div>
+      </div>
+    </div>
+  </section>
+}
+
+<section class="section">
+  <div class="container-fhf">
+    <h2 class="events-heading">Upcoming Events</h2>
+    <div class="events-grid">
+      @for (event of eventsService.upcoming(); track event.id; let i = $index) {
+        <article class="event-card card-surface" [appScrollReveal]="i * 100">
+          <img [src]="event.image" [alt]="event.title" loading="lazy" />
+          <div class="event-body">
+            <span class="event-date"><i class="pi pi-calendar"></i> {{ event.date | date: 'mediumDate' }}</span>
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+            <span class="event-location"><i class="pi pi-map-marker"></i> {{ event.location }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section past-section">
+  <div class="container-fhf">
+    <h2 class="events-heading">Past Events</h2>
+    <div class="events-grid">
+      @for (event of eventsService.past(); track event.id; let i = $index) {
+        <article class="event-card event-card--past card-surface" [appScrollReveal]="i * 100">
+          <img [src]="event.image" [alt]="event.title" loading="lazy" />
+          <div class="event-body">
+            <span class="event-date"><i class="pi pi-calendar"></i> {{ event.date | date: 'mediumDate' }}</span>
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

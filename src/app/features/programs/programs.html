@@ -1,0 +1,35 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">What We Do</span>
+    <h1 class="font-display">Our Programs</h1>
+    <p>Six focused programs, one mission — restoring dignity and hope to families across Pakistan.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-fhf programs-grid">
+    @for (program of programsService.programs(); track program.id; let i = $index) {
+      <article class="program-card card-surface" [appScrollReveal]="(i % 3) * 100">
+        <div class="program-image">
+          <img [src]="program.image" [alt]="program.title" loading="lazy" />
+          <span class="program-icon"><i [class]="program.icon"></i></span>
+        </div>
+        <div class="program-body">
+          <h3>{{ program.title }}</h3>
+          <p>{{ program.summary }}</p>
+
+          <div class="program-impact">
+            <div class="progress-track">
+              <div class="progress-fill" [style.width.%]="program.progressPercent"></div>
+            </div>
+            <span>{{ program.impactValue | number }} {{ program.impactLabel }}</span>
+          </div>
+
+          <a [routerLink]="['/programs', program.slug]" class="program-link">
+            Read More <i class="pi pi-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>

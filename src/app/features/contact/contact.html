@@ -1,0 +1,100 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">We'd Love to Hear From You</span>
+    <h1 class="font-display">Contact Us</h1>
+    <p>Questions, partnership ideas, or want to volunteer? Reach out — we typically respond within one business day.</p>
+  </div>
+</section>
+
+<section class="section contact-section">
+  <div class="container-fhf contact-grid">
+    <div class="contact-info">
+      <a class="info-card card-surface" [href]="'tel:' + contact.phone">
+        <i class="pi pi-phone"></i>
+        <div><strong>Call Us</strong><span>{{ contact.phone }}</span></div>
+      </a>
+      <a class="info-card card-surface" [href]="'https://wa.me/' + contact.whatsapp" target="_blank" rel="noopener">
+        <i class="pi pi-whatsapp"></i>
+        <div><strong>WhatsApp</strong><span>Chat with our team</span></div>
+      </a>
+      <a class="info-card card-surface" [href]="'mailto:' + contact.email">
+        <i class="pi pi-envelope"></i>
+        <div><strong>Email</strong><span>{{ contact.email }}</span></div>
+      </a>
+      <div class="info-card card-surface">
+        <i class="pi pi-map-marker"></i>
+        <div><strong>Visit Us</strong><span>Karachi, Pakistan</span></div>
+      </div>
+
+      <div class="map-embed glass">
+        <iframe title="Fatima Hope Foundation location" [src]="mapUrl" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap card-surface">
+      @if (submitted()) {
+        <div class="success-state">
+          <i class="pi pi-check-circle"></i>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out — our team will get back to you shortly.</p>
+        </div>
+      } @else {
+        <h2>Send Us a Message</h2>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" type="text" formControlName="name" placeholder="Your name" />
+              @if (form.controls.name.invalid && form.controls.name.touched) {
+                <span class="error-msg">Please enter your name.</span>
+              }
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
+              @if (form.controls.email.invalid && form.controls.email.touched) {
+                <span class="error-msg">Please enter a valid email.</span>
+              }
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" type="tel" formControlName="phone" placeholder="03xx-xxxxxxx" />
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" formControlName="subject" placeholder="How can we help?" />
+              @if (form.controls.subject.invalid && form.controls.subject.touched) {
+                <span class="error-msg">Please enter a subject.</span>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" formControlName="message" placeholder="Write your message..."></textarea>
+            @if (form.controls.message.invalid && form.controls.message.touched) {
+              <span class="error-msg">Message should be at least 10 characters.</span>
+            }
+          </div>
+
+          @if (error()) {
+            <p class="error-msg error-msg--banner">
+              <i class="pi pi-exclamation-triangle"></i> Couldn't send your message right now — please try WhatsApp or call us directly.
+            </p>
+          }
+
+          <button type="submit" class="btn-primary" [disabled]="submitting()">
+            @if (submitting()) {
+              <i class="pi pi-spin pi-spinner"></i> Sending...
+            } @else {
+              <i class="pi pi-send"></i> Send Message
+            }
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</section>

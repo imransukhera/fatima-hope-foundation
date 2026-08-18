@@ -1,0 +1,42 @@
+<header class="site-header" [class.site-header--scrolled]="scrolled()">
+  <div class="container-fhf bar">
+    <a routerLink="/" class="brand" (click)="closeMobile()">
+      <span class="brand-mark">FH</span>
+      <span class="brand-text">
+        <strong>Fatima Hope</strong>
+        <small>Foundation</small>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        >{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="actions">
+      <app-theme-toggle />
+      <app-button variant="primary" routerLink="/donate" class="donate-cta">
+        <i class="pi pi-heart-fill"></i> Donate Now
+      </app-button>
+      <button class="burger" type="button" (click)="toggleMobile()" aria-label="Toggle menu">
+        <i class="pi" [class.pi-bars]="!mobileOpen()" [class.pi-times]="mobileOpen()"></i>
+      </button>
+    </div>
+  </div>
+
+  @if (mobileOpen()) {
+    <div class="mobile-menu">
+      @for (link of navLinks; track link.path) {
+        <a [routerLink]="link.path" (click)="closeMobile()">{{ link.label }}</a>
+      }
+      <a routerLink="/donate" class="mobile-donate" (click)="closeMobile()">
+        <i class="pi pi-heart-fill"></i> Donate Now
+      </a>
+    </div>
+  }
+</header>

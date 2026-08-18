@@ -1,0 +1,205 @@
+.donate-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .donate-grid { grid-template-columns: 1.5fr 1fr; }
+}
+
+.donate-card {
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.section-label {
+  font-size: 0.95rem;
+  margin: 1.75rem 0 0.9rem;
+
+  &:first-of-type { margin-top: 0.5rem; }
+}
+
+.frequency-toggle, .method-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--color-bg);
+  padding: 0.35rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+
+  button {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-muted);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.3s var(--ease-out-expo);
+
+    &.active {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+  }
+}
+
+.method-toggle {
+  border-radius: var(--radius-md);
+  flex-direction: column;
+
+  button { border-radius: var(--radius-sm); justify-content: flex-start; padding: 0.85rem 1rem; }
+}
+
+@media (min-width: 480px) {
+  .method-toggle { flex-direction: row; }
+}
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.amount-chip {
+  padding: 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out-expo);
+
+  &.active {
+    border-color: var(--color-secondary);
+    background: rgba(212, 175, 55, 0.12);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+}
+
+.custom-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  margin-bottom: 0.5rem;
+
+  span { color: var(--color-text-muted); font-weight: 600; }
+
+  input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: var(--color-text);
+
+    &:focus { outline: none; }
+  }
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.donate-submit {
+  width: 100%;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  padding-block: 1rem;
+}
+
+.secure-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  background: rgba(220, 38, 38, 0.08);
+  color: #DC2626;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.bank-details {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bank-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+
+  span { color: var(--color-text-muted); }
+  strong { color: var(--color-text); }
+
+  .mono { font-family: monospace; letter-spacing: 0.03em; color: var(--color-primary); }
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  cursor: pointer;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.donate-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sidebar-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+
+  i { font-size: 1.5rem; color: var(--color-secondary); margin-bottom: 0.75rem; display: block; }
+  h4 { margin: 0 0 0.5rem; font-size: 1rem; }
+  p { margin: 0; color: var(--color-text-muted); font-size: 0.88rem; line-height: 1.6; }
+}

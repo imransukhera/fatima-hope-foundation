@@ -1,0 +1,29 @@
+@if (post(); as p) {
+  <section class="detail-hero">
+    <img [src]="p.image" [alt]="p.title" class="detail-hero-img" />
+    <div class="detail-hero-overlay"></div>
+    <div class="container-fhf detail-hero-content">
+      <a routerLink="/blog" class="back-link"><i class="pi pi-arrow-left"></i> All Articles</a>
+      <span class="blog-category">{{ p.category }}</span>
+      <h1 class="font-display">{{ p.title }}</h1>
+      <div class="blog-meta">
+        <span>{{ p.author }}</span>
+        <span>{{ p.publishedAt | date: 'longDate' }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-fhf article-body">
+      <p class="lede">{{ p.excerpt }}</p>
+      <p>{{ p.content }}</p>
+    </div>
+  </section>
+} @else {
+  <section class="section not-found">
+    <div class="container-fhf">
+      <h1>Article Not Found</h1>
+      <a routerLink="/blog" class="btn-primary">Browse All Articles</a>
+    </div>
+  </section>
+}

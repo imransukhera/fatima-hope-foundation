@@ -1,0 +1,95 @@
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">About Us</span>
+    <h1 class="font-display">Who We Are</h1>
+    <p>
+      Fatima Hope Foundation is a Pakistan-based charity dedicated to restoring dignity and hope
+      to underprivileged families through food, medical care, education and emergency relief.
+    </p>
+  </div>
+</section>
+
+<!-- Who we are / Vision / Mission -->
+<section class="section">
+  <div class="container-fhf who-grid">
+    <div class="who-card card-surface" [appScrollReveal]="0">
+      <i class="pi pi-compass"></i>
+      <h3>Our Vision</h3>
+      <p>A Pakistan where no family goes hungry, no child is denied education, and no one is left behind in times of crisis.</p>
+    </div>
+    <div class="who-card card-surface" [appScrollReveal]="100">
+      <i class="pi pi-flag"></i>
+      <h3>Our Mission</h3>
+      <p>
+        To improve the lives of underprivileged families by providing food & ration support,
+        medical assistance, education support, orphan care, emergency relief and community welfare.
+      </p>
+    </div>
+    <div class="who-card card-surface" [appScrollReveal]="200">
+      <i class="pi pi-book"></i>
+      <h3>Our Story</h3>
+      <p>Founded in 2015 with a single food drive, we have grown into a trusted network serving thousands of families across Pakistan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Chairman's message -->
+<section class="section chairman-section">
+  <div class="container-fhf chairman-card glass" [appScrollReveal]="0">
+    <div class="chairman-photo">
+      <img
+        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80"
+        alt="Muhammad Imran, Chairman of Fatima Hope Foundation"
+        loading="lazy"
+      />
+    </div>
+    <div class="chairman-copy">
+      <span class="eyebrow">Chairman's Message</span>
+      <blockquote>
+        "Every family we serve reminds us why this work matters. Your trust and generosity turn
+        into ration bags, medicines and school books — real change you can see. Thank you for
+        standing with us in this mission of hope."
+      </blockquote>
+      <div class="chairman-name">
+        <strong>Muhammad Imran</strong>
+        <span>Founder &amp; Chairman, Fatima Hope Foundation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section">
+  <div class="container-fhf">
+    <app-section-heading eyebrow="Our Journey" title="Foundation Story & Timeline" [center]="true" />
+    <div class="timeline">
+      @for (item of timeline; track item.year; let i = $index) {
+        <div class="timeline-item" [class.timeline-item--right]="i % 2 === 1" [appScrollReveal]="i * 100">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card card-surface">
+            <span class="timeline-year">{{ item.year }}</span>
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="section values-section">
+  <div class="container-fhf">
+    <app-section-heading eyebrow="What Guides Us" title="Our Core Values" [center]="true" />
+    <div class="values-grid">
+      @for (value of values; track value.title; let i = $index) {
+        <div class="value-card card-surface" [appScrollReveal]="i * 100">
+          <i [class]="value.icon"></i>
+          <h4>{{ value.title }}</h4>
+          <p>{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

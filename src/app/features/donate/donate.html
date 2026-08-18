@@ -1,0 +1,149 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">Secure & Simple</span>
+    <h1 class="font-display">Make a Donation</h1>
+    <p>100% of your donation goes directly to families in need. Choose an amount, pick your method, and change a life today.</p>
+  </div>
+</section>
+
+<section class="section donate-section">
+  <div class="container-fhf donate-grid">
+    <div class="donate-card card-surface">
+      <!-- Frequency -->
+      <div class="frequency-toggle">
+        <button type="button" [class.active]="frequency() === 'one-time'" (click)="setFrequency('one-time')">One-Time</button>
+        <button type="button" [class.active]="frequency() === 'monthly'" (click)="setFrequency('monthly')">Monthly</button>
+      </div>
+
+      <!-- Amount -->
+      <h3 class="section-label">Select Amount</h3>
+      <div class="amount-grid">
+        @for (amt of quickAmounts; track amt) {
+          <button
+            type="button"
+            class="amount-chip"
+            [class.active]="selectedAmount() === amt"
+            (click)="selectAmount(amt)"
+          >${{ amt }}</button>
+        }
+      </div>
+      <div class="custom-amount">
+        <span>$</span>
+        <input
+          type="number"
+          min="1"
+          placeholder="Custom amount"
+          [value]="customAmount()"
+          (input)="onCustomAmountChange($any($event.target).value)"
+        />
+      </div>
+
+      <!-- Donor form -->
+      <h3 class="section-label">Your Details</h3>
+      <form [formGroup]="form">
+        <div class="field-row">
+          <div class="field">
+            <label for="donorName">Full Name</label>
+            <input id="donorName" type="text" formControlName="donorName" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="donorEmail">Email (for receipt)</label>
+            <input id="donorEmail" type="email" formControlName="donorEmail" placeholder="you@example.com" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="program">Donate Towards (optional)</label>
+          <select id="program" formControlName="program">
+            <option value="">Where most needed</option>
+            @for (p of programsService.programs(); track p.id) {
+              <option [value]="p.slug">{{ p.title }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" rows="2" formControlName="message" placeholder="Leave a message of hope..."></textarea>
+        </div>
+
+        <label class="checkbox-field">
+          <input type="checkbox" formControlName="anonymous" />
+          Donate anonymously
+        </label>
+      </form>
+
+      <!-- Payment method -->
+      <h3 class="section-label">Payment Method</h3>
+      <div class="method-toggle">
+        <button type="button" [class.active]="method() === 'stripe'" (click)="setMethod('stripe')">
+          <i class="pi pi-credit-card"></i> Card / Apple Pay / Google Pay
+        </button>
+        <button type="button" [class.active]="method() === 'bank-transfer'" (click)="setMethod('bank-transfer')">
+          <i class="pi pi-building-columns"></i> Bank Transfer
+        </button>
+      </div>
+
+      @if (errorMsg()) {
+        <p class="error-banner"><i class="pi pi-exclamation-triangle"></i> {{ errorMsg() }}</p>
+      }
+
+      @if (method() === 'stripe') {
+        <button type="button" class="btn-secondary donate-submit" [disabled]="submitting()" (click)="submitStripeDonation()">
+          @if (submitting()) {
+            <i class="pi pi-spin pi-spinner"></i> Processing...
+          } @else {
+            <i class="pi pi-lock"></i> Donate ${{ amount() || 0 }} {{ frequency() === 'monthly' ? '/ month' : '' }}
+          }
+        </button>
+        <p class="secure-note"><i class="pi pi-shield"></i> Payments secured by Stripe. We never store your card details.</p>
+      } @else {
+        @if (!bankConfirmed()) {
+          <div class="bank-details glass">
+            <div class="bank-row"><span>Bank</span><strong>{{ bank.bankName }}</strong></div>
+            <div class="bank-row"><span>Account Title</span><strong>{{ bank.accountTitle }}</strong></div>
+            <div class="bank-row">
+              <span>Account Number</span>
+              <strong class="mono">{{ bank.accountNumber }}</strong>
+              <button type="button" class="copy-btn" (click)="copyAccountNumber()">
+                <i class="pi" [class.pi-copy]="!copied()" [class.pi-check]="copied()"></i>
+              </button>
+            </div>
+          </div>
+          <button type="button" class="btn-primary donate-submit" [disabled]="submitting()" (click)="submitBankTransferIntent()">
+            @if (submitting()) {
+              <i class="pi pi-spin pi-spinner"></i> Saving...
+            } @else {
+              <i class="pi pi-check"></i> I've Sent The Transfer
+            }
+          </button>
+          <p class="secure-note">After transferring, please WhatsApp your receipt so we can confirm your donation.</p>
+        } @else {
+          <div class="success-state">
+            <i class="pi pi-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>We've recorded your donation intent. Please send your payment receipt via WhatsApp so we can confirm it.</p>
+          </div>
+        }
+      }
+    </div>
+
+    <aside class="donate-sidebar">
+      <div class="sidebar-card glass">
+        <i class="pi pi-shield"></i>
+        <h4>100% Transparent</h4>
+        <p>Every donation is tracked and reported. You'll always know where your money goes.</p>
+      </div>
+      <div class="sidebar-card glass">
+        <i class="pi pi-heart-fill"></i>
+        <h4>Direct Impact</h4>
+        <p>$50 provides a month of rations for a family of five. $100 covers a child's school fees for a term.</p>
+      </div>
+      <div class="sidebar-card glass">
+        <i class="pi pi-phone"></i>
+        <h4>Need Help Donating?</h4>
+        <p>Call or WhatsApp {{ contact.phone }} and our team will guide you through it.</p>
+      </div>
+    </aside>
+  </div>
+</section>

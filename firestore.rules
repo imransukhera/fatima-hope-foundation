@@ -1,0 +1,100 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Admins are users with a custom claim `admin: true`, set server-side via
+    // the Firebase Admin SDK (see functions/README.md). Never trust a
+    // client-writable field for authorization.
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // ---------------------------------------------------------------------
+    // Public read-only content — managed by admins only
+    // ---------------------------------------------------------------------
+    match /programs/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /gallery/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /events/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /testimonials/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /blogs/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /statistics/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------
+    // Public write-once submissions — anyone can create, only admins can
+    // read/update/delete. Prevents donors/volunteers from reading each
+    // other's private data while still allowing anonymous submissions.
+    // ---------------------------------------------------------------------
+    match /donations/{docId} {
+      allow create: if request.resource.data.amount is number
+        && request.resource.data.amount > 0
+        && request.resource.data.donorEmail is string
+        && request.resource.data.status == 'pending';
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /volunteers/{docId} {
+      allow create: if request.resource.data.email is string
+        && request.resource.data.fullName is string
+        && request.resource.data.status == 'new';
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /contactMessages/{docId} {
+      allow create: if request.resource.data.email is string
+        && request.resource.data.message is string
+        && request.resource.data.status == 'new';
+      allow read, update, delete: if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------
+    // Users — each user manages their own profile; admins manage all
+    // ---------------------------------------------------------------------
+    match /users/{userId} {
+      allow read, update: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId);
+      allow delete: if isAdmin();
+    }
+
+    // Default-deny anything not explicitly matched above.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
