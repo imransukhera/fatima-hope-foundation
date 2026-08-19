@@ -8,12 +8,11 @@
     <div class="hero-copy" [appScrollReveal]="0">
       <span class="eyebrow">Fatima Hope Foundation</span>
       <h1 class="hero-title">
-        <span class="font-display">Giving Hope,</span><br />
-        <span class="text-gradient">Changing Lives</span>
+        <span class="font-display">Empowering Underprivileged,</span><br />
+        <span class="text-gradient">Communities Through Hope & Action</span>
       </h1>
       <p class="hero-subtitle">
-        We stand beside underprivileged families with food, medical care, education and
-        emergency relief — because every life deserves dignity and hope.
+        At Fatima Hope Foundation, we provide essential food distribution, healthcare assistance, education, and emergency relief to underprivileged families. Together, we build a future where every life is treated with dignity, compassion, and hope.
       </p>
       <div class="hero-actions">
         <app-button variant="secondary" routerLink="/donate">
@@ -23,7 +22,7 @@
           <i class="pi pi-users"></i> Become a Volunteer
         </app-button>
         <app-button variant="outline" routerLink="/about">
-          Learn More <i class="pi pi-arrow-right"></i>
+          Explore Our Programs <i class="pi pi-arrow-right"></i>
         </app-button>
       </div>
     </div>
@@ -32,7 +31,7 @@
       <div class="hero-image glass">
         <img
           src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=900&q=80"
-          alt="A child supported by Fatima Hope Foundation programs"
+          alt="Fatima Hope Foundation providing food, medical aid, and education to underprivileged children and families"
           loading="eager"
           fetchpriority="high"
         />
@@ -60,15 +59,21 @@
 </section>
 
 <!-- Stats -->
-<section class="section stats-section">
-  <div class="container-fhf stats-grid">
-    @for (stat of statsService.stats(); track stat.id) {
-      <div class="stat-card card-surface" [appScrollReveal]="$index * 100">
-        <i [class]="stat.icon"></i>
-        <app-stat-counter [value]="stat.value" [suffix]="stat.suffix" />
-        <span class="stat-label">{{ stat.label }}</span>
-      </div>
-    }
+<!-- Stats Section -->
+<section class="section stats-section" aria-label="Our Impact and Key Achievements">
+  <div class="container-fhf">
+    <!-- Screen-reader & crawler heading for semantic SEO hierarchy -->
+    <h2 class="visually-hidden">Our Community Impact & Direct Relief Achievements</h2>
+
+    <div class="stats-grid">
+      @for (stat of statsService.stats(); track stat.id) {
+        <div class="stat-card card-surface" [appScrollReveal]="$index * 100">
+          <i [class]="stat.icon" aria-hidden="true"></i>
+          <app-stat-counter [value]="stat.value" [suffix]="stat.suffix" />
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
   </div>
 </section>
 

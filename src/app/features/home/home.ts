@@ -26,9 +26,9 @@ export class Home implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Giving Hope, Changing Lives',
+      title: 'Non-Profit Charity & Humanitarian Relief',
       description:
-        'Fatima Hope Foundation provides food & ration support, medical assistance, education, orphan care and emergency relief to underprivileged families in Pakistan. Donate today.',
+        "Support Fatima Hope Foundation's mission to provide food, medical care, education, and emergency relief to families in need. Donate or volunteer today!",
       path: '/',
     });
   }

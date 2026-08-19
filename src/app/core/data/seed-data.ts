@@ -14,10 +14,34 @@ import {
 } from '../models/content.models';
 
 export const SEED_STATS: StatItem[] = [
-  { id: 'families', value: 1000, suffix: '+', label: 'Families Helped', icon: 'pi pi-home' },
-  { id: 'medical', value: 500, suffix: '+', label: 'Medical Cases', icon: 'pi pi-heart-fill' },
-  { id: 'children', value: 250, suffix: '+', label: 'Children Educated', icon: 'pi pi-graduation-cap' },
-  { id: 'food', value: 150, suffix: '+', label: 'Food Distributions', icon: 'pi pi-shopping-bag' },
+  { 
+    id: 'families', 
+    value: 1000, 
+    suffix: '+', 
+    label: 'Underprivileged Families Helped', 
+    icon: 'pi pi-home' 
+  },
+  { 
+    id: 'medical', 
+    value: 500, 
+    suffix: '+', 
+    label: 'Medical Aid Cases Supported', 
+    icon: 'pi pi-heart-fill' 
+  },
+  { 
+    id: 'children', 
+    value: 250, 
+    suffix: '+', 
+    label: 'Children Provided Education', 
+    icon: 'pi pi-graduation-cap' 
+  },
+  { 
+    id: 'food', 
+    value: 150, 
+    suffix: '+', 
+    label: 'Food & Ration Distributions', 
+    icon: 'pi pi-shopping-bag' 
+  },
 ];
 
 export const SEED_PROGRAMS: ProgramItem[] = [
@@ -141,6 +165,20 @@ export const SEED_COURSES: CourseItem[] = [
     icon: 'pi pi-comments',
     instructor: 'Bilal Ahmed',
     duration: '8 weeks',
+    level: 'Beginner',
+    seatsAvailable: 30,
+  },
+  {
+    id: 'build-ai-chatbot-with-angular',
+    slug: 'build-ai-chatbot-with-angular',
+    title: 'Build an AI Chatbot With Angular — Complete Beginner Course',
+    summary: 'Build a modern AI chatbot UI in Angular, from mock responses to a deployed app.',
+    description:
+      'Learn how to build an AI chatbot with Angular step by step. Create a modern chat UI, mock AI responses, loading states, error handling, chat history, and deploy your Angular chatbot.',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80',
+    icon: 'pi pi-code',
+    instructor: 'Hamza Sheikh',
+    duration: '4 weeks',
     level: 'Beginner',
     seatsAvailable: 30,
   },
