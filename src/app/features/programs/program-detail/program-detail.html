@@ -27,6 +27,34 @@
           </div>
         </div>
 
+        @if (p.packageContents?.length) {
+          <div class="package-section">
+            <h2>{{ p.packageTitle }}</h2>
+            @if (p.packageIntro) {
+              <p>{{ p.packageIntro }}</p>
+            }
+            <ul class="package-list">
+              @for (item of p.packageContents; track item) {
+                <li>
+                  <i class="pi pi-check-circle" aria-hidden="true"></i>
+                  <span>{{ item }}</span>
+                </li>
+              }
+            </ul>
+            @if (p.packageOutro) {
+              <p>{{ p.packageOutro }}</p>
+            }
+
+            @if (p.gallery?.length) {
+              <div class="package-gallery">
+                @for (img of p.gallery; track img.src) {
+                  <img [src]="img.src" [alt]="img.alt" loading="lazy" />
+                }
+              </div>
+            }
+          </div>
+        }
+
         <app-button variant="primary" routerLink="/donate">
           <i class="pi pi-heart-fill"></i> Support This Program
         </app-button>

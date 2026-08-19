@@ -17,7 +17,7 @@
 }
 
 @media (min-width: 1200px) {
-  .grid { grid-template-columns: 1.6fr 1fr 1fr 1fr 1.2fr; }
+  .grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
 }
 
 .brand {
@@ -30,15 +30,11 @@
 
 .brand-mark {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  color: #fff;
-  font-family: var(--font-heading);
-  font-weight: 700;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .brand-text strong {

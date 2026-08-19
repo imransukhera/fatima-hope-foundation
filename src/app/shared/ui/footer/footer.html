@@ -1,50 +1,65 @@
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <div class="container-fhf grid">
+    
+    <!-- Brand Info Column -->
     <div class="col-brand">
-      <a routerLink="/" class="brand">
-        <span class="brand-mark">FH</span>
+      <a routerLink="/" class="brand" aria-label="Fatima Hope Foundation Homepage">
+        <img src="/images/logo.jpeg" alt="Fatima Hope Foundation logo" class="brand-mark" width="44" height="44" loading="lazy" />
         <span class="brand-text">
           <strong>Fatima Hope Foundation</strong>
         </span>
       </a>
       <p class="tagline font-display">Giving Hope, Changing Lives</p>
       <p class="desc">
-        Improving the lives of underprivileged families through food, medical care,
-        education, orphan support and emergency relief.
+        Improving the lives of underprivileged families across Marot, Tehsil Fort Abbas, District Bahawalnagar, and Southern Punjab through monthly food rations, medical aid, education, and emergency relief.
       </p>
-      <div class="socials">
-        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
-        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="pi pi-youtube"></i></a>
-        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="pi pi-twitter"></i></a>
+      <div class="socials" aria-label="Social Media Links">
+        <a href="https://www.facebook.com/profile.php?id=61593012412729" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+          <i class="pi pi-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/fatima_hope_foundation_736?igsh=Y3N2OTRzbHhrOWNw" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile">
+          <i class="pi pi-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.youtube.com/@fatima-hope-foundation736" target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube channel">
+          <i class="pi pi-youtube" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
 
+    <!-- Quick Links Navigation Column -->
     <div class="col">
       <h4>Quick Links</h4>
-      <a routerLink="/about">About Us</a>
-      <a routerLink="/programs">Our Programs</a>
-      <a routerLink="/impact">Our Impact</a>
-      <a routerLink="/gallery">Gallery</a>
-      <a routerLink="/volunteer">Volunteer</a>
-      <a routerLink="/events">Events</a>
-      <a routerLink="/blog">Blog</a>
+      <nav aria-label="Footer Quick Links">
+        <a routerLink="/about">About Us</a>
+        <a routerLink="/programs">Our Programs</a>
+        <a routerLink="/impact">Our Impact</a>
+        <a routerLink="/gallery">Gallery</a>
+        <a routerLink="/volunteer">Volunteer</a>
+        <a routerLink="/events">Events</a>
+        <a routerLink="/blog">Blog & Updates</a>
+      </nav>
     </div>
 
+    <!-- Contact & Local Address Column -->
     <div class="col">
       <h4>Get in Touch</h4>
-      <a [href]="'tel:' + contact.phone">
-        <i class="pi pi-phone"></i> {{ contact.phone }}
-      </a>
-      <a [href]="'mailto:' + contact.email">
-        <i class="pi pi-envelope"></i> {{ contact.email }}
-      </a>
-      <a [href]="'https://wa.me/' + contact.whatsapp" target="_blank" rel="noopener">
-        <i class="pi pi-whatsapp"></i> WhatsApp Us
-      </a>
-      <span class="static-line"><i class="pi pi-map-marker"></i>Marot, Fort Abbas Tehsil, Bahawalnagar District, Punjab, Pakistan</span>
+      <address class="contact-address font-normal">
+        <a [href]="'tel:' + contact.phone" aria-label="Call Fatima Hope Foundation">
+          <i class="pi pi-phone" aria-hidden="true"></i> {{ contact.phone }}
+        </a>
+        <a [href]="'mailto:' + contact.email" aria-label="Email Fatima Hope Foundation">
+          <i class="pi pi-envelope" aria-hidden="true"></i> {{ contact.email }}
+        </a>
+        <a [href]="'https://wa.me/' + contact.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+          <i class="pi pi-whatsapp" aria-hidden="true"></i> WhatsApp Us
+        </a>
+        <span class="static-line">
+          <i class="pi pi-map-marker" aria-hidden="true"></i> Marot, Fort Abbas Tehsil, Bahawalnagar District, Punjab, Pakistan
+        </span>
+      </address>
     </div>
 
+    <!-- Bank Details Card Column -->
     <div class="col">
       <h4>Bank Transfer</h4>
       <div class="bank-card glass">
@@ -54,26 +69,29 @@
       </div>
     </div>
 
-    <div class="col col-newsletter">
+    <!-- Newsletter Column -->
+    <!-- <div class="col col-newsletter">
       <h4>Stay Updated</h4>
-      <p class="desc">Subscribe for stories of impact and updates on our programs.</p>
+      <p class="desc">Subscribe for stories of community impact and updates on our programs.</p>
       @if (subscribed()) {
-        <p class="subscribed-msg"><i class="pi pi-check-circle"></i> Thank you for subscribing!</p>
+        <p class="subscribed-msg"><i class="pi pi-check-circle" aria-hidden="true"></i> Thank you for subscribing!</p>
       } @else {
-        <form class="newsletter-form" (ngSubmit)="subscribe()">
+        <form class="newsletter-form" (ngSubmit)="subscribe()" aria-label="Newsletter Subscription Form">
           <input
             type="email"
             name="newsletterEmail"
             placeholder="Your email address"
+            aria-label="Your Email Address"
             required
             [(ngModel)]="newsletterEmail"
           />
-          <button type="submit" aria-label="Subscribe"><i class="pi pi-send"></i></button>
+          <button type="submit" aria-label="Subscribe to newsletter"><i class="pi pi-send" aria-hidden="true"></i></button>
         </form>
       }
-    </div>
+    </div> -->
   </div>
 
+  <!-- Footer Bottom Bar -->
   <div class="container-fhf bottom-bar">
     <p>&copy; {{ year }} Fatima Hope Foundation. All rights reserved.</p>
     <p class="powered">Designed with care to change lives.</p>

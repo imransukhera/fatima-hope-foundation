@@ -48,80 +48,104 @@ export const SEED_PROGRAMS: ProgramItem[] = [
   {
     id: 'food-support',
     slug: 'food-support',
-    title: 'Food & Ration Support',
-    summary: 'Monthly ration bags delivered to families facing food insecurity.',
+    title: 'Food & Ration Assistance Program',
+    summary: 'Fighting hunger and restoring dignity by delivering essential monthly food ration packages to vulnerable families across Pakistan.',
     description:
-      'We provide monthly ration packages — flour, rice, pulses, oil and essentials — to families who cannot meet their basic nutritional needs, with priority given to widows, orphans and the elderly.',
+      'We provide essential monthly ration packages — flour, rice, pulses, and oil — to families unable to afford basic nutrition, prioritizing widows, orphans, and the elderly.',
     image: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Volunteers preparing monthly ration bags and emergency food relief for needy families',
+    ctaText: 'Explore Food Support',
     icon: 'pi pi-shopping-bag',
     impactLabel: 'Ration bags distributed',
     impactValue: 4200,
     progressPercent: 82,
+    packageTitle: "What's Inside Our Monthly Food Ration Pack?",
+    packageIntro:
+      'Every Fatima Hope Foundation food ration pack is carefully assembled with nutrition, quality, and dignity in mind. To ensure families receive balanced nourishment, each standardized monthly food package includes:',
+    packageContents: [
+      'Staple Grains & Flour: High-quality wheat flour (atta) and fine rice for daily meals.',
+      'Cooking Essentials: Fortified cooking oil/banaspati ghee, salt, and essential cooking spices.',
+      'Proteins & Pulses: Chickpeas (chana), lentils (daal), and sugar.',
+      'Household Essentials: Vital tea and hygiene supplies (soap and dishwashing bars).',
+    ],
+    packageOutro:
+      'All items are securely packed into heavy-duty ration sacks and labeled boxes to guarantee safe delivery directly to families in need.',
+    gallery: [
+      {
+        src: '/images/fatima-hope-food-ration-pack-contents.jpg',
+        alt: 'Essential food ration contents including rice, flour, pulses, oil, tea, and hygiene items provided by Fatima Hope Foundation.',
+      },
+      {
+        src: '/images/monthly-food-ration-bag-distribution.jpg',
+        alt: 'Heavy-duty sealed food ration bag prepared for delivery to underprivileged families.',
+      },
+      {
+        src: '/images/monthly-food-ration-bag-distribution-2.jpg',
+        alt: 'Heavy-duty sealed food ration bag prepared for delivery to underprivileged families.',
+      },
+      {
+        src: '/images/fatima-hope-food-ration-pack-contents-2.jpg',
+        alt: 'Essential food ration contents including rice, flour, pulses, oil, tea, and hygiene items provided by Fatima Hope Foundation.',
+      },
+      {
+        src: '/images/fatima-hope-foundation-ration-boxes.jpg',
+        alt: 'Sealed and labeled food ration donation boxes prepared by Fatima Hope Foundation for relief distribution.',
+      },
+      {
+        src: '/images/fatima-hope-foundation-ration-boxes-2.jpg',
+        alt: 'Sealed and labeled food ration donation boxes prepared by Fatima Hope Foundation for relief distribution.',
+      },
+      {
+        src: '/images/fatima-hope-foundation-ration-boxes-3.jpg',
+        alt: 'Sealed and labeled food ration donation boxes prepared by Fatima Hope Foundation for relief distribution.',
+      },
+    ],
   },
   {
     id: 'medical-help',
     slug: 'medical-help',
-    title: 'Medical Assistance',
-    summary: 'Free medical camps, medicines and emergency treatment support.',
+    title: 'Medical Relief & Emergency Healthcare Assistance',
+    summary:
+      'Providing free medical camps, essential prescription drugs, and emergency surgery funding to save lives in vulnerable communities.',
     description:
-      'Our medical program funds consultations, medicines, diagnostic tests and emergency surgeries for patients who cannot afford treatment, alongside free health camps in underserved communities.',
+      'Access to proper medical care should never depend on financial standing. The Fatima Hope Foundation works to eliminate healthcare disparities by offering immediate financial assistance and healthcare services to marginalized individuals facing severe health crises. Through continuous community support, our healthcare initiative bridges the gap between impoverished families and critical medical care.',
     image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Medical professionals providing free healthcare services and emergency treatment to patients',
+    ctaText: 'Explore Medical Relief',
     icon: 'pi pi-heart-fill',
     impactLabel: 'Patients treated',
     impactValue: 1850,
     progressPercent: 68,
+    packageTitle: 'Key Services Provided',
+    packageContents: [
+      'Free Medical Camps: Regular local clinics offering free consultations, vital checks, and general health screenings.',
+      'Essential Medications: Providing necessary prescription drugs to chronic patients and low-income families.',
+      'Diagnostic & Lab Support: Covering costs for critical diagnostic tests, X-rays, and lab work.',
+      'Emergency Surgery Support: Direct financial grants for life-saving surgeries and emergency treatments.',
+    ],
   },
   {
     id: 'education-support',
     slug: 'education-support',
-    title: 'Education Support',
-    summary: 'School fees, books and uniforms for underprivileged children.',
+    title: 'Child Education Sponsorship & Literacy Support',
+    summary:
+      'Empowering underprivileged children with quality education, school supplies, and tuition sponsorship to build a brighter future.',
     description:
-      'We sponsor school fees, books, uniforms and tuition support for children from low-income households, helping them stay in school and build a path out of poverty.',
+      "Education is the most powerful tool to lift families out of generational poverty. Unfortunately, thousands of bright young minds drop out of school each year due to their family's inability to cover basic educational expenses. Through the Fatima Hope Foundation Child Education Program, we eliminate these financial barriers. By sponsoring tuition fees, books, and uniforms, we ensure vulnerable children remain enrolled in school and gain the skills needed for a self-sufficient future.",
     image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80',
+    altText: 'Underprivileged children receiving books, school uniforms, and educational supplies',
+    ctaText: 'Explore Education Programs',
     icon: 'pi pi-graduation-cap',
     impactLabel: 'Children sponsored',
     impactValue: 620,
     progressPercent: 74,
-  },
-  {
-    id: 'orphan-care',
-    slug: 'orphan-care',
-    title: 'Orphan Care',
-    summary: 'Holistic care, education and emotional support for orphans.',
-    description:
-      'Beyond financial aid, our orphan care program provides mentorship, education, healthcare and a support network so every child grows up feeling valued and hopeful.',
-    image: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=1200&q=80',
-    icon: 'pi pi-users',
-    impactLabel: 'Orphans supported',
-    impactValue: 310,
-    progressPercent: 60,
-  },
-  {
-    id: 'emergency-relief',
-    slug: 'emergency-relief',
-    title: 'Emergency Relief',
-    summary: 'Rapid response support during floods, disasters and crises.',
-    description:
-      'When disaster strikes, we mobilize emergency food, shelter, clean water and medical aid within hours, reaching the most vulnerable families first.',
-    image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80',
-    icon: 'pi pi-bolt',
-    impactLabel: 'Emergency responses',
-    impactValue: 95,
-    progressPercent: 55,
-  },
-  {
-    id: 'women-empowerment',
-    slug: 'women-empowerment',
-    title: 'Women Empowerment',
-    summary: 'Skills training and micro-grants to help women become self-reliant.',
-    description:
-      'We equip women with vocational training, small business grants and mentorship, enabling them to build sustainable livelihoods and lift their families out of poverty.',
-    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80',
-    icon: 'pi pi-star-fill',
-    impactLabel: 'Women trained',
-    impactValue: 275,
-    progressPercent: 48,
+    packageTitle: 'What Our Sponsorship Covers',
+    packageContents: [
+      'School Fee Coverage: Direct payment of monthly tuition and admission fees to partner schools.',
+      'Books & Stationery Kits: Providing complete course books, notebooks, and learning materials at the start of each academic year.',
+      'Uniforms & Footwear: Ensuring students have proper school uniforms and shoes to attend classes with confidence and dignity.',
+      'After-School Support: Offering supplemental tutoring and mentorship for students needing academic assistance.',
+    ],
   },
 ];
 
@@ -200,29 +224,31 @@ export const SEED_VALUES: CoreValue[] = [
   { title: 'Community', description: 'Lasting change happens when communities are empowered, not just given aid.', icon: 'pi pi-users' },
 ];
 
+
+
 export const SEED_TESTIMONIALS: TestimonialItem[] = [
   {
     id: 't1',
     name: 'Rukhsana Bibi',
-    role: 'Ration Support Recipient',
-    quote: 'When my husband lost his job, Fatima Hope Foundation made sure my children never slept hungry. I am forever grateful.',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    role: 'Ration Pack Recipient',
+    location: 'Fort Abbas, Southern Punjab',
+    quote: 'In our village near Fort Abbas, seasonal farm work often dries up. Fatima Hope Foundation delivered our monthly food pack right to our home with complete respect and dignity.',
     rating: 5,
   },
   {
     id: 't2',
-    name: 'Ahmed Raza',
-    role: 'Medical Assistance Recipient',
-    quote: 'The foundation covered my father\'s surgery when we had nowhere else to turn. They gave us our family back.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+    name: 'Muhammad Ramzan',
+    role: 'Medical Aid Beneficiary',
+    location: 'Bahawalnagar',
+    quote: 'We could not afford my father’s emergency surgical care at the hospital. The team arranged essential medicines and covered treatment costs without making us feel helpless.',
     rating: 5,
   },
   {
     id: 't3',
     name: 'Ayesha Khan',
-    role: 'Volunteer',
-    quote: 'Volunteering here changed how I see giving back — every distribution is organized with so much care and respect.',
-    image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80',
+    role: 'Field Volunteer',
+    location: 'Bahawalpur & Multan',
+    quote: 'Distributing food ration packs in remote border communities showed me how transparent this team is. Every donation directly reaches genuine, deserving families.',
     rating: 5,
   },
 ];

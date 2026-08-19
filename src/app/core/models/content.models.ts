@@ -6,6 +6,11 @@ export interface StatItem {
   icon: string;
 }
 
+export interface ProgramGalleryImage {
+  src: string;
+  alt: string;
+}
+
 export interface ProgramItem {
   id: string;
   slug: string;
@@ -17,6 +22,13 @@ export interface ProgramItem {
   impactLabel: string;
   impactValue: number;
   progressPercent: number;
+  altText?: string;  // Added optional property
+  ctaText?: string;  // Added optional property
+  packageTitle?: string;
+  packageIntro?: string;
+  packageContents?: string[];
+  packageOutro?: string;
+  gallery?: ProgramGalleryImage[];
 }
 
 export interface CourseItem {
@@ -50,7 +62,7 @@ export interface TestimonialItem {
   name: string;
   role: string;
   quote: string;
-  image: string;
+  location: string;
   rating: number;
 }
 

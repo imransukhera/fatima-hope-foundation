@@ -78,26 +78,37 @@
 </section>
 
 <!-- Programs preview -->
-<section class="section programs-section">
+<section class="section programs-section" aria-label="Our Core Relief Programs">
   <div class="container-fhf">
     <app-section-heading
       eyebrow="What We Do"
-      title="Our Programs"
-      subtitle="From daily meals to life-saving surgeries — every program is designed to restore dignity and open doors to a better future."
+      title="Our Humanitarian Relief Programs"
+      subtitle="From daily food security to life-saving surgeries — every program restores dignity and creates a sustainable, brighter future."
       [center]="true"
     />
 
     <div class="programs-grid">
-      @for (program of programsService.programs().slice(0, 6); track program.id) {
-        <a class="program-card card-surface" [routerLink]="['/programs', program.slug]" [appScrollReveal]="$index * 80">
+      @for (program of programsService.programs().slice(0, 3); track program.id) {
+        <a 
+          class="program-card card-surface" 
+          [routerLink]="['/programs', program.slug]" 
+          [appScrollReveal]="$index * 80"
+          [attr.aria-label]="'Learn more about our ' + program.title + ' program'"
+        >
           <div class="program-image">
-            <img [src]="program.image" [alt]="program.title" loading="lazy" />
-            <span class="program-icon"><i [class]="program.icon"></i></span>
+            <img 
+              [src]="program.image" 
+              [alt]="program.altText" 
+              loading="lazy" 
+            />
+            <span class="program-icon"><i [class]="program.icon" aria-hidden="true"></i></span>
           </div>
           <div class="program-body">
             <h3>{{ program.title }}</h3>
             <p>{{ program.summary }}</p>
-            <span class="program-link">Read More <i class="pi pi-arrow-right"></i></span>
+            <span class="program-link">
+              {{ program.ctaText }} <i class="pi pi-arrow-right" aria-hidden="true"></i>
+            </span>
           </div>
         </a>
       }
@@ -106,47 +117,58 @@
 </section>
 
 <!-- Impact banner -->
-<section class="section impact-banner">
+<!-- Impact & Transparency Section -->
+<section class="section impact-banner" aria-label="Donation Transparency and Impact">
   <div class="container-fhf impact-banner-inner glass" [appScrollReveal]="0">
     <div>
       <app-section-heading
-        eyebrow="Our Impact"
-        title="Real Change, Measured Transparently"
-        subtitle="Every donation is tracked from your hand to a family in need. See exactly how your generosity is transforming communities."
+        eyebrow="Our Impact & Transparency"
+        title="Transparent Giving & Real Community Impact"
+        subtitle="We ensure 100% financial transparency. Every charity donation is tracked directly from your hand to families in need—see how your generosity transforms communities."
       />
-      <app-button variant="primary" routerLink="/impact">
-        View Full Impact Dashboard <i class="pi pi-chart-line"></i>
+      <app-button 
+        variant="primary" 
+        routerLink="/impact"
+        aria-label="View our full charity impact report and financial dashboard"
+      >
+        View Impact & Financial Dashboard <i class="pi pi-chart-line" aria-hidden="true"></i>
       </app-button>
     </div>
     <div class="impact-badge">
-      <i class="pi pi-verified"></i>
-      <span>Trusted by 1000+ families since 2015</span>
+      <i class="pi pi-verified" aria-hidden="true"></i>
+      <span>Trusted by 1,000+ Families Supported Since 2015</span>
     </div>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section class="section testimonials-section">
+<!-- Beneficiary & Community Testimonials Section -->
+<section class="section testimonials-section" aria-label="Community Testimonials and Success Stories">
   <div class="container-fhf">
     <app-section-heading
       eyebrow="Voices of Hope"
       title="Stories From The Families We Serve"
+      subtitle="Real experiences from beneficiaries and volunteers across Southern Punjab communities."
       [center]="true"
     />
+    
     <div class="testimonials-grid">
       @for (t of testimonialsService.testimonials(); track t.id; let i = $index) {
         <figure class="testimonial-card card-surface" [appScrollReveal]="i * 100">
-          <div class="stars" aria-hidden="true">
+          <div class="stars" aria-label="5 out of 5 stars rating">
             @for (s of [1,2,3,4,5]; track s) {
-              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill" aria-hidden="true"></i>
             }
           </div>
+          
           <blockquote>&ldquo;{{ t.quote }}&rdquo;</blockquote>
+          
           <figcaption>
-            <img [src]="t.image" [alt]="t.name" loading="lazy" />
+            <span class="avatar-icon" aria-hidden="true"><i class="pi pi-user"></i></span>
             <div>
               <strong>{{ t.name }}</strong>
-              <span>{{ t.role }}</span>
+              <span class="role-text">{{ t.role }}</span>
+              <small class="location-text"><i class="pi pi-map-marker" aria-hidden="true"></i> {{ t.location }}</small>
             </div>
           </figcaption>
         </figure>
@@ -156,16 +178,30 @@
 </section>
 
 <!-- Final CTA -->
-<section class="final-cta">
+<!-- Final Call to Action Section -->
+<section class="final-cta" aria-label="Support Our Mission">
   <div class="container-fhf final-cta-inner" [appScrollReveal]="0">
-    <h2 class="font-display">Your Generosity Can Change a Life Today</h2>
-    <p>Every rupee you give brings food, medicine, education and hope to a family who needs it most.</p>
+    <h2 class="font-display">Your Generosity Can Save & Transform Lives Today</h2>
+    
+    <p>
+      Every rupee you give delivers vital food rations, emergency medical care, and child education to struggling families across Bahawalnagar, Bahawalpur, Multan, and Fort Abbas.
+    </p>
+    
     <div class="hero-actions">
-      <app-button variant="secondary" routerLink="/donate">
-        <i class="pi pi-heart-fill"></i> Donate Now
+      <app-button 
+        variant="secondary" 
+        routerLink="/donate"
+        aria-label="Donate now to support families in need"
+      >
+        <i class="pi pi-heart-fill" aria-hidden="true"></i> Donate Now
       </app-button>
-      <app-button variant="outline" routerLink="/volunteer">
-        <i class="pi pi-users"></i> Become a Volunteer
+      
+      <app-button 
+        variant="outline" 
+        routerLink="/volunteer"
+        aria-label="Become a volunteer with Fatima Hope Foundation"
+      >
+        <i class="pi pi-users" aria-hidden="true"></i> Become a Volunteer
       </app-button>
     </div>
   </div>

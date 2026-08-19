@@ -36,23 +36,25 @@ export class Impact implements OnInit {
     { year: '2026', familiesHelped: 1000, percent: 100 },
   ];
 
+  // Updated regional distribution incorporating specific target locations
   protected readonly regions = [
-    { name: 'Karachi', percent: 45 },
-    { name: 'Lahore', percent: 25 },
-    { name: 'Multan', percent: 15 },
-    { name: 'Other Cities', percent: 15 },
+    { name: 'Bahawalnagar', percent: 35 },
+    { name: 'Bahawalpur', percent: 25 },
+    { name: 'Multan', percent: 20 },
+    { name: 'Fort Abbas & Surrounding', percent: 20 },
   ];
 
   private readonly sanitizer = inject(DomSanitizer);
+  // Centered Google Map iframe URL covering Bahawalnagar, Bahawalpur, Multan & Fort Abbas region
   protected readonly mapUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    'https://www.google.com/maps?q=Karachi,Pakistan&output=embed',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1740.9935490746766!2d72.40799518940753!3d29.223934007893902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393c3d004f455ecf%3A0xdb722e6649673fa1!2s319%20hr%20marot!5e0!3m2!1sen!2s!4v1787136636373!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin'
   );
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Our Impact',
+      title: 'Our Charitable Impact | Fatima Hope Foundation',
       description:
-        'See the real, measurable impact of Fatima Hope Foundation — families helped, medical cases treated, children educated, and communities transformed.',
+        'Explore the measurable impact of Fatima Hope Foundation across Bahawalnagar, Bahawalpur, Multan, and Fort Abbas—providing food security, medical aid, and child education.',
       path: '/impact',
     });
   }
