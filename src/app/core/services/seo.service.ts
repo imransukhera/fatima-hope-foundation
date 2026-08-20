@@ -11,6 +11,10 @@ export interface SeoData {
   type?: 'website' | 'article';
   /** Set true for thank-you/error/admin pages that shouldn't appear in search results. */
   noindex?: boolean;
+  /** Overrides the social share card headline (og:title / twitter:title). Defaults to the page title. */
+  ogTitle?: string;
+  /** Overrides the social share card copy (og:description / twitter:description). Defaults to `description`. */
+  ogDescription?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -24,19 +28,22 @@ export class SeoService {
     const url = `${environment.appUrl}${data.path ?? ''}`;
     const image = data.image ?? `${environment.appUrl}/og-image.jpg`;
 
+    const ogTitle = data.ogTitle ?? fullTitle;
+    const ogDescription = data.ogDescription ?? data.description;
+
     this.title.setTitle(fullTitle);
 
     this.setTag('description', data.description);
     this.setTag('robots', data.noindex ? 'noindex, nofollow' : 'index, follow');
     this.setTag('og:site_name', 'Fatima Hope Foundation');
     this.setTag('og:type', data.type ?? 'website');
-    this.setTag('og:title', fullTitle);
-    this.setTag('og:description', data.description);
+    this.setTag('og:title', ogTitle);
+    this.setTag('og:description', ogDescription);
     this.setTag('og:url', url);
     this.setTag('og:image', image);
     this.setTag('twitter:card', 'summary_large_image');
-    this.setTag('twitter:title', fullTitle);
-    this.setTag('twitter:description', data.description);
+    this.setTag('twitter:title', ogTitle);
+    this.setTag('twitter:description', ogDescription);
     this.setTag('twitter:image', image);
     this.setCanonical(url);
   }

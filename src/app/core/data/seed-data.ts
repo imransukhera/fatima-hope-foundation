@@ -575,6 +575,60 @@ export const SEED_COURSES: CourseItem[] = [
     level: 'Beginner',
     seatsAvailable: 30,
     modules: AI_CHATBOT_MODULES,
+    seoTitle: 'Build an AI Chatbot With Angular | Complete Step-by-Step Course',
+    metaDescription:
+      'Learn how to build an AI chatbot with Angular step by step. Create a modern chat UI, mock AI responses, loading states, error handling, chat history, and deploy your Angular chatbot.',
+    socialTitle: 'Build Your First AI Chatbot With Angular 🚀',
+    socialDescription:
+      'Learn how to build an AI chatbot with Angular from scratch. Create a modern chat interface, mock AI responses, loading states, error handling, chat history, and a deployment-ready Angular application.',
+    altText: 'Build an AI Chatbot With Angular course — step-by-step Angular AI chatbot project',
+    keywords: [
+      'build AI chatbot with Angular',
+      'Angular AI chatbot tutorial',
+      'Angular chatbot tutorial',
+      'build chatbot in Angular',
+      'AI chatbot Angular project',
+      'Angular chatbot project',
+      'Angular TypeScript chatbot',
+      'Angular AI project for beginners',
+      'Angular chatbot step by step',
+      'create AI chatbot with Angular',
+      'Angular chatbot UI',
+      'Angular chatbot course',
+      'learn Angular AI development',
+    ],
+    faqs: [
+      {
+        question: 'Can I build an AI chatbot with Angular?',
+        answer:
+          'Yes. Angular is well suited for building the frontend of an AI chatbot, including the chat interface, messages, loading states, error handling, and conversation history.',
+      },
+      {
+        question: 'Do I need an AI API?',
+        answer:
+          'No. This beginner course uses a local Mock AI Service. A real AI API can be added later.',
+      },
+      {
+        question: 'Is this Angular chatbot tutorial beginner-friendly?',
+        answer:
+          'Yes. The course starts with basic concepts and gradually builds the chatbot feature by feature.',
+      },
+      {
+        question: 'Can I connect OpenAI later?',
+        answer:
+          'Yes. You can replace the Mock AI Service with a secure backend that communicates with an AI provider.',
+      },
+      {
+        question: 'Can I connect Google Gemini later?',
+        answer:
+          'Yes. The same Angular frontend architecture can be used with a backend connected to Gemini.',
+      },
+      {
+        question: 'What will I build?',
+        answer:
+          'You will build a complete Angular chatbot project with a modern chat interface, simulated AI responses, loading states, error handling, chat history, and deployment preparation.',
+      },
+    ],
   },
 ];
 

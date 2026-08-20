@@ -1,6 +1,6 @@
 @if (course(); as c) {
   <section class="detail-hero">
-    <img [src]="c.image" [alt]="c.title" class="detail-hero-img" loading="eager" fetchpriority="high" />
+    <img [src]="c.image" [alt]="c.altText ?? c.title" class="detail-hero-img" loading="eager" fetchpriority="high" />
     <div class="detail-hero-overlay"></div>
     <div class="container-fhf detail-hero-content">
       <a routerLink="/courses" class="back-link"><i class="pi pi-arrow-left"></i> All Courses</a>
@@ -75,11 +75,16 @@
 
             <div class="modules-list">
               @for (module of c.modules; track module.id) {
-                <div class="module-item" [class.expanded]="expandedModuleId() === module.id">
+                <div
+                  class="module-item"
+                  [id]="'module-' + module.id"
+                  [class.expanded]="expandedModuleId() === module.id"
+                >
                   <button
                     type="button"
                     class="module-header"
                     (click)="toggleModuleExpanded(module.id)"
+                    [attr.aria-expanded]="expandedModuleId() === module.id"
                   >
                     <span
                       class="module-check"
@@ -92,7 +97,7 @@
                       <i class="pi pi-check"></i>
                     </span>
                     <span class="module-title">
-                      <strong>{{ module.title }}</strong>
+                      <h3>{{ module.title }}</h3>
                       <small>{{ module.summary }}</small>
                     </span>
                     <i
@@ -102,22 +107,34 @@
                     ></i>
                   </button>
 
-                  @if (expandedModuleId() === module.id) {
-                    <div class="module-body">
-                      @if (module.objectives && module.objectives.length > 0) {
-                        <div class="module-objectives">
-                          <span>You'll learn:</span>
-                          <ul>
-                            @for (objective of module.objectives; track objective) {
-                              <li>{{ objective }}</li>
-                            }
-                          </ul>
-                        </div>
-                      }
-                      <div class="module-content" [innerHTML]="trustHtml(module.contentHtml)"></div>
-                    </div>
-                  }
+                  <div class="module-body" [hidden]="expandedModuleId() !== module.id">
+                    @if (module.objectives && module.objectives.length > 0) {
+                      <div class="module-objectives">
+                        <span>You'll learn:</span>
+                        <ul>
+                          @for (objective of module.objectives; track objective) {
+                            <li>{{ objective }}</li>
+                          }
+                        </ul>
+                      </div>
+                    }
+                    <div class="module-content" [innerHTML]="trustHtml(module.contentHtml)"></div>
+                  </div>
                 </div>
+              }
+            </div>
+          </div>
+        }
+
+        @if (c.faqs && c.faqs.length > 0) {
+          <div class="faq-section" [appScrollReveal]="50">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+              @for (faq of c.faqs; track faq.question) {
+                <details class="faq-item">
+                  <summary>{{ faq.question }}</summary>
+                  <p>{{ faq.answer }}</p>
+                </details>
               }
             </div>
           </div>

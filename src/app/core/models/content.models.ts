@@ -39,6 +39,11 @@ export interface CourseModule {
   contentHtml: string;
 }
 
+export interface CourseFaq {
+  question: string;
+  answer: string;
+}
+
 export interface CourseItem {
   id: string;
   slug: string;
@@ -52,6 +57,18 @@ export interface CourseItem {
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   seatsAvailable: number;
   modules?: CourseModule[];
+  /** Overrides `title` in the <title> tag only — keep the on-page h1 more descriptive if useful. */
+  seoTitle?: string;
+  /** Overrides `description` in the meta description tag. */
+  metaDescription?: string;
+  /** Overrides og:title / twitter:title (social share card headline). */
+  socialTitle?: string;
+  /** Overrides og:description / twitter:description (social share card copy). */
+  socialDescription?: string;
+  /** Descriptive alt text for the hero/thumbnail image, distinct from the display title. */
+  altText?: string;
+  keywords?: string[];
+  faqs?: CourseFaq[];
 }
 
 export interface Enrollment {

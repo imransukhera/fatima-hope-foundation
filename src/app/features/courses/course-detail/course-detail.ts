@@ -63,26 +63,32 @@ export class CourseDetail implements OnInit {
 
   ngOnInit(): void {
     const course = this.course();
+    const path = `/courses/${this.slug()}`;
+
     this.seo.update({
-      title: course?.title ?? 'Course',
-      description: course?.description ?? 'Explore this Fatima Hope Foundation course.',
-      path: `/courses/${this.slug()}`,
+      title: course?.seoTitle ?? course?.title ?? 'Course',
+      description: course?.metaDescription ?? course?.description ?? 'Explore this Fatima Hope Foundation course.',
+      ogTitle: course?.socialTitle,
+      ogDescription: course?.socialDescription,
+      path,
       image: course?.image,
     });
 
     this.seo.setBreadcrumbs([
       { name: 'Home', path: '/' },
       { name: 'Courses', path: '/courses' },
-      { name: course?.title ?? 'Course', path: `/courses/${this.slug()}` },
+      { name: course?.title ?? 'Course', path },
     ]);
 
     if (course) {
-      this.seo.setJsonLd({
+      const courseSchema = {
         '@context': 'https://schema.org',
         '@type': 'Course',
         name: course.title,
-        description: course.description,
+        description: course.metaDescription ?? course.description,
         image: course.image,
+        url: `${environment.appUrl}${path}`,
+        ...(course.keywords?.length ? { keywords: course.keywords.join(', ') } : {}),
         provider: {
           '@type': 'Organization',
           name: 'Fatima Hope Foundation',
@@ -99,7 +105,32 @@ export class CourseDetail implements OnInit {
           name: course.instructor,
         },
         isAccessibleForFree: true,
-      });
+        ...(course.modules?.length
+          ? {
+              hasPart: course.modules.map((module, index) => ({
+                '@type': 'Syllabus',
+                position: index + 1,
+                name: module.title,
+                description: module.summary,
+                url: `${environment.appUrl}${path}#module-${module.id}`,
+              })),
+            }
+          : {}),
+      };
+
+      const faqSchema = course.faqs?.length
+        ? {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: course.faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+            })),
+          }
+        : null;
+
+      this.seo.setJsonLd(faqSchema ? [courseSchema, faqSchema] : courseSchema);
     }
 
     this.loadSession();
