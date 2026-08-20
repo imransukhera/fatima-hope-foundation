@@ -41,5 +41,11 @@ export class CourseDetail implements OnInit {
       path: `/courses/${this.slug()}`,
       image: course?.image,
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Courses', path: '/courses' },
+      { name: course?.title ?? 'Course', path: `/courses/${this.slug()}` },
+    ]);
   }
 }

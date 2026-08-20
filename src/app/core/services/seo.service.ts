@@ -9,6 +9,8 @@ export interface SeoData {
   image?: string;
   path?: string;
   type?: 'website' | 'article';
+  /** Set true for thank-you/error/admin pages that shouldn't appear in search results. */
+  noindex?: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -25,6 +27,8 @@ export class SeoService {
     this.title.setTitle(fullTitle);
 
     this.setTag('description', data.description);
+    this.setTag('robots', data.noindex ? 'noindex, nofollow' : 'index, follow');
+    this.setTag('og:site_name', 'Fatima Hope Foundation');
     this.setTag('og:type', data.type ?? 'website');
     this.setTag('og:title', fullTitle);
     this.setTag('og:description', data.description);
@@ -35,6 +39,39 @@ export class SeoService {
     this.setTag('twitter:description', data.description);
     this.setTag('twitter:image', image);
     this.setCanonical(url);
+  }
+
+  /** Injects (or replaces) the page's JSON-LD structured data block (e.g. Article, Product). */
+  setJsonLd(data: object | object[]): void {
+    this.setJsonLdScript('data-seo-jsonld', data);
+  }
+
+  /** Injects (or replaces) a BreadcrumbList JSON-LD block from a Home → ... path. */
+  setBreadcrumbs(items: { name: string; path: string }[]): void {
+    this.setJsonLdScript('data-seo-breadcrumb', {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: `${environment.appUrl}${item.path}`,
+      })),
+    });
+  }
+
+  private setJsonLdScript(attr: string, data: object | object[]): void {
+    const head = this.document.querySelector('head');
+    if (!head) return;
+
+    let script = this.document.querySelector<HTMLScriptElement>(`script[${attr}]`);
+    if (!script) {
+      script = this.document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute(attr, '');
+      head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(data);
   }
 
   private setTag(name: string, content: string): void {

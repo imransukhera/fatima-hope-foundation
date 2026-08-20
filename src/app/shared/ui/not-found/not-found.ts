@@ -30,6 +30,7 @@ export class NotFound implements OnInit {
       title: 'Page Not Found',
       description: 'The page you requested could not be found.',
       path: '/404',
+      noindex: true,
     });
   }
 }

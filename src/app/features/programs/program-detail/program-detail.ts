@@ -42,5 +42,11 @@ export class ProgramDetail implements OnInit {
       path: `/programs/${this.slug()}`,
       image: program?.image,
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Programs', path: '/programs' },
+      { name: program?.title ?? 'Program', path: `/programs/${this.slug()}` },
+    ]);
   }
 }

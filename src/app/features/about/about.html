@@ -2,54 +2,53 @@
 <section class="page-hero">
   <div class="container-fhf">
     <span class="eyebrow">About Us</span>
-    <h1 class="font-display">Who We Are</h1>
+    <h1 class="font-display">Empowering Underprivileged Communities in Pakistan</h1>
     <p>
-      Fatima Hope Foundation is a Pakistan-based charity dedicated to restoring dignity and hope
-      to underprivileged families through food, medical care, education and emergency relief.
+      Fatima Hope Foundation is a non-profit welfare organization dedicated to restoring dignity, self-reliance, and hope across Bahawalnagar, Fort Abbas, Bahawalpur, and Multan through sustainable food security, emergency healthcare, and child education programs.
     </p>
   </div>
 </section>
 
 <!-- Who we are / Vision / Mission -->
-<section class="section">
+<section class="section" aria-label="Our Vision, Mission and Story">
   <div class="container-fhf who-grid">
     <div class="who-card card-surface" [appScrollReveal]="0">
-      <i class="pi pi-compass"></i>
-      <h3>Our Vision</h3>
-      <p>A Pakistan where no family goes hungry, no child is denied education, and no one is left behind in times of crisis.</p>
+      <i class="pi pi-compass" aria-hidden="true"></i>
+      <h2>Our Vision</h2>
+      <p>A Pakistan where no vulnerable family suffers from chronic hunger, no underprivileged child is denied quality schooling, and every community in Southern Punjab receives immediate support in times of crisis.</p>
     </div>
     <div class="who-card card-surface" [appScrollReveal]="100">
-      <i class="pi pi-flag"></i>
-      <h3>Our Mission</h3>
+      <i class="pi pi-flag" aria-hidden="true"></i>
+      <h2>Our Mission</h2>
       <p>
-        To improve the lives of underprivileged families by providing food & ration support,
-        medical assistance, education support, orphan care, emergency relief and community welfare.
+        To uplift low-income households by providing monthly ration bags, critical medical aid, child tuition sponsorships, orphan welfare, and rapid emergency relief across rural and remote communities.
       </p>
     </div>
     <div class="who-card card-surface" [appScrollReveal]="200">
-      <i class="pi pi-book"></i>
-      <h3>Our Story</h3>
-      <p>Founded in 2015 with a single food drive, we have grown into a trusted network serving thousands of families across Pakistan.</p>
+      <i class="pi pi-book" aria-hidden="true"></i>
+      <h2>Our Story</h2>
+      <p>Established in 2015 with a single food distribution drive, Fatima Hope Foundation has grown into a trusted humanitarian network serving thousands of deserving families across Pakistan with complete transparency.</p>
     </div>
   </div>
 </section>
 
 <!-- Chairman's message -->
-<section class="section chairman-section">
+<section class="section chairman-section" aria-label="Chairman's Message">
   <div class="container-fhf chairman-card glass" [appScrollReveal]="0">
     <div class="chairman-photo">
       <img
-        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80"
-        alt="Muhammad Imran, Chairman of Fatima Hope Foundation"
+        src="/images/chairman-image.png"
+        alt="Muhammad Imran, Founder and Chairman of Fatima Hope Foundation"
+        width="280"
+        height="280"
         loading="lazy"
       />
     </div>
     <div class="chairman-copy">
-      <span class="eyebrow">Chairman's Message</span>
-      <blockquote>
-        "Every family we serve reminds us why this work matters. Your trust and generosity turn
-        into ration bags, medicines and school books — real change you can see. Thank you for
-        standing with us in this mission of hope."
+      <span class="eyebrow" aria-hidden="true">Chairman's Message</span>
+      <h2 class="visually-hidden">Chairman's Message</h2>
+      <blockquote class="font-serif">
+        "Every family we serve across Fort Abbas, Bahawalnagar, and Southern Punjab reminds us why this work matters. Your trust and generosity turn directly into ration bags, medicines, and school books — real, transparent change you can see. Thank you for standing with us in this mission of hope."
       </blockquote>
       <div class="chairman-name">
         <strong>Muhammad Imran</strong>
@@ -60,36 +59,61 @@
 </section>
 
 <!-- Timeline -->
-<section class="section">
+<!-- Foundation Story & Timeline Section -->
+<!-- Foundation Story & Timeline Section -->
+<section class="section timeline-section" aria-label="Foundation Story and Milestones">
   <div class="container-fhf">
-    <app-section-heading eyebrow="Our Journey" title="Foundation Story & Timeline" [center]="true" />
-    <div class="timeline">
-      @for (item of timeline; track item.year; let i = $index) {
-        <div class="timeline-item" [class.timeline-item--right]="i % 2 === 1" [appScrollReveal]="i * 100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card card-surface">
-            <span class="timeline-year">{{ item.year }}</span>
-            <h4>{{ item.title }}</h4>
-            <p>{{ item.description }}</p>
-          </div>
-        </div>
+    
+    <app-section-heading 
+      eyebrow="Our Journey" 
+      title="Foundation Story & Vision" 
+      [center]="true" 
+    />
+
+    <ol class="timeline" role="list">
+      @for (item of timeline; track item.title; let i = $index) {
+        <li 
+          class="timeline-item" 
+          [class.timeline-item--right]="i % 2 === 1" 
+          [appScrollReveal]="i * 100"
+        >
+          <div class="timeline-dot" aria-hidden="true"></div>
+          
+          <article class="timeline-card card-surface">
+            <time class="timeline-year">{{ item.year }}</time>
+            <h3 class="timeline-title">{{ item.title }}</h3>
+            <p class="timeline-desc">{{ item.description }}</p>
+          </article>
+        </li>
       }
-    </div>
+    </ol>
+
   </div>
 </section>
 
 <!-- Core Values -->
-<section class="section values-section">
+<!-- Core Values Section -->
+<section class="section values-section" aria-label="Our Core Values and Principles">
   <div class="container-fhf">
-    <app-section-heading eyebrow="What Guides Us" title="Our Core Values" [center]="true" />
+    
+    <app-section-heading 
+      eyebrow="What Guides Us" 
+      title="Our Core Values" 
+      subtitle="The fundamental principles guiding our welfare programs across Southern Punjab."
+      [center]="true" 
+    />
+
     <div class="values-grid">
       @for (value of values; track value.title; let i = $index) {
-        <div class="value-card card-surface" [appScrollReveal]="i * 100">
-          <i [class]="value.icon"></i>
-          <h4>{{ value.title }}</h4>
+        <article class="value-card card-surface" [appScrollReveal]="i * 100">
+          <div class="value-icon-wrapper">
+            <i [class]="value.icon" aria-hidden="true"></i>
+          </div>
+          <h3>{{ value.title }}</h3>
           <p>{{ value.description }}</p>
-        </div>
+        </article>
       }
     </div>
+
   </div>
 </section>

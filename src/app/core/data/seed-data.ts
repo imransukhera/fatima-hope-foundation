@@ -208,20 +208,52 @@ export const SEED_COURSES: CourseItem[] = [
   },
 ];
 
+
+
 export const SEED_TIMELINE: TimelineItem[] = [
-  { year: '2015', title: 'The Beginning', description: 'Fatima Hope Foundation was founded with a single food drive for 30 families in a Karachi neighborhood.' },
-  { year: '2017', title: 'Medical Camps Launched', description: 'Our first free medical camp treated over 400 patients in a single weekend.' },
-  { year: '2019', title: 'Education Program', description: 'Launched school-fee sponsorships for underprivileged children across three cities.' },
-  { year: '2021', title: 'Emergency Relief Network', description: 'Built a rapid-response network to support flood and disaster-affected families nationwide.' },
-  { year: '2023', title: 'Orphan Care Expansion', description: 'Opened dedicated orphan care support reaching over 300 children.' },
-  { year: '2026', title: 'Digital Transformation', description: 'Launched a fully transparent online donation platform to reach donors worldwide.' },
+  { 
+    year: '2026', 
+    title: 'Foundation Established', 
+    description: 'Fatima Hope Foundation was officially founded in Marot, Tehsil Fort Abbas, to address urgent food security and medical needs in Southern Punjab.' 
+  },
+  { 
+    year: '2026', 
+    title: 'First Ration Distribution Drive', 
+    description: 'Launched our initial food pack drive, delivering essential monthly rations directly to vulnerable families across Fort Abbas and nearby villages.' 
+  },
+  { 
+    year: '2026', 
+    title: 'Public Launch & Digital Platform', 
+    description: 'Opened our portal to the public and international donors, establishing transparent donation channels for medical aid, education, and orphan support.' 
+  },
+  { 
+    year: 'Future', 
+    title: 'Expanding Community Reach', 
+    description: 'Working toward establishing regular free medical camps, school fee sponsorships, and sustainable welfare programs across Bahawalnagar District.' 
+  },
 ];
 
 export const SEED_VALUES: CoreValue[] = [
-  { title: 'Compassion', description: 'We lead every decision with empathy for the families we serve.', icon: 'pi pi-heart' },
-  { title: 'Transparency', description: 'Every rupee is tracked and reported — donors deserve full visibility.', icon: 'pi pi-eye' },
-  { title: 'Dignity', description: 'We serve in a way that preserves the dignity of every person we help.', icon: 'pi pi-shield' },
-  { title: 'Community', description: 'Lasting change happens when communities are empowered, not just given aid.', icon: 'pi pi-users' },
+  { 
+    title: 'Compassion First', 
+    description: 'We approach every family in Marot and Fort Abbas with genuine empathy, treating their hardships as our own.', 
+    icon: 'pi pi-heart' 
+  },
+  { 
+    title: 'Complete Transparency', 
+    description: 'Every rupee donated toward food rations, medical aid, and education is tracked and accountably delivered.', 
+    icon: 'pi pi-eye' 
+  },
+  { 
+    title: 'Preserving Dignity', 
+    description: 'We distribute monthly rations and humanitarian relief in a manner that respects the honor and self-worth of every beneficiary.', 
+    icon: 'pi pi-shield' 
+  },
+  { 
+    title: 'Community Empowerment', 
+    description: 'We uplift rural communities across Bahawalnagar District through sustainable aid, educational support, and orphan care.', 
+    icon: 'pi pi-users' 
+  },
 ];
 
 

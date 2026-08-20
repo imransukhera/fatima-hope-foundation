@@ -20,10 +20,32 @@ export class About implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'About Us',
+      title: 'About Us — Our Mission & Story',
       description:
-        'Learn about Fatima Hope Foundation’s mission, vision, chairman’s message, story and the core values that guide everything we do.',
+        'Discover the mission, vision and story behind Fatima Hope Foundation — a Pakistan NGO delivering food, healthcare & education across Southern Punjab.',
       path: '/about',
+    });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'About Us', path: '/about' },
+    ]);
+
+    this.seo.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      name: 'About Fatima Hope Foundation',
+      description:
+        'Fatima Hope Foundation is a non-profit welfare organization dedicated to restoring dignity, self-reliance, and hope across Bahawalnagar, Fort Abbas, Bahawalpur, and Multan through sustainable food security, emergency healthcare, and child education programs.',
+      mainEntity: {
+        '@type': 'NGO',
+        name: 'Fatima Hope Foundation',
+        founder: {
+          '@type': 'Person',
+          name: 'Muhammad Imran',
+          jobTitle: 'Founder & Chairman',
+        },
+      },
     });
   }
 }

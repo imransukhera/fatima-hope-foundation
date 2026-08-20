@@ -18,6 +18,7 @@ export class DonateCancel implements OnInit {
       title: 'Donation Cancelled',
       description: 'Your donation was not completed.',
       path: '/donate/cancel',
+      noindex: true,
     });
   }
 }

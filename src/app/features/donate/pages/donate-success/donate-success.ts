@@ -18,6 +18,7 @@ export class DonateSuccess implements OnInit {
       title: 'Thank You',
       description: 'Thank you for your donation to Fatima Hope Foundation.',
       path: '/donate/success',
+      noindex: true,
     });
   }
 }

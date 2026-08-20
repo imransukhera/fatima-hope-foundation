@@ -33,6 +33,7 @@ export class AdminComingSoon implements OnInit {
       title: 'Admin',
       description: 'Fatima Hope Foundation admin dashboard.',
       path: '/admin',
+      noindex: true,
     });
   }
 }

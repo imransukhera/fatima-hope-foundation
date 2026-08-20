@@ -34,5 +34,24 @@ export class BlogDetail implements OnInit {
       image: post?.image,
       type: 'article',
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blog' },
+      { name: post?.title ?? 'Blog Post', path: `/blog/${this.slug()}` },
+    ]);
+
+    if (post) {
+      this.seo.setJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.title,
+        description: post.excerpt,
+        image: post.image,
+        author: { '@type': 'Person', name: post.author },
+        publisher: { '@type': 'Organization', name: 'Fatima Hope Foundation' },
+        datePublished: post.publishedAt,
+      });
+    }
   }
 }
