@@ -43,6 +43,29 @@ export class Contact implements OnInit {
         'Get in touch with Fatima Hope Foundation — call, WhatsApp, email or send us a message directly.',
       path: '/contact',
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Contact', path: '/contact' },
+    ]);
+
+    this.seo.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Contact Fatima Hope Foundation',
+      url: `${environment.appUrl}/contact`,
+      mainEntity: {
+        '@type': 'NGO',
+        name: 'Fatima Hope Foundation',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          telephone: `+${this.contact.whatsapp}`,
+          email: this.contact.email,
+          areaServed: 'PK',
+        },
+      },
+    });
   }
 
   async onSubmit(): Promise<void> {

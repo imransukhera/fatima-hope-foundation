@@ -55,6 +55,11 @@ export class Volunteer implements OnInit {
         'Join Fatima Hope Foundation as a volunteer. Share your skills and time to help us reach more families in need.',
       path: '/volunteer',
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Volunteer', path: '/volunteer' },
+    ]);
   }
 
   toggleSkill(skill: string): void {

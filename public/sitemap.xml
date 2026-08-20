@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://fatimahopefoundation.com/blog</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -81,6 +81,12 @@
   <url>
     <loc>https://fatimahopefoundation.com/blog/inside-a-medical-camp</loc>
     <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fatimahopefoundation.com/blog/how-to-build-an-ai-chatbot-with-angular</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

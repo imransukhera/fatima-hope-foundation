@@ -57,5 +57,10 @@ export class Impact implements OnInit {
         'Explore the measurable impact of Fatima Hope Foundation across Bahawalnagar, Bahawalpur, Multan, and Fort Abbas—providing food security, medical aid, and child education.',
       path: '/impact',
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Impact', path: '/impact' },
+    ]);
   }
 }

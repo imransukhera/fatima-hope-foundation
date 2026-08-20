@@ -12,6 +12,7 @@ import {
 import { SeoService } from '../../core/services/seo.service';
 import { EventsService } from '../../core/services/events.service';
 import { ScrollRevealDirective } from '../../shared/ui/scroll-reveal/scroll-reveal.directive';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-events',
@@ -36,6 +37,7 @@ export class Events implements OnInit {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly seo = inject(SeoService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly appUrl = environment.appUrl;
 
   ngOnInit(): void {
     this.seo.update({
@@ -44,6 +46,42 @@ export class Events implements OnInit {
         'Join Fatima Hope Foundation at upcoming food distributions, medical camps and community events. See past events too.',
       path: '/events',
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Events', path: '/events' },
+    ]);
+
+    const upcoming = this.eventsService.upcoming();
+    if (upcoming.length > 0) {
+      this.seo.setJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Fatima Hope Foundation Upcoming Events',
+        itemListElement: upcoming.map((event, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@type': 'Event',
+            name: event.title,
+            description: event.description,
+            image: event.image,
+            startDate: event.date,
+            eventStatus: 'https://schema.org/EventScheduled',
+            eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+            location: {
+              '@type': 'Place',
+              name: event.location,
+            },
+            organizer: {
+              '@type': 'NGO',
+              name: 'Fatima Hope Foundation',
+              url: this.appUrl,
+            },
+          },
+        })),
+      });
+    }
 
     if (isPlatformBrowser(this.platformId)) {
       this.startCountdown();

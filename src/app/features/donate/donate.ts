@@ -59,6 +59,11 @@ export class Donate implements OnInit {
         'Support Fatima Hope Foundation with a secure one-time or monthly donation via card, Apple Pay, Google Pay, or bank transfer.',
       path: '/donate',
     });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Donate', path: '/donate' },
+    ]);
   }
 
   selectAmount(value: number): void {
