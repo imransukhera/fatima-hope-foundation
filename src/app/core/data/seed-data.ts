@@ -710,12 +710,54 @@ export const SEED_TESTIMONIALS: TestimonialItem[] = [
 ];
 
 export const SEED_GALLERY: GalleryItem[] = [
-  { id: 'g1', type: 'photo', category: 'Food Distribution', title: 'Ration distribution drive', src: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=1200&q=80', thumb: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=400&q=80' },
-  { id: 'g2', type: 'photo', category: 'Medical Camps', title: 'Free medical camp checkup', src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80', thumb: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=400&q=80' },
-  { id: 'g3', type: 'photo', category: 'Education', title: 'Classroom sponsorship visit', src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80', thumb: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=400&q=80' },
-  { id: 'g4', type: 'photo', category: 'Volunteers', title: 'Volunteer packing day', src: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80', thumb: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=400&q=80' },
-  { id: 'g5', type: 'photo', category: 'Orphan Care', title: 'Orphan care center activities', src: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=1200&q=80', thumb: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=400&q=80' },
-  { id: 'g6', type: 'photo', category: 'Emergency Relief', title: 'Flood relief response', src: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80', thumb: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=400&q=80' },
+  {
+    id: 'g1',
+    type: 'photo',
+    category: 'Food Distribution',
+    title: 'Monthly ration bag distribution in Marot, Tehsil Fort Abbas',
+    src: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=1200&q=80',
+    thumb: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'g2',
+    type: 'photo',
+    category: 'Medical Camps',
+    title: 'Free healthcare checkup and medicine camp in Bahawalnagar',
+    src: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80',
+    thumb: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'g3',
+    type: 'photo',
+    category: 'Education',
+    title: 'School fee sponsorship and book drive for underprivileged students',
+    src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80',
+    thumb: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'g4',
+    type: 'photo',
+    category: 'Volunteers',
+    title: 'Fatima Hope Foundation volunteers packing food packages',
+    src: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80',
+    thumb: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'g5',
+    type: 'photo',
+    category: 'Orphan Care',
+    title: 'Orphan family welfare support drive across Southern Punjab',
+    src: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=1200&q=80',
+    thumb: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    id: 'g6',
+    type: 'photo',
+    category: 'Emergency Relief',
+    title: 'Emergency flood and crisis relief response in rural Punjab',
+    src: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=80',
+    thumb: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=400&q=80'
+  }
 ];
 
 export const SEED_EVENTS: EventItem[] = [
@@ -770,5 +812,258 @@ export const SEED_BLOG: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80',
     author: 'Fatima Hope Foundation',
     publishedAt: '2026-05-22',
+  },
+  {
+    id: 'b3',
+    slug: 'how-to-build-an-ai-chatbot-with-angular',
+    title: 'How to Build an AI Chatbot With Angular: A Step-by-Step Beginner Guide',
+    excerpt:
+      'A complete beginner walkthrough of the architecture, state management, UI, and services behind building an AI chatbot with Angular — from mock responses to a production-ready security model.',
+    category: 'Web Development',
+    image: '/images/build-ai-chatbot-with-angular-architecture.png',
+    author: 'Fatima Hope Foundation',
+    publishedAt: '2026-08-20',
+    content: `
+      <p>AI-powered applications are transforming web development. From intelligent customer service agents to interactive coding assistants, learning how to build modern conversational interfaces is one of the most valuable skills you can learn as a frontend developer.</p>
+      <p>If you are looking to master building an AI chatbot with Angular, this complete step-by-step guide will walk you through the essential architecture, state management, UI construction, and service design needed to get started.</p>
+
+      <h2>What You Will Learn in This Guide</h2>
+      <ul>
+        <li><strong>Angular Chatbot Architecture:</strong> How the frontend communicates with data services and AI models.</li>
+        <li><strong>Component-Driven UI:</strong> Building clean message templates, loading states, and input controls.</li>
+        <li><strong>Mock AI Services:</strong> Simulating asynchronous backend responses using RxJS.</li>
+        <li><strong>State Persistence:</strong> Saving and restoring chat history using browser localStorage.</li>
+        <li><strong>Production Security:</strong> Why frontend AI security requires a backend middleware layer.</li>
+      </ul>
+
+      <h2>Course Overview: Build an AI Chatbot With Angular</h2>
+      <p>This tutorial is based on our complete 10-lesson hands-on course, <strong>Build an AI Chatbot With Angular</strong>.</p>
+      <ul>
+        <li><strong>Level:</strong> Beginner to Intermediate</li>
+        <li><strong>Technology Stack:</strong> Angular, TypeScript, HTML, SCSS, RxJS, Local Storage</li>
+        <li><strong>External API Required?</strong> No (uses a local Mock AI Service)</li>
+        <li><strong>Project:</strong> Production-ready Angular Chatbot Application</li>
+      </ul>
+
+      <h2>High-Level Application Architecture</h2>
+      <p>Before writing code, it is critical to understand the separation of concerns. In a clean Angular application, the user interface should never communicate directly with an external service or perform data manipulation inside component files.</p>
+      <img src="/images/build-ai-chatbot-with-angular-architecture.png" alt="Angular AI chatbot architecture diagram: User UI to Chat Component to Chat Service to Mock AI Response" loading="lazy" />
+      <ul>
+        <li><strong>Chat UI:</strong> Renders messages, user input fields, loading indicators, and action buttons.</li>
+        <li><strong>Chat Component:</strong> Coordinates component state (messages, isLoading, userMessage).</li>
+        <li><strong>Chat Service:</strong> Encapsulates response logic and manages data flow using RxJS Observables.</li>
+        <li><strong>Mock AI Service:</strong> Simulates server latency and returns contextual responses.</li>
+      </ul>
+
+      <h2>Step 1: Angular Project Setup</h2>
+      <p>To get started, create a clean Angular project using the Angular CLI and generate the required component and service files:</p>
+      <pre><code># 1. Create a new Angular workspace
+ng new ai-chatbot --style=scss --routing=false
+
+# 2. Navigate into the project directory
+cd ai-chatbot
+
+# 3. Generate the Chat Component
+ng generate component components/chat
+
+# 4. Generate the Chat Service
+ng generate service services/chat
+
+# 5. Start the local development server
+ng serve</code></pre>
+
+      <h2>Step 2: Defining Data Models &amp; Component State</h2>
+      <p>Create a typed interface for your chat messages. Defining strict contracts ensures type safety across your component template and service layer.</p>
+      <h3>Update chat.component.ts</h3>
+      <pre><code>import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../services/chat.service';
+
+export interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}
+
+@Component({
+  selector: 'app-chat',
+  templateUrl: './chat.component.html',
+  styleUrls: ['./chat.component.scss']
+})
+export class ChatComponent implements OnInit {
+  messages: ChatMessage[] = [];
+  userMessage: string = '';
+  isLoading: boolean = false;
+
+  constructor(private chatService: ChatService) {}
+
+  ngOnInit(): void {
+    this.loadChatHistory();
+  }
+
+  sendMessage(): void {
+    if (!this.userMessage.trim() || this.isLoading) {
+      return;
+    }
+
+    const inputPrompt = this.userMessage.trim();
+
+    this.messages.push({
+      role: 'user',
+      content: inputPrompt,
+      timestamp: new Date()
+    });
+
+    this.userMessage = '';
+    this.isLoading = true;
+    this.saveChatHistory();
+
+    this.chatService.getAIResponse(inputPrompt).subscribe({
+      next: (response: string) => {
+        this.messages.push({
+          role: 'assistant',
+          content: response,
+          timestamp: new Date()
+        });
+        this.isLoading = false;
+        this.saveChatHistory();
+      },
+      error: () => {
+        this.messages.push({
+          role: 'assistant',
+          content: 'Sorry, an error occurred while processing your request. Please try again.',
+          timestamp: new Date()
+        });
+        this.isLoading = false;
+        this.saveChatHistory();
+      }
+    });
+  }
+
+  newChat(): void {
+    this.messages = [];
+    localStorage.removeItem('angular_ai_chat_history');
+  }
+
+  private saveChatHistory(): void {
+    localStorage.setItem('angular_ai_chat_history', JSON.stringify(this.messages));
+  }
+
+  private loadChatHistory(): void {
+    const saved = localStorage.getItem('angular_ai_chat_history');
+    if (saved) {
+      try {
+        this.messages = JSON.parse(saved);
+      } catch (e) {
+        this.messages = [];
+      }
+    }
+  }
+}</code></pre>
+
+      <h2>Step 3: Building the Mock AI Service</h2>
+      <p>Using a local mock service allows you to master frontend state management, loading indicators, and error resilience without incurring API costs or setting up complex backend servers.</p>
+      <h3>Update chat.service.ts</h3>
+      <pre><code>import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ChatService {
+
+  getAIResponse(prompt: string): Observable&lt;string&gt; {
+    const query = prompt.toLowerCase();
+    let reply = 'I am an AI assistant built with Angular. Ask me about Angular, TypeScript, or Web Development!';
+
+    if (query.includes('hello') || query.includes('hi')) {
+      reply = 'Hello! How can I assist your Angular development journey today?';
+    } else if (query.includes('angular')) {
+      reply = 'Angular is a full-featured, component-based TypeScript framework for building scalable web applications.';
+    } else if (query.includes('typescript')) {
+      reply = 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at scale.';
+    } else if (query.includes('component')) {
+      reply = 'Components are the main building block of Angular applications. They consist of an HTML template, TypeScript class, and styles.';
+    } else if (query.includes('service') || query.includes('dependency injection')) {
+      reply = 'Angular Services manage data operations and business logic, injected into components using Dependency Injection (DI).';
+    }
+
+    return of(reply).pipe(delay(1200));
+  }
+}</code></pre>
+
+      <h2>Step 4: Crafting the Accessible HTML Template</h2>
+      <p>Your HTML template must deliver a responsive user experience with visual distinction between user prompts and AI responses.</p>
+      <h3>Update chat.component.html</h3>
+      <pre><code>&lt;div class="chat-container"&gt;
+  &lt;header class="chat-header"&gt;
+    &lt;div class="header-info"&gt;
+      &lt;h2&gt;Angular AI Assistant&lt;/h2&gt;
+      &lt;p&gt;Interactive Angular &amp; TypeScript Companion&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;button class="btn-secondary" (click)="newChat()" [disabled]="messages.length === 0"&gt;
+      New Chat
+    &lt;/button&gt;
+  &lt;/header&gt;
+
+  &lt;main class="chat-messages" aria-live="polite"&gt;
+    &lt;div *ngIf="messages.length === 0" class="empty-state"&gt;
+      &lt;p&gt;No messages yet. Ask a question to start chatting!&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;article
+      *ngFor="let msg of messages"
+      class="message-bubble"
+      [class.user-bubble]="msg.role === 'user'"
+      [class.ai-bubble]="msg.role === 'assistant'"
+    &gt;
+      &lt;div class="message-meta"&gt;
+        &lt;strong&gt;{{ msg.role === 'user' ? 'You' : 'AI Assistant' }}&lt;/strong&gt;
+      &lt;/div&gt;
+      &lt;p class="message-content"&gt;{{ msg.content }}&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;div *ngIf="isLoading" class="message-bubble ai-bubble loading-bubble"&gt;
+      &lt;div class="typing-indicator"&gt;
+        &lt;span&gt;AI is thinking...&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="chat-input-area"&gt;
+    &lt;input
+      type="text"
+      [(ngModel)]="userMessage"
+      (keyup.enter)="sendMessage()"
+      placeholder="Ask about Angular, TypeScript, or Services..."
+      [disabled]="isLoading"
+    /&gt;
+    &lt;button class="btn-primary" (click)="sendMessage()" [disabled]="!userMessage.trim() || isLoading"&gt;
+      Send
+    &lt;/button&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+
+      <h2>Critical AI Security Consideration</h2>
+      <p>When transitioning from a Mock AI Service to a production environment (such as OpenAI, Anthropic, or Google Gemini), never hardcode API secret keys directly inside your Angular code.</p>
+      <pre><code>// NEVER DO THIS IN ANGULAR:
+const OPENAI_API_KEY = "sk-proj-xxxxxx...";</code></pre>
+      <p><strong>Why?</strong> Angular is a client-side framework. All code delivered to the user's browser can be inspected through developer tools. Storing secret keys in frontend code will expose your credentials, leading to potential account abuse and financial loss.</p>
+      <p>Always route request payloads through a secure backend server (Node.js, Python, or Serverless Functions) that securely holds API keys in environment variables:</p>
+      <pre><code>Angular App (Browser) --&gt; Express/Node Backend --&gt; OpenAI / Gemini API</code></pre>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can I build an AI chatbot with Angular?</h3>
+      <p>Yes. Angular is ideal for building high-performance AI frontend applications due to its robust component model, reactive RxJS data streams, and built-in dependency injection.</p>
+      <h3>Do I need a paid API key to take this course?</h3>
+      <p>No. This course uses a mock service setup, allowing you to master all Angular architecture concepts, state management, and UI building without spending money on third-party API tokens.</p>
+      <h3>Can I connect OpenAI or Google Gemini later?</h3>
+      <p>Yes. The architecture taught in this course allows you to replace ChatService methods with an HTTP client call to your backend endpoint without altering your component UI code.</p>
+
+      <div class="article-cta">
+        <p><strong>Ready to complete the full course?</strong> 10 in-depth lessons covering project setup, typing indicators, RxJS streams, error handling, local storage, and deployment — with full source code and a production deployment guide.</p>
+        <a href="/courses/build-ai-chatbot-with-angular">Enroll in Build an AI Chatbot With Angular</a>
+      </div>
+    `,
   },
 ];

@@ -1,42 +1,77 @@
-<section class="page-hero">
+<!-- Page Hero -->
+<section class="page-hero" aria-label="Gallery Header">
   <div class="container-fhf">
     <span class="eyebrow">Moments of Hope</span>
-    <h1 class="font-display">Gallery</h1>
-    <p>Photos and videos from our food distributions, medical camps, education projects and volunteer activities.</p>
+    <h1 class="font-display">Humanitarian Impact Gallery</h1>
+    <p>
+      Explore photos and video highlights from our food ration drives, medical camps, child education programs, and volunteer work across Marot, Fort Abbas, Bahawalnagar, and Southern Punjab.
+    </p>
   </div>
 </section>
 
-<section class="section gallery-section">
+<!-- Gallery Section -->
+<section class="section gallery-section" aria-label="Media Gallery Grid">
   <div class="container-fhf">
-    <div class="filters">
+    
+    <!-- Filter Buttons -->
+    <nav class="filters" aria-label="Filter media by category">
       @for (cat of categories(); track cat) {
         <button
           type="button"
           class="filter-chip"
           [class.filter-chip--active]="activeCategory() === cat"
+          [attr.aria-pressed]="activeCategory() === cat"
           (click)="setCategory(cat)"
-        >{{ cat }}</button>
+        >
+          {{ cat }}
+        </button>
       }
-    </div>
+    </nav>
 
-    <div class="gallery-grid">
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" role="region" aria-label="Gallery Items">
       @for (item of filteredItems(); track item.id; let i = $index) {
-        <button type="button" class="gallery-item" (click)="open(i)" [appScrollReveal]="(i % 6) * 60">
-          <img [src]="item.thumb" [alt]="item.title" loading="lazy" />
+        <button 
+          type="button" 
+          class="gallery-item" 
+          (click)="open(i)" 
+          [appScrollReveal]="(i % 6) * 60"
+          [attr.aria-label]="'View image: ' + item.title"
+        >
+          <img 
+            [src]="item.thumb" 
+            [alt]="item.title" 
+            loading="lazy" 
+            width="400" 
+            height="300"
+          />
           @if (item.type === 'video') {
-            <span class="play-badge"><i class="pi pi-play"></i></span>
+            <span class="play-badge" aria-hidden="true"><i class="pi pi-play"></i></span>
           }
           <span class="gallery-caption">{{ item.title }}</span>
         </button>
       }
     </div>
+
   </div>
 </section>
 
+<!-- Lightbox Modal -->
 @if (lightboxIndex() !== null) {
-  <div class="lightbox" (click)="close()">
-    <button type="button" class="lightbox-close" (click)="close()" aria-label="Close"><i class="pi pi-times"></i></button>
-    <button type="button" class="lightbox-nav lightbox-nav--prev" (click)="prev($event)" aria-label="Previous"><i class="pi pi-chevron-left"></i></button>
+  <div 
+    class="lightbox" 
+    (click)="close()" 
+    role="dialog" 
+    aria-modal="true" 
+    [attr.aria-label]="filteredItems()[lightboxIndex()!].title"
+  >
+    <button type="button" class="lightbox-close" (click)="close()" aria-label="Close dialog">
+      <i class="pi pi-times" aria-hidden="true"></i>
+    </button>
+    
+    <button type="button" class="lightbox-nav lightbox-nav--prev" (click)="prev($event)" aria-label="Previous image">
+      <i class="pi pi-chevron-left" aria-hidden="true"></i>
+    </button>
 
     <img
       class="lightbox-img"
@@ -45,7 +80,9 @@
       (click)="$event.stopPropagation()"
     />
 
-    <button type="button" class="lightbox-nav lightbox-nav--next" (click)="next($event)" aria-label="Next"><i class="pi pi-chevron-right"></i></button>
+    <button type="button" class="lightbox-nav lightbox-nav--next" (click)="next($event)" aria-label="Next image">
+      <i class="pi pi-chevron-right" aria-hidden="true"></i>
+    </button>
 
     <span class="lightbox-title">{{ filteredItems()[lightboxIndex()!].title }}</span>
   </div>

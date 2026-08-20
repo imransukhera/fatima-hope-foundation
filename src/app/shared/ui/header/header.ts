@@ -28,7 +28,7 @@ export class Header {
     { label: 'Courses', path: '/courses' },
     { label: 'Impact', path: '/impact' },
     { label: 'Gallery', path: '/gallery' },
-    { label: 'Events', path: '/events' },
+    // { label: 'Events', path: '/events' },
     { label: 'Blog', path: '/blog' },
     { label: 'Contact', path: '/contact' },
   ];

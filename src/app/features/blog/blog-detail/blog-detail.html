@@ -5,7 +5,7 @@
     <div class="container-fhf detail-hero-content">
       <a routerLink="/blog" class="back-link"><i class="pi pi-arrow-left"></i> All Articles</a>
       <span class="blog-category">{{ p.category }}</span>
-      <h1 class="font-display">{{ p.title }}</h1>
+      <h1 class="font-display" style="color: white;">{{ p.title }}</h1>
       <div class="blog-meta">
         <span>{{ p.author }}</span>
         <span>{{ p.publishedAt | date: 'longDate' }}</span>
@@ -16,7 +16,7 @@
   <section class="section">
     <div class="container-fhf article-body">
       <p class="lede">{{ p.excerpt }}</p>
-      <p>{{ p.content }}</p>
+      <div class="article-content" [innerHTML]="trustHtml(p.content)"></div>
     </div>
   </section>
 } @else {

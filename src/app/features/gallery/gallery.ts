@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, computed, inject, signal } 
 import { SeoService } from '../../core/services/seo.service';
 import { GalleryService } from '../../core/services/gallery.service';
 import { ScrollRevealDirective } from '../../shared/ui/scroll-reveal/scroll-reveal.directive';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-gallery',
@@ -14,6 +15,7 @@ import { ScrollRevealDirective } from '../../shared/ui/scroll-reveal/scroll-reve
 export class Gallery implements OnInit {
   protected readonly galleryService = inject(GalleryService);
   private readonly seo = inject(SeoService);
+  private readonly appUrl = environment.appUrl;
 
   protected readonly activeCategory = signal('All');
 
@@ -32,10 +34,30 @@ export class Gallery implements OnInit {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Gallery',
+      title: 'Photo & Video Gallery — Humanitarian Impact',
       description:
-        'Browse photos and videos from Fatima Hope Foundation food distributions, medical camps, education projects and volunteer activities.',
+        'Browse photos and videos of Fatima Hope Foundation food ration drives, medical camps, child education programs and volunteer work across Marot, Fort Abbas, Bahawalnagar and Southern Punjab.',
       path: '/gallery',
+    });
+
+    this.seo.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Gallery', path: '/gallery' },
+    ]);
+
+    this.seo.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'ImageGallery',
+      name: 'Fatima Hope Foundation Humanitarian Impact Gallery',
+      description:
+        'Photos and video highlights from food ration drives, medical camps, child education programs and volunteer work across Southern Punjab.',
+      url: `${this.appUrl}/gallery`,
+      associatedMedia: this.galleryService.items().map((item) => ({
+        '@type': item.type === 'video' ? 'VideoObject' : 'ImageObject',
+        contentUrl: item.src,
+        thumbnailUrl: item.thumb,
+        name: item.title,
+      })),
     });
   }
 
