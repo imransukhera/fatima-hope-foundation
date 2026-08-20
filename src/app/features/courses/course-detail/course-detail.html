@@ -47,9 +47,81 @@
           </div>
         </div>
 
-        <app-button variant="primary" routerLink="/contact">
-          <i class="pi pi-pencil"></i> Enroll Now
-        </app-button>
+        @if (session()) {
+          <p class="enrolled-badge">
+            <i class="pi pi-check-circle"></i> You're enrolled as {{ session()!.name }}
+          </p>
+        } @else {
+          <app-button variant="primary" (click)="openEnrollDialog()">
+            <i class="pi pi-pencil"></i> Enroll Now
+          </app-button>
+        }
+
+        @if (c.modules && c.modules.length > 0) {
+          <div class="modules-section" [appScrollReveal]="50">
+            <div class="modules-header">
+              <h2>Course Modules</h2>
+              @if (session()) {
+                <div class="progress-track">
+                  <div class="progress-bar">
+                    <div class="progress-fill" [style.width.%]="progressPercent()"></div>
+                  </div>
+                  <span>{{ completedModules().size }} / {{ c.modules.length }} completed</span>
+                </div>
+              } @else {
+                <p class="progress-hint">Enroll to save your progress across visits.</p>
+              }
+            </div>
+
+            <div class="modules-list">
+              @for (module of c.modules; track module.id) {
+                <div class="module-item" [class.expanded]="expandedModuleId() === module.id">
+                  <button
+                    type="button"
+                    class="module-header"
+                    (click)="toggleModuleExpanded(module.id)"
+                  >
+                    <span
+                      class="module-check"
+                      [class.checked]="completedModules().has(module.id)"
+                      (click)="toggleModuleComplete(module.id, $event)"
+                      role="checkbox"
+                      [attr.aria-checked]="completedModules().has(module.id)"
+                      [attr.aria-label]="'Mark ' + module.title + ' as complete'"
+                    >
+                      <i class="pi pi-check"></i>
+                    </span>
+                    <span class="module-title">
+                      <strong>{{ module.title }}</strong>
+                      <small>{{ module.summary }}</small>
+                    </span>
+                    <i
+                      class="pi module-chevron"
+                      [class.pi-chevron-down]="expandedModuleId() !== module.id"
+                      [class.pi-chevron-up]="expandedModuleId() === module.id"
+                    ></i>
+                  </button>
+
+                  @if (expandedModuleId() === module.id) {
+                    <div class="module-body">
+                      @if (module.objectives && module.objectives.length > 0) {
+                        <div class="module-objectives">
+                          <span>You'll learn:</span>
+                          <ul>
+                            @for (objective of module.objectives; track objective) {
+                              <li>{{ objective }}</li>
+                            }
+                          </ul>
+                        </div>
+                      }
+                      <div class="module-content" [innerHTML]="trustHtml(module.contentHtml)"></div>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
       </div>
 
       <aside class="detail-sidebar" [appScrollReveal]="100">
@@ -63,6 +135,61 @@
       </aside>
     </div>
   </section>
+
+  @if (enrollDialogOpen()) {
+    <div class="dialog-backdrop" (click)="closeEnrollDialog()">
+      <div class="dialog-panel card-surface" (click)="$event.stopPropagation()">
+        <button type="button" class="dialog-close" (click)="closeEnrollDialog()" aria-label="Close">
+          <i class="pi pi-times"></i>
+        </button>
+
+        @if (enrollSuccess()) {
+          <div class="success-state">
+            <i class="pi pi-check-circle"></i>
+            <h3>You're Enrolled!</h3>
+            <p>Welcome to {{ c.title }}. You can now track your progress as you complete each module.</p>
+            <button type="button" class="btn-primary" (click)="closeEnrollDialog()">Start Learning</button>
+          </div>
+        } @else {
+          <h3>Enroll in {{ c.title }}</h3>
+          <p class="dialog-subtitle">Create your free learner profile to track module progress.</p>
+
+          <form [formGroup]="enrollForm" (ngSubmit)="submitEnroll()">
+            <div class="field">
+              <label for="enrollName">Full Name</label>
+              <input id="enrollName" type="text" formControlName="name" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="enrollEmail">Email Address</label>
+              <input id="enrollEmail" type="email" formControlName="email" placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label for="enrollPhone">Phone Number</label>
+              <input id="enrollPhone" type="tel" formControlName="phone" placeholder="03xx-xxxxxxx" />
+            </div>
+            <div class="field">
+              <label for="enrollPassword">Password</label>
+              <input id="enrollPassword" type="password" formControlName="password" placeholder="At least 6 characters" />
+            </div>
+
+            @if (enrollError()) {
+              <p class="error-msg error-msg--banner">
+                <i class="pi pi-exclamation-triangle"></i> {{ enrollError() }}
+              </p>
+            }
+
+            <button type="submit" class="btn-primary" [disabled]="enrollSubmitting()">
+              @if (enrollSubmitting()) {
+                <i class="pi pi-spin pi-spinner"></i> Enrolling...
+              } @else {
+                <i class="pi pi-pencil"></i> Enroll Now
+              }
+            </button>
+          </form>
+        }
+      </div>
+    </div>
+  }
 } @else {
   <section class="section not-found">
     <div class="container-fhf">

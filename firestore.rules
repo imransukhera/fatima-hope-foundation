@@ -84,6 +84,26 @@ service cloud.firestore {
     }
 
     // ---------------------------------------------------------------------
+    // Course enrollments — anyone can enroll. Documents are readable only by
+    // their exact (unguessable) ID, never listable, so the enrolled learner's
+    // own browser can re-fetch their progress without exposing the whole
+    // collection (name/email/phone/password) to other visitors. Progress
+    // updates may only ever touch the completedModules field.
+    // ---------------------------------------------------------------------
+    match /enrollments/{docId} {
+      allow create: if request.resource.data.courseSlug is string
+        && request.resource.data.name is string
+        && request.resource.data.email is string
+        && request.resource.data.phone is string
+        && request.resource.data.password is string
+        && request.resource.data.completedModules == [];
+      allow get: if true;
+      allow list: if isAdmin();
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['completedModules']);
+      allow delete: if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------
     // Users — each user manages their own profile; admins manage all
     // ---------------------------------------------------------------------
     match /users/{userId} {

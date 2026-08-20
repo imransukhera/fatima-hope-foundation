@@ -5,6 +5,7 @@ import {
   BlogPost,
   CoreValue,
   CourseItem,
+  CourseModule,
   EventItem,
   GalleryItem,
   ProgramItem,
@@ -12,6 +13,416 @@ import {
   TestimonialItem,
   TimelineItem,
 } from '../models/content.models';
+
+const AI_CHATBOT_MODULES: CourseModule[] = [
+  {
+    id: 'lesson-1',
+    title: 'Lesson 1 — What Is an AI Chatbot?',
+    summary: 'Understand what a chatbot is, what Angular does (and doesn\'t do), and why we start with a mock AI service.',
+    objectives: [
+      'What an AI chatbot is',
+      'How a chatbot works',
+      'What Angular does in an AI chatbot',
+      'Difference between frontend and AI model',
+      'Why we are starting with a mock AI service',
+    ],
+    contentHtml: `
+      <h4>What Is a Chatbot?</h4>
+      <p>A chatbot is software that allows users to communicate with a computer using text or voice. For example:</p>
+      <pre><code>User: What is Angular?
+AI: Angular is a TypeScript-based framework used to build modern web applications.</code></pre>
+      <p>A simple chatbot flow looks like: <strong>User Input → Application → Processing → Response → User Interface.</strong> An AI chatbot adds an AI model to the processing stage.</p>
+
+      <h4>Is Angular the AI?</h4>
+      <p>No. Angular is the <strong>frontend framework</strong>. Angular creates the chat screen, input field, send button, messages, loading indicator, and chat history. The AI model generates the actual intelligent response.</p>
+      <p>A real application flow: <strong>Angular → Backend → AI Model → Backend → Angular.</strong></p>
+
+      <h4>Why Are We Not Using an API?</h4>
+      <p>Connecting a real API immediately can create unnecessary complexity — API keys, HTTP requests, authentication, backend, security, billing. Instead we build: <strong>Angular → Chat Service → Mock AI.</strong> Once you understand this architecture, connecting a real AI backend later becomes much easier.</p>
+
+      <h4>Lesson Exercise</h4>
+      <ul>
+        <li>What is an AI chatbot?</li>
+        <li>What is Angular responsible for?</li>
+        <li>Does Angular itself generate AI responses?</li>
+        <li>Why are we using a Mock AI Service?</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'lesson-2',
+    title: 'Lesson 2 — Angular Project Setup',
+    summary: 'Create the Angular project, generate the chat component and service, and organize the folder structure.',
+    objectives: [
+      'Create an Angular project',
+      'Start the development server',
+      'Create a chatbot component',
+      'Create a chatbot service',
+      'Organize the project',
+    ],
+    contentHtml: `
+      <h4>Step 1 — Create the Project</h4>
+      <pre><code>ng new ai-chatbot
+cd ai-chatbot
+ng serve</code></pre>
+      <p>Open <strong>http://localhost:4200</strong> in your browser.</p>
+
+      <h4>Step 2 — Create Chat Component</h4>
+      <pre><code>ng generate component components/chat
+# or
+ng g c components/chat</code></pre>
+
+      <h4>Step 3 — Create Chat Service</h4>
+      <pre><code>ng generate service services/chat
+# or
+ng g s services/chat</code></pre>
+
+      <h4>Recommended Structure</h4>
+      <pre><code>src/
+└── app/
+    ├── components/
+    │   └── chat/
+    │       ├── chat.component.ts
+    │       ├── chat.component.html
+    │       └── chat.component.scss
+    │
+    └── services/
+        └── chat.service.ts</code></pre>
+
+      <h4>Lesson Exercise</h4>
+      <p>Start the application and confirm it runs successfully at <code>localhost:4200</code>.</p>
+    `,
+  },
+  {
+    id: 'lesson-3',
+    title: 'Lesson 3 — Build the Chat Interface',
+    summary: 'Build the chat header, message list, input field and send button with a typed ChatMessage model.',
+    objectives: [
+      'Chat header, message area and input field',
+      'User vs. AI message styling',
+      'The ChatMessage model',
+    ],
+    contentHtml: `
+      <h4>Create the Message Model</h4>
+      <pre><code>interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}</code></pre>
+      <p>The <code>role</code> tells us who created the message — <code>'user'</code> or <code>'assistant'</code>.</p>
+
+      <h4>Component</h4>
+      <pre><code>import { Component } from '@angular/core';
+
+interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}
+
+@Component({
+  selector: 'app-chat',
+  templateUrl: './chat.component.html',
+  styleUrls: ['./chat.component.scss']
+})
+export class ChatComponent {
+  messages: ChatMessage[] = [];
+  userMessage = '';
+}</code></pre>
+
+      <h4>HTML</h4>
+      <pre><code>&lt;div class="chat-container"&gt;
+  &lt;div class="chat-header"&gt;
+    &lt;h2&gt;AI Chatbot&lt;/h2&gt;
+    &lt;p&gt;Ask me anything&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="chat-messages"&gt;
+    &lt;div
+      *ngFor="let message of messages"
+      class="message"
+      [class.user-message]="message.role === 'user'"
+      [class.ai-message]="message.role === 'assistant'"
+    &gt;
+      &lt;strong&gt;{{ message.role === 'user' ? 'You' : 'AI' }}&lt;/strong&gt;
+      &lt;p&gt;{{ message.content }}&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="chat-input"&gt;
+    &lt;input type="text" [(ngModel)]="userMessage" placeholder="Type your message..." /&gt;
+    &lt;button&gt;Send&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h4>Basic Styling</h4>
+      <pre><code>.chat-container { width: 100%; max-width: 800px; margin: 40px auto; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; }
+.chat-header { padding: 20px; text-align: center; }
+.chat-messages { min-height: 400px; padding: 20px; }
+.message { padding: 12px 16px; margin-bottom: 12px; border-radius: 12px; max-width: 75%; }
+.user-message { margin-left: auto; }
+.ai-message { margin-right: auto; }
+.chat-input { display: flex; padding: 15px; gap: 10px; }
+.chat-input input { flex: 1; padding: 12px; }</code></pre>
+
+      <p>At this point the Send button doesn't do anything yet — that's expected, we'll wire it up in the next lessons.</p>
+    `,
+  },
+  {
+    id: 'lesson-4',
+    title: 'Lesson 4 — Create a Mock AI Service',
+    summary: 'Build an Angular service with dependency injection that simulates AI responses using RxJS Observables.',
+    objectives: [
+      'What an Angular service is',
+      'How dependency injection works',
+      'How to simulate an AI response',
+      'How Observables work',
+    ],
+    contentHtml: `
+      <h4>chat.service.ts</h4>
+      <pre><code>import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
+@Injectable({ providedIn: 'root' })
+export class ChatService {
+
+  getAIResponse(message: string): Observable&lt;string&gt; {
+    const text = message.toLowerCase();
+
+    let response = 'I am a demo AI assistant. Please ask me about Angular, TypeScript, or AI.';
+
+    if (text.includes('hello') || text.includes('hi')) {
+      response = 'Hello! How can I help you today?';
+    } else if (text.includes('angular')) {
+      response = 'Angular is a TypeScript-based framework used to build modern web applications.';
+    } else if (text.includes('typescript')) {
+      response = 'TypeScript is a strongly typed programming language built on JavaScript.';
+    } else if (text.includes('ai')) {
+      response = 'AI stands for Artificial Intelligence. It enables computers to perform tasks that normally require human intelligence.';
+    } else if (text.includes('help')) {
+      response = 'Sure! Ask me a question about Angular, TypeScript, or AI.';
+    }
+
+    return of(response).pipe(delay(1000));
+  }
+}</code></pre>
+
+      <h4>How It Works</h4>
+      <p>If the user types <strong>Hello</strong>, the service returns <em>"Hello! How can I help you today?"</em>. If the user types <strong>What is Angular?</strong>, it returns the Angular explanation. The one-second delay simulates an AI server responding.</p>
+    `,
+  },
+  {
+    id: 'lesson-5',
+    title: 'Lesson 5 — Send User Messages',
+    summary: 'Capture and validate input, push messages into the array, and call the chat service from the component.',
+    objectives: [
+      'How to capture input',
+      'How to validate input',
+      'How to add messages to an array',
+      'How to call an Angular service',
+    ],
+    contentHtml: `
+      <h4>Import and Inject the Service</h4>
+      <pre><code>import { ChatService } from '../../services/chat.service';
+
+constructor(private chatService: ChatService) {}</code></pre>
+
+      <h4>Create sendMessage()</h4>
+      <pre><code>sendMessage(): void {
+  if (!this.userMessage.trim()) {
+    return;
+  }
+
+  const message = this.userMessage.trim();
+
+  this.messages.push({
+    role: 'user',
+    content: message,
+    timestamp: new Date()
+  });
+
+  this.userMessage = '';
+
+  this.chatService.getAIResponse(message).subscribe(response =&gt; {
+    this.messages.push({
+      role: 'assistant',
+      content: response,
+      timestamp: new Date()
+    });
+  });
+}</code></pre>
+
+      <h4>Connect the Button</h4>
+      <pre><code>&lt;button (click)="sendMessage()"&gt;Send&lt;/button&gt;</code></pre>
+
+      <p>The complete flow now works: <strong>User types message → Click Send → sendMessage() → User message added → ChatService called → AI response returned → AI message displayed.</strong></p>
+    `,
+  },
+  {
+    id: 'lesson-6',
+    title: 'Lesson 6 — Display AI Responses',
+    summary: 'Render the messages array in the template and style user vs. AI bubbles.',
+    objectives: [
+      'How *ngFor renders the messages array',
+      'Styling user vs. AI message bubbles',
+    ],
+    contentHtml: `
+      <p>Messages are stored in <code>messages: ChatMessage[] = []</code> and rendered with <code>*ngFor="let message of messages"</code>. For example, given:</p>
+      <pre><code>[
+  { role: 'user', content: 'What is Angular?', timestamp: new Date() },
+  { role: 'assistant', content: 'Angular is a web framework.', timestamp: new Date() }
+]</code></pre>
+      <p>Angular displays each message as a "You" or "AI" bubble in order.</p>
+
+      <h4>User and AI Styling</h4>
+      <pre><code>.message { padding: 12px 16px; margin-bottom: 12px; border-radius: 12px; max-width: 75%; }
+.user-message { margin-left: auto; background: #2563eb; color: white; }
+.ai-message { margin-right: auto; background: #f1f5f9; color: #111827; }</code></pre>
+    `,
+  },
+  {
+    id: 'lesson-7',
+    title: 'Lesson 7 — Add Loading States',
+    summary: 'Add an isLoading flag so users get immediate feedback while the AI "thinks".',
+    objectives: [
+      'Why loading feedback matters',
+      'Tracking an isLoading flag',
+      'Showing a "thinking" indicator',
+    ],
+    contentHtml: `
+      <p>AI responses take time. Without a loading state, users may wonder if the chatbot received their message. We solve this with an <code>isLoading</code> flag.</p>
+
+      <h4>Updated sendMessage()</h4>
+      <pre><code>sendMessage(): void {
+  if (!this.userMessage.trim() || this.isLoading) {
+    return;
+  }
+
+  const message = this.userMessage.trim();
+
+  this.messages.push({ role: 'user', content: message, timestamp: new Date() });
+  this.userMessage = '';
+  this.isLoading = true;
+
+  this.chatService.getAIResponse(message).subscribe({
+    next: (response) =&gt; {
+      this.messages.push({ role: 'assistant', content: response, timestamp: new Date() });
+      this.isLoading = false;
+    },
+    error: () =&gt; {
+      this.isLoading = false;
+    }
+  });
+}</code></pre>
+
+      <h4>Display Loading</h4>
+      <pre><code>&lt;div *ngIf="isLoading" class="message ai-message"&gt;
+  AI is thinking...
+&lt;/div&gt;</code></pre>
+    `,
+  },
+  {
+    id: 'lesson-8',
+    title: 'Lesson 8 — Error Handling',
+    summary: 'Handle failures gracefully with the RxJS error callback and a friendly fallback message.',
+    objectives: [
+      'Why production apps need error handling',
+      'Using the RxJS subscribe error callback',
+      'Showing a friendly fallback message',
+    ],
+    contentHtml: `
+      <p>A production application should never assume everything will work — network errors, server errors, invalid responses, API errors, and authentication errors can all happen. Even though our current service is local, we implement error handling now:</p>
+      <pre><code>this.chatService.getAIResponse(message).subscribe({
+  next: (response) =&gt; {
+    this.messages.push({ role: 'assistant', content: response, timestamp: new Date() });
+    this.isLoading = false;
+  },
+  error: () =&gt; {
+    this.messages.push({
+      role: 'assistant',
+      content: 'Sorry, something went wrong. Please try again.',
+      timestamp: new Date()
+    });
+    this.isLoading = false;
+  }
+});</code></pre>
+      <p>This gives the user a friendly fallback message instead of a silent failure.</p>
+    `,
+  },
+  {
+    id: 'lesson-9',
+    title: 'Lesson 9 — Chat History',
+    summary: 'Persist conversations across refreshes using browser localStorage, plus a "New Chat" reset.',
+    objectives: [
+      'Saving messages to localStorage',
+      'Loading messages on ngOnInit',
+      'Resetting the conversation with New Chat',
+    ],
+    contentHtml: `
+      <h4>The Problem</h4>
+      <p>Refresh the browser and your conversation disappears. We solve this using browser <code>localStorage</code>.</p>
+
+      <h4>Save Messages</h4>
+      <pre><code>saveMessages(): void {
+  localStorage.setItem('chat_messages', JSON.stringify(this.messages));
+}</code></pre>
+      <p>Call it whenever the conversation changes.</p>
+
+      <h4>Load Messages</h4>
+      <pre><code>loadMessages(): void {
+  const savedMessages = localStorage.getItem('chat_messages');
+  if (savedMessages) {
+    this.messages = JSON.parse(savedMessages);
+  }
+}
+
+ngOnInit(): void {
+  this.loadMessages();
+}</code></pre>
+
+      <h4>New Chat</h4>
+      <pre><code>&lt;button (click)="newChat()"&gt;New Chat&lt;/button&gt;</code></pre>
+      <pre><code>newChat(): void {
+  this.messages = [];
+  localStorage.removeItem('chat_messages');
+}</code></pre>
+      <p>Now the chatbot supports: <strong>Previous conversation → Browser refresh → Conversation restored.</strong></p>
+    `,
+  },
+  {
+    id: 'lesson-10',
+    title: 'Lesson 10 — Deploy the Angular Chatbot',
+    summary: 'Build for production, deploy it, and learn the golden rule for handling real AI API keys securely.',
+    objectives: [
+      'Creating a production build',
+      'Deployment options',
+      'Why secret API keys never belong in Angular',
+    ],
+    contentHtml: `
+      <h4>Create Production Build</h4>
+      <pre><code>ng build</code></pre>
+      <p>Angular generates production files inside <code>dist/</code>, ready to deploy.</p>
+
+      <h4>Deployment Options</h4>
+      <ul>
+        <li>Firebase Hosting</li>
+        <li>Netlify</li>
+        <li>Vercel</li>
+        <li>GitHub Pages</li>
+        <li>Your own web server</li>
+      </ul>
+
+      <h4>Important Security Lesson</h4>
+      <p>When you eventually connect a real AI API, <strong>never</strong> put secret API keys directly into Angular:</p>
+      <pre><code>const API_KEY = 'YOUR_SECRET_API_KEY'; // Never do this</code></pre>
+      <p>Angular runs in the user's browser, so frontend JavaScript can always be inspected. Instead, route requests through your own backend: <strong>Angular → Your Backend → AI Provider → Your Backend → Angular.</strong> The backend should securely manage the AI API credentials.</p>
+
+      <h4>Final Project</h4>
+      <p>Your finished application now supports: user messages, AI responses, mock AI logic, a polished chat UI, loading state, error handling, chat history, New Chat, a responsive interface, and a production build. Congratulations — you've completed <strong>Build an AI Chatbot With Angular</strong>!</p>
+    `,
+  },
+];
 
 export const SEED_STATS: StatItem[] = [
   { 
@@ -151,48 +562,6 @@ export const SEED_PROGRAMS: ProgramItem[] = [
 
 export const SEED_COURSES: CourseItem[] = [
   {
-    id: 'basic-computer-literacy',
-    slug: 'basic-computer-literacy',
-    title: 'Basic Computer Literacy',
-    summary: 'Foundational computer and internet skills for beginners.',
-    description:
-      'This course covers essential computer skills — typing, using the internet, email and common office applications — to help students and job seekers build confidence with everyday technology.',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
-    icon: 'pi pi-desktop',
-    instructor: 'Ayesha Khan',
-    duration: '6 weeks',
-    level: 'Beginner',
-    seatsAvailable: 25,
-  },
-  {
-    id: 'tailoring-fashion-design',
-    slug: 'tailoring-fashion-design',
-    title: 'Tailoring & Fashion Design',
-    summary: 'Hands-on stitching and design skills for a sustainable livelihood.',
-    description:
-      'Students learn pattern-making, cutting and stitching techniques, preparing them to start their own tailoring business or find employment in the garment industry.',
-    image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1200&q=80',
-    icon: 'pi pi-palette',
-    instructor: 'Sadia Malik',
-    duration: '10 weeks',
-    level: 'Beginner',
-    seatsAvailable: 20,
-  },
-  {
-    id: 'spoken-english',
-    slug: 'spoken-english',
-    title: 'Spoken English',
-    summary: 'Practical English speaking and communication skills.',
-    description:
-      'A conversation-focused English course designed to build fluency and confidence for the workplace, higher education and everyday communication.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80',
-    icon: 'pi pi-comments',
-    instructor: 'Bilal Ahmed',
-    duration: '8 weeks',
-    level: 'Beginner',
-    seatsAvailable: 30,
-  },
-  {
     id: 'build-ai-chatbot-with-angular',
     slug: 'build-ai-chatbot-with-angular',
     title: 'Build an AI Chatbot With Angular — Complete Beginner Course',
@@ -205,6 +574,7 @@ export const SEED_COURSES: CourseItem[] = [
     duration: '4 weeks',
     level: 'Beginner',
     seatsAvailable: 30,
+    modules: AI_CHATBOT_MODULES,
   },
 ];
 

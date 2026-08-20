@@ -31,6 +31,14 @@ export interface ProgramItem {
   gallery?: ProgramGalleryImage[];
 }
 
+export interface CourseModule {
+  id: string;
+  title: string;
+  summary: string;
+  objectives?: string[];
+  contentHtml: string;
+}
+
 export interface CourseItem {
   id: string;
   slug: string;
@@ -43,6 +51,18 @@ export interface CourseItem {
   duration: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   seatsAvailable: number;
+  modules?: CourseModule[];
+}
+
+export interface Enrollment {
+  id?: string;
+  courseSlug: string;
+  name: string;
+  email: string;
+  phone: string;
+  password: string;
+  completedModules: string[];
+  createdAt?: unknown;
 }
 
 export interface TimelineItem {
