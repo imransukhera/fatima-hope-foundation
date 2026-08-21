@@ -33,14 +33,14 @@ export class Contact implements OnInit {
   private readonly sanitizer = inject(DomSanitizer);
 
   protected readonly mapUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    'https://www.google.com/maps?q=Karachi,Pakistan&output=embed',
+    'https://www.google.com/maps?q=Marot,+Fort+Abbas,+Bahawalnagar,+Punjab,+Pakistan&output=embed',
   );
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'Contact Us',
+      title: 'Contact Us | Fort Abbas, Bahawalnagar',
       description:
-        'Get in touch with Fatima Hope Foundation — call, WhatsApp, email or send us a message directly.',
+        'Connect with Fatima Hope Foundation in Fort Abbas, Bahawalnagar. Contact us for donations, social welfare programs, partnerships, or volunteering.',
       path: '/contact',
     });
 
@@ -63,6 +63,14 @@ export class Contact implements OnInit {
           telephone: `+${this.contact.whatsapp}`,
           email: this.contact.email,
           areaServed: 'PK',
+          availableLanguage: ['Urdu', 'English'],
+        },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Marot, Tehsil Fort Abbas',
+          addressLocality: 'Bahawalnagar',
+          addressRegion: 'Punjab',
+          addressCountry: 'PK',
         },
       },
     });
