@@ -150,23 +150,35 @@ firebase emulators:start
 
 ## Deployment guide
 
+All pages (including `blog/:slug`, `programs/:slug`, `courses/:slug`, and the donate
+flow) are prerendered to static HTML at build time — see `src/app/app.routes.server.ts`.
+Hosting serves that output directly; no SSR Cloud Function is involved in page rendering,
+so a hosting-only deploy works even on the free Spark plan. A post/program/course added
+only through Firestore (not `seed-data.ts`) needs a rebuild + redeploy before its detail
+page exists.
+
 1. **Build the Angular app** (from repo root):
    ```bash
    npm run build
    ```
-2. **Build the functions**:
+2. **Deploy Hosting** (static files only — no billing plan required):
    ```bash
-   cd functions && npm install && npm run build && cd ..
+   firebase deploy --only hosting
    ```
-3. **Deploy everything**:
-   ```bash
-   firebase deploy
-   ```
-   This deploys Hosting (rewriting all requests to the `ssr` Cloud Function for
-   server-side rendering), the `createCheckoutSession` / `stripeWebhook` / `setAdminRole`
-   functions, and the Firestore/Storage security rules.
-4. Point your domain (`fatimahopefoundation.com`) at the Firebase Hosting site in Firebase
+3. Point your domain (`fatimahopefoundation.com`) at the Firebase Hosting site in Firebase
    Console → Hosting → Add custom domain.
+
+### Deploying the backend functions (requires the Blaze plan)
+
+The `createCheckoutSession`, `stripeWebhook`, and `setAdminRole` functions handle live
+Stripe checkout, payment webhooks, and admin role assignment — these need a real backend
+and can't be made static. Cloud Functions (2nd gen) requires the Blaze (pay-as-you-go)
+plan to deploy, even though it has a free usage tier.
+
+```bash
+cd functions && npm install && npm run build && cd ..
+firebase deploy --only functions,firestore:rules,firestore:indexes
+```
 
 Deploying is a real, external, billable action — review the Firebase project and Stripe
 mode (test vs. live) before running `firebase deploy` against production.

@@ -7,10 +7,7 @@
     "rewrites": [
       {
         "source": "**",
-        "function": {
-          "functionId": "ssr",
-          "region": "us-central1"
-        }
+        "destination": "/index.csr.html"
       }
     ],
     "headers": [

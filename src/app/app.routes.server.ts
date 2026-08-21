@@ -1,15 +1,40 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
+import { SEED_BLOG, SEED_COURSES, SEED_PROGRAMS } from './core/data/seed-data';
 
 export const serverRoutes: ServerRoute[] = [
-  // Dynamic routes are rendered per-request — their params aren't known at build time.
-  { path: 'programs/:slug', renderMode: RenderMode.Server },
-  { path: 'courses/:slug', renderMode: RenderMode.Server },
-  { path: 'blog/:slug', renderMode: RenderMode.Server },
-  // Donation flow reads live query params (Stripe session) and writes to Firestore —
-  // always render on the server rather than serving a stale prerendered snapshot.
-  { path: 'donate', renderMode: RenderMode.Server },
-  { path: 'donate/success', renderMode: RenderMode.Server },
-  { path: 'donate/cancel', renderMode: RenderMode.Server },
+  // Prerendered from seed data at build time so these pages are served as plain static
+  // files by Hosting — no live Cloud Function needed on request. A post/program/course
+  // added only through Firestore (not seed-data.ts) needs a rebuild + hosting redeploy
+  // before its detail page exists; that's a deliberate trade-off to avoid depending on
+  // the Blaze-only `ssr` function for content that rarely changes.
+  {
+    path: 'programs/:slug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return SEED_PROGRAMS.map((program) => ({ slug: program.slug }));
+    },
+  },
+  {
+    path: 'courses/:slug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return SEED_COURSES.map((course) => ({ slug: course.slug }));
+    },
+  },
+  {
+    path: 'blog/:slug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return SEED_BLOG.map((post) => ({ slug: post.slug }));
+    },
+  },
+  // The Stripe session id / donation outcome is read from the URL client-side after
+  // hydration, same as any prerendered page — no server-side rendering is needed here.
+  // The actual checkout/webhook logic lives in Cloud Functions called directly by URL,
+  // not through page rendering.
+  { path: 'donate', renderMode: RenderMode.Prerender },
+  { path: 'donate/success', renderMode: RenderMode.Prerender },
+  { path: 'donate/cancel', renderMode: RenderMode.Prerender },
   // Everything else (Home, About, Programs, Impact, Gallery, Events, Blog, Volunteer,
   // Contact, Admin, 404) is static enough to prerender at build time.
   { path: '**', renderMode: RenderMode.Prerender },
