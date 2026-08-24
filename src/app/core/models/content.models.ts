@@ -82,6 +82,35 @@ export interface Enrollment {
   createdAt?: unknown;
 }
 
+export interface TemplateCategory {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  swatch: string;
+  /** Categories with no items yet render as a disabled "Coming Soon" card. */
+  status: 'available' | 'coming-soon';
+}
+
+export interface TemplateItem {
+  id: string;
+  slug: string;
+  /** Slug of the TemplateCategory this item belongs to, e.g. 'login-pages'. */
+  categorySlug: string;
+  title: string;
+  category: string;
+  summary: string;
+  description: string;
+  /** CSS background (solid color or gradient) used for the card/hero preview swatch — no photography needed. */
+  swatch: string;
+  icon: string;
+  /** Path to the static HTML/CSS preview file, served from the public/ assets folder. */
+  previewUrl: string;
+  tags?: string[];
+  seoTitle?: string;
+  metaDescription?: string;
+}
+
 export interface TimelineItem {
   year: string;
   title: string;

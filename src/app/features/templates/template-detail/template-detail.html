@@ -1,0 +1,76 @@
+@if (template(); as t) {
+  <section class="detail-hero" [style.background]="t.swatch">
+    <div class="detail-hero-overlay"></div>
+    <div class="container-fhf detail-hero-content">
+      <a [routerLink]="['/templates', t.categorySlug]" class="back-link"><i class="pi pi-arrow-left"></i> Back to {{ t.category }}s</a>
+      <span class="detail-icon"><i [class]="t.icon"></i></span>
+      <span class="detail-category">{{ t.category }}</span>
+      <h1 class="font-display">{{ t.title }}</h1>
+      <p>{{ t.summary }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-fhf detail-grid">
+      <div class="detail-body" [appScrollReveal]="0">
+        <h2>About This Template</h2>
+        <p>{{ t.description }}</p>
+
+        <div class="template-facts card-surface">
+          <div>
+            <i class="pi pi-tag"></i>
+            <div>
+              <strong>{{ t.category }}</strong>
+              <span>Category</span>
+            </div>
+          </div>
+          <div>
+            <i class="pi pi-code"></i>
+            <div>
+              <strong>HTML &amp; CSS</strong>
+              <span>Format</span>
+            </div>
+          </div>
+        </div>
+
+        @if (t.tags && t.tags.length > 0) {
+          <div class="template-tags">
+            @for (tag of t.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+        }
+
+        <a [href]="t.previewUrl" target="_blank" rel="noopener" class="btn-primary open-preview">
+          <i class="pi pi-external-link"></i> Open Full Preview
+        </a>
+
+        <div class="preview-frame-wrap" [appScrollReveal]="50">
+          <div class="preview-frame-bar">
+            <span></span><span></span><span></span>
+            <a [href]="t.previewUrl" target="_blank" rel="noopener">{{ t.previewUrl }}</a>
+          </div>
+          <iframe [src]="previewSrc()" title="Live preview of {{ t.title }}" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar" [appScrollReveal]="100">
+        <h3>Other Templates</h3>
+        @for (other of otherTemplates(); track other.id) {
+          <a class="sidebar-card" [routerLink]="['/templates', other.categorySlug, other.slug]">
+            <span class="sidebar-swatch" [style.background]="other.swatch"><i [class]="other.icon"></i></span>
+            <span>{{ other.title }}</span>
+          </a>
+        }
+      </aside>
+    </div>
+  </section>
+} @else {
+  <section class="section not-found">
+    <div class="container-fhf">
+      <h1>Template Not Found</h1>
+      <p>We couldn't find the template you're looking for.</p>
+      <a routerLink="/templates" class="btn-primary">Browse All Templates</a>
+    </div>
+  </section>
+}

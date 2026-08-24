@@ -1,0 +1,48 @@
+<!-- Templates Hero Section -->
+<section class="page-hero" aria-label="Module Templates Library">
+  <div class="container-fhf">
+    <span class="eyebrow">Design Library</span>
+
+    <h1 class="font-display">Module Templates</h1>
+
+    <p>
+      A growing library of reusable HTML &amp; CSS page templates. Pick a template type below to
+      browse its styles.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-fhf categories-grid">
+    @for (category of templatesService.categories(); track category.slug; let i = $index) {
+      @if (category.status === 'available') {
+        <a
+          class="category-card card-surface"
+          [routerLink]="['/templates', category.slug]"
+          [appScrollReveal]="i * 100"
+        >
+          <div class="category-swatch" [style.background]="category.swatch">
+            <span class="category-icon"><i [class]="category.icon"></i></span>
+          </div>
+          <div class="category-body">
+            <h2>{{ category.title }}</h2>
+            <p>{{ category.description }}</p>
+            <span class="category-count">{{ itemCount(category.slug) }} styles</span>
+            <span class="category-link">Browse Styles <i class="pi pi-arrow-right"></i></span>
+          </div>
+        </a>
+      } @else {
+        <div class="category-card category-card--disabled card-surface" [appScrollReveal]="i * 100">
+          <div class="category-swatch" [style.background]="category.swatch">
+            <span class="category-icon"><i [class]="category.icon"></i></span>
+          </div>
+          <div class="category-body">
+            <h2>{{ category.title }}</h2>
+            <p>{{ category.description }}</p>
+            <span class="category-badge">Coming Soon</span>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</section>

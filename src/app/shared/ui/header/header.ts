@@ -31,6 +31,7 @@ export class Header {
     // { label: 'Events', path: '/events' },
     { label: 'Blog', path: '/blog' },
     { label: 'Contact', path: '/contact' },
+    { label: 'Templates', path: '/templates' },
   ];
 
   private readonly platformId = inject(PLATFORM_ID);

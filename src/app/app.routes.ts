@@ -28,6 +28,22 @@ export const routes: Routes = [
       import('./features/courses/course-detail/course-detail').then((m) => m.CourseDetail),
   },
   {
+    path: 'templates',
+    loadComponent: () => import('./features/templates/templates').then((m) => m.Templates),
+  },
+  {
+    path: 'templates/:category',
+    loadComponent: () =>
+      import('./features/templates/template-category/template-category').then(
+        (m) => m.TemplateCategoryPage,
+      ),
+  },
+  {
+    path: 'templates/:category/:slug',
+    loadComponent: () =>
+      import('./features/templates/template-detail/template-detail').then((m) => m.TemplateDetail),
+  },
+  {
     path: 'impact',
     loadComponent: () => import('./features/impact/impact').then((m) => m.Impact),
   },

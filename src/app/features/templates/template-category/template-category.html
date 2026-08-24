@@ -1,0 +1,57 @@
+@if (category(); as cat) {
+  @if (items().length > 0) {
+    <section class="page-hero" [attr.aria-label]="cat.title">
+      <div class="container-fhf">
+        <a routerLink="/templates" class="back-link"><i class="pi pi-arrow-left"></i> All Templates</a>
+        <span class="eyebrow">Design Library</span>
+        <h1 class="font-display">{{ cat.title }}</h1>
+        <p>{{ cat.description }}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-fhf templates-grid">
+        @for (template of items(); track template.id; let i = $index) {
+          <article class="template-card card-surface" [appScrollReveal]="(i % 3) * 100">
+            <div class="template-swatch" [style.background]="template.swatch">
+              <span class="template-icon"><i [class]="template.icon"></i></span>
+            </div>
+            <div class="template-body">
+              <span class="template-category">{{ template.category }}</span>
+              <h2>{{ template.title }}</h2>
+              <p>{{ template.summary }}</p>
+
+              @if (template.tags && template.tags.length > 0) {
+                <div class="template-tags">
+                  @for (tag of template.tags; track tag) {
+                    <span class="tag">{{ tag }}</span>
+                  }
+                </div>
+              }
+
+              <a [routerLink]="['/templates', cat.slug, template.slug]" class="template-link">
+                View Template <i class="pi pi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  } @else {
+    <section class="section not-found">
+      <div class="container-fhf">
+        <h1>{{ cat.title }} — Coming Soon</h1>
+        <p>{{ cat.description }}</p>
+        <a routerLink="/templates" class="btn-primary">Browse All Templates</a>
+      </div>
+    </section>
+  }
+} @else {
+  <section class="section not-found">
+    <div class="container-fhf">
+      <h1>Category Not Found</h1>
+      <p>We couldn't find the template category you're looking for.</p>
+      <a routerLink="/templates" class="btn-primary">Browse All Templates</a>
+    </div>
+  </section>
+}

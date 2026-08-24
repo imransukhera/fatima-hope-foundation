@@ -10,6 +10,8 @@ import {
   GalleryItem,
   ProgramItem,
   StatItem,
+  TemplateCategory,
+  TemplateItem,
   TestimonialItem,
   TimelineItem,
 } from '../models/content.models';
@@ -633,6 +635,168 @@ export const SEED_COURSES: CourseItem[] = [
 ];
 
 
+
+export const SEED_TEMPLATE_CATEGORIES: TemplateCategory[] = [
+  {
+    slug: 'login-pages',
+    title: 'Login Page Designs',
+    description: '10 distinct HTML & CSS login page styles — minimal, glass, dark neon, brutalist and more.',
+    icon: 'pi pi-sign-in',
+    swatch: 'linear-gradient(135deg, #0F6A44, #15925E)',
+    status: 'available',
+  },
+  {
+    slug: 'dashboards',
+    title: 'Dashboards',
+    description: 'Admin & analytics dashboard layouts — coming in a future update.',
+    icon: 'pi pi-chart-bar',
+    swatch: 'linear-gradient(135deg, #6B7280, #9CA3AF)',
+    status: 'coming-soon',
+  },
+];
+
+export const SEED_TEMPLATES: TemplateItem[] = [
+  {
+    id: 'login-minimal-clean',
+    slug: 'minimal-clean',
+    title: 'Minimal Clean',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'A simple centered card with a neutral palette and subtle shadow.',
+    description:
+      'A clean, distraction-free login screen: a centered white card, thin borders, a single accent button and clear typographic hierarchy. Works well for admin panels, dashboards, and any product that wants to stay out of the way of the task at hand.',
+    swatch: 'linear-gradient(135deg, #111827, #374151)',
+    icon: 'pi pi-user',
+    previewUrl: '/templates/login-pages/01-minimal-clean/index.html',
+    tags: ['Minimal', 'Neutral', 'Light'],
+  },
+  {
+    id: 'login-glassmorphism',
+    slug: 'glassmorphism',
+    title: 'Glassmorphism',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'A frosted-glass card floating over a vivid gradient backdrop.',
+    description:
+      'Uses backdrop-filter blur on a semi-transparent card over a purple-to-coral gradient, with soft floating blob shapes behind it. A modern, premium look suited to consumer apps and SaaS marketing sites.',
+    swatch: 'linear-gradient(135deg, #6a5cff, #b06ab3, #ff8f8f)',
+    icon: 'pi pi-sparkles',
+    previewUrl: '/templates/login-pages/02-glassmorphism/index.html',
+    tags: ['Glass', 'Gradient', 'Modern'],
+  },
+  {
+    id: 'login-neumorphism',
+    slug: 'neumorphism',
+    title: 'Neumorphism',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'Soft, embossed "soft UI" controls using dual-tone shadows.',
+    description:
+      'A monochrome soft-UI style where every input and button appears pressed into or raised out of the background using paired light/dark box-shadows. Distinctive and tactile, best used sparingly for accessibility.',
+    swatch: 'linear-gradient(135deg, #e6e9ef, #c9d0dc)',
+    icon: 'pi pi-circle',
+    previewUrl: '/templates/login-pages/03-neumorphism/index.html',
+    tags: ['Soft UI', 'Monochrome'],
+  },
+  {
+    id: 'login-dark-neon',
+    slug: 'dark-neon',
+    title: 'Dark Neon',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'A dark glass card with violet-to-cyan neon glow accents.',
+    description:
+      'Deep near-black background with blurred violet and cyan glow blobs, a frosted dark card, and a neon gradient button. Suited to developer tools, gaming, and tech-forward products.',
+    swatch: 'linear-gradient(135deg, #8b5cf6, #22d3ee)',
+    icon: 'pi pi-bolt',
+    previewUrl: '/templates/login-pages/04-dark-neon/index.html',
+    tags: ['Dark Mode', 'Neon', 'Gradient'],
+  },
+  {
+    id: 'login-split-screen',
+    slug: 'split-screen',
+    title: 'Split Screen',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'A full-height brand panel beside a plain white sign-in form.',
+    description:
+      'The left half is a gradient brand panel with a headline and decorative shapes; the right half is a plain white form panel. Reads as more premium and marketing-forward than a single centered card, and stacks to one column on mobile.',
+    swatch: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
+    icon: 'pi pi-table',
+    previewUrl: '/templates/login-pages/05-split-screen/index.html',
+    tags: ['Two-column', 'Marketing', 'Responsive'],
+  },
+  {
+    id: 'login-material',
+    slug: 'material-design',
+    title: 'Material Design',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'Google Material-inspired elevation, filled inputs and floating labels.',
+    description:
+      'Follows Material Design conventions: elevated white card, filled inputs with animated floating labels, an uppercase filled button, and Roboto-style type. Familiar to Android and Google-ecosystem users.',
+    swatch: '#1a73e8',
+    icon: 'pi pi-android',
+    previewUrl: '/templates/login-pages/06-material/index.html',
+    tags: ['Material', 'Google', 'Familiar'],
+  },
+  {
+    id: 'login-brutalist',
+    slug: 'brutalist-retro',
+    title: 'Brutalist / Retro',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'Thick black borders, offset drop shadows and monospace type.',
+    description:
+      'A bold, unapologetic style: thick black borders, hard offset shadows, a bright yellow backdrop and monospace type. Great for portfolios, indie tools, and anything that wants to stand out from typical SaaS design.',
+    swatch: '#ffde59',
+    icon: 'pi pi-stop',
+    previewUrl: '/templates/login-pages/07-brutalist/index.html',
+    tags: ['Brutalist', 'Retro', 'Bold'],
+  },
+  {
+    id: 'login-foundation-brand',
+    slug: 'foundation-brand',
+    title: 'Foundation Brand',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: "Uses the site's own green-and-gold palette for a consistent, on-brand feel.",
+    description:
+      'Built directly from the Fatima Hope Foundation design tokens (--color-primary green and --color-secondary gold), this style matches the rest of the site exactly and is the natural default if a real login page is ever added to the app.',
+    swatch: 'linear-gradient(135deg, #0F6A44, #D4AF37)',
+    icon: 'pi pi-heart-fill',
+    previewUrl: '/templates/login-pages/08-foundation-brand/index.html',
+    tags: ['On-brand', 'Green', 'Gold'],
+  },
+  {
+    id: 'login-animated-gradient',
+    slug: 'animated-gradient',
+    title: 'Animated Gradient',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'A slow, continuously shifting full-page gradient with a floating card.',
+    description:
+      'A CSS keyframe animation slowly cycles the background through warm-to-cool tones, while the glass card gently floats up and down. Eye-catching for a landing/marketing-style sign-in without needing any JavaScript.',
+    swatch: 'linear-gradient(135deg, #ff5f6d, #ffc371, #24c6dc, #514a9d)',
+    icon: 'pi pi-sun',
+    previewUrl: '/templates/login-pages/09-animated-gradient/index.html',
+    tags: ['Animated', 'Gradient', 'CSS-only'],
+  },
+  {
+    id: 'login-pastel-illustration',
+    slug: 'pastel-illustration',
+    title: 'Pastel Illustration',
+    categorySlug: 'login-pages',
+    category: 'Login Page',
+    summary: 'Friendly pastel blob shapes behind a rounded, playful card.',
+    description:
+      'Soft pastel pink, mint and peach blobs sit behind a large rounded white card with playful copy and an emoji-driven submit button. A friendly, approachable tone suited to community, education or wellness products.',
+    swatch: 'linear-gradient(135deg, #ffd6e8, #c9f0e0, #ffe9b3)',
+    icon: 'pi pi-heart',
+    previewUrl: '/templates/login-pages/10-pastel-illustration/index.html',
+    tags: ['Pastel', 'Playful', 'Rounded'],
+  },
+];
 
 export const SEED_TIMELINE: TimelineItem[] = [
   { 

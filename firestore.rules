@@ -26,6 +26,11 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    match /templates/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
     match /gallery/{docId} {
       allow read: if true;
       allow write: if isAdmin();
