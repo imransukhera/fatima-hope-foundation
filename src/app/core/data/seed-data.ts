@@ -639,16 +639,16 @@ export const SEED_COURSES: CourseItem[] = [
 export const SEED_TEMPLATE_CATEGORIES: TemplateCategory[] = [
   {
     slug: 'login-pages',
-    title: 'Login Page Designs',
-    description: '10 distinct HTML & CSS login page styles — minimal, glass, dark neon, brutalist and more.',
+    title: 'Free HTML & CSS Login Page Templates',
+    description: 'Explore 10 responsive, modern HTML & CSS login page designs including minimal, glassmorphism, dark neon, and brutalist styles.',
     icon: 'pi pi-sign-in',
     swatch: 'linear-gradient(135deg, #0F6A44, #15925E)',
     status: 'available',
   },
   {
     slug: 'dashboards',
-    title: 'Dashboards',
-    description: 'Admin & analytics dashboard layouts — coming in a future update.',
+    title: 'Admin & Analytics Dashboard Templates',
+    description: 'Responsive HTML, CSS & TypeScript admin dashboard layouts and analytics template designs — coming soon.',
     icon: 'pi pi-chart-bar',
     swatch: 'linear-gradient(135deg, #6B7280, #9CA3AF)',
     status: 'coming-soon',
@@ -669,6 +669,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-user',
     previewUrl: '/templates/login-pages/01-minimal-clean/index.html',
     tags: ['Minimal', 'Neutral', 'Light'],
+    seoTitle: 'Minimal Clean Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free minimal login page template built with plain HTML & CSS: a centered white card, thin borders and a single accent button. Copy the code and use it in any project.',
   },
   {
     id: 'login-glassmorphism',
@@ -683,6 +686,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-sparkles',
     previewUrl: '/templates/login-pages/02-glassmorphism/index.html',
     tags: ['Glass', 'Gradient', 'Modern'],
+    seoTitle: 'Glassmorphism Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free glassmorphism login page template with a frosted-glass card, backdrop blur and a vivid gradient backdrop. Pure HTML & CSS, ready to copy for SaaS and consumer apps.',
   },
   {
     id: 'login-neumorphism',
@@ -697,6 +703,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-circle',
     previewUrl: '/templates/login-pages/03-neumorphism/index.html',
     tags: ['Soft UI', 'Monochrome'],
+    seoTitle: 'Neumorphism Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free neumorphic (soft UI) login page template with embossed, dual-shadow inputs and buttons. Monochrome HTML & CSS code you can copy and customize.',
   },
   {
     id: 'login-dark-neon',
@@ -711,6 +720,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-bolt',
     previewUrl: '/templates/login-pages/04-dark-neon/index.html',
     tags: ['Dark Mode', 'Neon', 'Gradient'],
+    seoTitle: 'Dark Neon Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free dark-mode neon login page template with violet-to-cyan glow accents and a frosted dark card. Free HTML & CSS code for developer tools and gaming sites.',
   },
   {
     id: 'login-split-screen',
@@ -725,6 +737,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-table',
     previewUrl: '/templates/login-pages/05-split-screen/index.html',
     tags: ['Two-column', 'Marketing', 'Responsive'],
+    seoTitle: 'Split Screen Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free split-screen login page template: a gradient brand panel beside a plain sign-in form. Responsive HTML & CSS code, ready to copy for marketing sites.',
   },
   {
     id: 'login-material',
@@ -739,6 +754,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-android',
     previewUrl: '/templates/login-pages/06-material/index.html',
     tags: ['Material', 'Google', 'Familiar'],
+    seoTitle: 'Material Design Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free Material Design login page template with elevated card, filled inputs and floating labels. Free HTML & CSS code following Google Material conventions.',
   },
   {
     id: 'login-brutalist',
@@ -753,6 +771,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-stop',
     previewUrl: '/templates/login-pages/07-brutalist/index.html',
     tags: ['Brutalist', 'Retro', 'Bold'],
+    seoTitle: 'Brutalist Retro Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free brutalist login page template with thick black borders, offset drop shadows and monospace type. Bold, free HTML & CSS code for portfolios and indie tools.',
   },
   {
     id: 'login-foundation-brand',
@@ -767,6 +788,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-heart-fill',
     previewUrl: '/templates/login-pages/08-foundation-brand/index.html',
     tags: ['On-brand', 'Green', 'Gold'],
+    seoTitle: 'Foundation Brand Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free on-brand login page template using a green-and-gold nonprofit color palette. Free HTML & CSS code you can restyle with your own brand colors.',
   },
   {
     id: 'login-animated-gradient',
@@ -781,6 +805,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-sun',
     previewUrl: '/templates/login-pages/09-animated-gradient/index.html',
     tags: ['Animated', 'Gradient', 'CSS-only'],
+    seoTitle: 'Animated Gradient Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free animated gradient login page template with a slow, shifting CSS-only background and a floating glass card. No JavaScript needed — free HTML & CSS.',
   },
   {
     id: 'login-pastel-illustration',
@@ -795,6 +822,9 @@ export const SEED_TEMPLATES: TemplateItem[] = [
     icon: 'pi pi-heart',
     previewUrl: '/templates/login-pages/10-pastel-illustration/index.html',
     tags: ['Pastel', 'Playful', 'Rounded'],
+    seoTitle: 'Pastel Illustration Login Page Template — Free HTML & CSS',
+    metaDescription:
+      'Free pastel illustration login page template with playful blob shapes and a rounded card. Friendly, free HTML & CSS code for community and wellness products.',
   },
 ];
 
@@ -1227,6 +1257,159 @@ const OPENAI_API_KEY = "sk-proj-xxxxxx...";</code></pre>
       <div class="article-cta">
         <p><strong>Ready to complete the full course?</strong> 10 in-depth lessons covering project setup, typing indicators, RxJS streams, error handling, local storage, and deployment — with full source code and a production deployment guide.</p>
         <a href="/courses/build-ai-chatbot-with-angular">Enroll in Build an AI Chatbot With Angular</a>
+      </div>
+    `,
+  },
+  {
+    id: 'b4',
+    slug: 'free-html-css-login-page-templates',
+    title: '10 Free HTML & CSS Login Page Templates (Modern, Responsive & Glassmorphic)',
+    excerpt:
+      'A tour of 10 free, responsive HTML & CSS login page styles — minimal, glassmorphism, dark neon, brutalist and more — plus a copy-paste glassmorphic code sample.',
+    category: 'Web Development',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+    author: 'Fatima Hope Foundation',
+    publishedAt: '2026-08-24',
+    content: `
+      <p>Building a modern login page from scratch can take hours of tweaking layout grids, CSS variables, and input states. A well-designed login page is often the first interaction users have with a web application, making user experience (UX) and accessibility paramount.</p>
+      <p>Whether you need a minimal form for a corporate portal, a glassmorphism card for a SaaS product, or a bold dark-mode interface, having a library of pre-built UI modules speeds up development.</p>
+      <p>In this guide, we explore 10 distinct HTML &amp; CSS login page styles — ranging from clean minimal layouts to brutalist design aesthetics — available in the Fatima Hope Foundation Module Templates Library.</p>
+
+      <h2>Technical Overview &amp; Features</h2>
+      <p>All 10 login page templates in the library are built with modern frontend best practices:</p>
+      <ul>
+        <li><strong>Pure HTML5 &amp; CSS3 / SCSS:</strong> Clean, semantic code without heavy JavaScript dependencies.</li>
+        <li><strong>Fully Responsive:</strong> Tested across mobile, tablet, and desktop viewports.</li>
+        <li><strong>WCAG Accessibility Standards:</strong> Proper &lt;label&gt; associations, contrast ratios, and focus rings.</li>
+        <li><strong>Easy Integration:</strong> Ready to drop into Angular, React, Vue, or static HTML projects.</li>
+      </ul>
+
+      <h2>Featured Login Page Design Styles</h2>
+
+      <h3>1. Minimalist Clean</h3>
+      <p>Focuses on typography, subtle borders, and maximum white space. Best for corporate websites, enterprise portals, and SaaS platforms that prefer a distraction-free authentication flow.</p>
+
+      <h3>2. Glassmorphism Design</h3>
+      <p>Uses CSS backdrop filters (<code>backdrop-filter: blur()</code>) alongside semi-transparent background gradients to create a frosted glass effect. Perfect for modern web apps and creative portfolios.</p>
+
+      <h3>3. Dark Mode &amp; Cyber Neon</h3>
+      <p>Tailored for developer tools, gaming platforms, and dark-themed web applications. Uses high-contrast neon accents and dark background palettes.</p>
+
+      <h3>4. Split-Screen Branding Layout</h3>
+      <p>Features a dual-column layout: one side displays a brand visual, testimonial, or hero image, while the other holds the interactive login form. Highly effective for conversion-focused platforms.</p>
+
+      <h3>5. Neo-Brutalism</h3>
+      <p>Employs bold typography, thick black borders, high-contrast shadows, and raw color blocks. Great for modern design agencies and Web3 applications.</p>
+
+      <h3>6. Card Floating Overlay</h3>
+      <p>A centered modal-style card layered over a subtle pattern or dynamic gradient background.</p>
+
+      <h3>7. Floating Labels (Material Style)</h3>
+      <p>Utilizes smooth CSS animations where the field label transitions seamlessly into the border when the user focuses on an input field.</p>
+
+      <h3>8. Gradient Mesh</h3>
+      <p>Combines multi-color ambient CSS gradients behind clean, semi-opaque input forms for a vibrant visual appeal.</p>
+
+      <h3>9. Social Login First</h3>
+      <p>Prioritizes OAuth authentication (Google, GitHub, Microsoft) at the top, with email/password input fields positioned below.</p>
+
+      <h3>10. Multi-Step Form Layout</h3>
+      <p>Ideal for platforms requiring complex verification, such as two-factor authentication (2FA) or account selection prior to password entry.</p>
+
+      <h2>Sample Code: Modern Glassmorphic Login Form</h2>
+      <p>Here is a lightweight, responsive snippet demonstrating the glassmorphism style included in the template collection:</p>
+      <pre><code>&lt;div class="login-container"&gt;
+  &lt;form class="glass-card"&gt;
+    &lt;h2&gt;Welcome Back&lt;/h2&gt;
+    &lt;p&gt;Please enter your details to sign in.&lt;/p&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label for="email"&gt;Email Address&lt;/label&gt;
+      &lt;input type="email" id="email" placeholder="name@company.com" required&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label for="password"&gt;Password&lt;/label&gt;
+      &lt;input type="password" id="password" placeholder="••••••••" required&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-actions"&gt;
+      &lt;label class="checkbox-label"&gt;
+        &lt;input type="checkbox"&gt; Remember me
+      &lt;/label&gt;
+      &lt;a href="#" class="forgot-link"&gt;Forgot password?&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;button type="submit" class="btn-submit"&gt;Sign In&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+      <pre><code>.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f6a44, #15925e);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  color: #ffffff;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f6a44;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: #f0fdf4;
+}</code></pre>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Are these login page templates free to use?</h3>
+      <p>Yes, all UI modules in the Fatima Hope Foundation Design Library are open-source and free for personal and commercial projects.</p>
+      <h3>Can I integrate these HTML/CSS templates into Angular or React?</h3>
+      <p>Yes. The templates are written in standard HTML5 and CSS/SCSS, making them easy to convert into component templates in Angular, React, Vue, or Svelte.</p>
+      <h3>Are these form designs accessible (WCAG compliant)?</h3>
+      <p>All templates follow semantic HTML guidelines with explicit &lt;label&gt; inputs, focus states for keyboard navigation, and high-contrast color choices.</p>
+
+      <div class="article-cta">
+        <p><strong>Explore the template library.</strong> Browse the full collection of UI components, form designs, and module templates in our open-source design library.</p>
+        <a href="/templates/login-pages">Explore Login Page Templates</a>
       </div>
     `,
   },

@@ -1,55 +1,83 @@
 @if (category(); as cat) {
   @if (items().length > 0) {
-    <section class="page-hero" [attr.aria-label]="cat.title">
+    <!-- Hero Section -->
+    <section class="page-hero" [attr.aria-label]="cat.title + ' Template Category'">
       <div class="container-fhf">
-        <a routerLink="/templates" class="back-link"><i class="pi pi-arrow-left"></i> All Templates</a>
+        <a routerLink="/templates" class="back-link" aria-label="Return to all design library templates">
+          <i class="pi pi-arrow-left" aria-hidden="true"></i> All Templates
+        </a>
         <span class="eyebrow">Design Library</span>
         <h1 class="font-display">{{ cat.title }}</h1>
-        <p>{{ cat.description }}</p>
+        <p class="hero-description">{{ cat.description }}</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container-fhf templates-grid">
-        @for (template of items(); track template.id; let i = $index) {
-          <article class="template-card card-surface" [appScrollReveal]="(i % 3) * 100">
-            <div class="template-swatch" [style.background]="template.swatch">
-              <span class="template-icon"><i [class]="template.icon"></i></span>
-            </div>
-            <div class="template-body">
-              <span class="template-category">{{ template.category }}</span>
-              <h2>{{ template.title }}</h2>
-              <p>{{ template.summary }}</p>
+    <!-- Templates Grid Section -->
+    <section class="section" aria-label="Template Collection Grid">
+      <div class="container-fhf">
+        <h2 class="sr-only">Available {{ cat.title }}</h2>
+        
+        <div class="templates-grid">
+          @for (template of items(); track template.id; let i = $index) {
+            <article 
+              class="template-card card-surface" 
+              [appScrollReveal]="(i % 3) * 100"
+              itemscope 
+              itemtype="https://schema.org/CreativeWork"
+            >
+              <!-- Visual Swatch -->
+              <div class="template-swatch" [style.background]="template.swatch" aria-hidden="true">
+                <span class="template-icon">
+                  <i [class]="template.icon"></i>
+                </span>
+              </div>
 
-              @if (template.tags && template.tags.length > 0) {
-                <div class="template-tags">
-                  @for (tag of template.tags; track tag) {
-                    <span class="tag">{{ tag }}</span>
-                  }
-                </div>
-              }
+              <!-- Content Body -->
+              <div class="template-body">
+                <span class="template-category" itemprop="genre">{{ template.category }}</span>
+                
+                <h3 itemprop="name">{{ template.title }}</h3>
+                <p itemprop="abstract">{{ template.summary }}</p>
 
-              <a [routerLink]="['/templates', cat.slug, template.slug]" class="template-link">
-                View Template <i class="pi pi-arrow-right"></i>
-              </a>
-            </div>
-          </article>
-        }
+                <!-- Tags / Keywords -->
+                @if (template.tags && template.tags.length > 0) {
+                  <div class="template-tags" aria-label="Template Technologies and Tags">
+                    @for (tag of template.tags; track tag) {
+                      <span class="tag" itemprop="keywords">{{ tag }}</span>
+                    }
+                  </div>
+                }
+
+                <!-- Action Link -->
+                <a 
+                  [routerLink]="['/templates', cat.slug, template.slug]" 
+                  class="template-link"
+                  [attr.aria-label]="'View details and code for ' + template.title"
+                  itemprop="url"
+                >
+                  View Template <i class="pi pi-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          }
+        </div>
       </div>
     </section>
   } @else {
-    <section class="section not-found">
-      <div class="container-fhf">
-        <h1>{{ cat.title }} — Coming Soon</h1>
+    <!-- Category Empty / Coming Soon State -->
+    <section class="section not-found" aria-label="Category Coming Soon">
+      <div class="container-fhf text-center">
+        <h1 class="font-display">{{ cat.title }} — Coming Soon</h1>
         <p>{{ cat.description }}</p>
         <a routerLink="/templates" class="btn-primary">Browse All Templates</a>
       </div>
     </section>
   }
 } @else {
-  <section class="section not-found">
-    <div class="container-fhf">
-      <h1>Category Not Found</h1>
+  <!-- Category Not Found State -->
+  <section class="section not-found" aria-label="Category Not Found">
+    <div class="container-fhf text-center">
+      <h1 class="font-display">Category Not Found</h1>
       <p>We couldn't find the template category you're looking for.</p>
       <a routerLink="/templates" class="btn-primary">Browse All Templates</a>
     </div>
