@@ -109,6 +109,12 @@ export interface TemplateItem {
   tags?: string[];
   seoTitle?: string;
   metaDescription?: string;
+  /** Path to a static screenshot of the template, served from the public/ assets folder. When set, this image is shown instead of a live iframe preview. */
+  previewImage?: string;
+  /** Full HTML source of the template, shown as a copyable code block below the preview image. */
+  htmlCode?: string;
+  /** Full CSS source of the template, shown as a copyable code block below the HTML code. */
+  cssCode?: string;
 }
 
 export interface TimelineItem {

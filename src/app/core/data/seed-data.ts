@@ -667,11 +667,229 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'A clean, distraction-free login screen: a centered white card, thin borders, a single accent button and clear typographic hierarchy. Works well for admin panels, dashboards, and any product that wants to stay out of the way of the task at hand.',
     swatch: 'linear-gradient(135deg, #111827, #374151)',
     icon: 'pi pi-user',
-    previewUrl: '/templates/login-pages/01-minimal-clean/index.html',
+    previewUrl: '/template-previews/login-pages/01-minimal-clean/index.html',
     tags: ['Minimal', 'Neutral', 'Light'],
     seoTitle: 'Minimal Clean Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free minimal login page template built with plain HTML & CSS: a centered white card, thin borders and a single accent button. Copy the code and use it in any project.',
+    previewImage: '/images/login/01-minimal-clean.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Minimal Clean</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">M</div>
+      <h1>Welcome back</h1>
+      <p class="subtitle">Sign in to your account to continue</p>
+
+      <form class="login-form">
+        <label class="field">
+          <span>Email address</span>
+          <input type="email" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" placeholder="••••••••" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">Google</button>
+        <button class="btn-social" type="button">GitHub</button>
+      </div>
+
+      <p class="footer-text">Don't have an account? <a href="#">Create one</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  min-height: 100vh;
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(17, 24, 39, 0.06);
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #111827;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field input {
+  font: inherit;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.field input:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+.row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.checkbox input { accent-color: #111827; }
+
+.link {
+  color: #111827;
+  text-decoration: none;
+  font-weight: 600;
+}
+.link:hover { text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+}
+.btn-primary:hover { background: #1f2937; }
+.btn-primary:active { transform: scale(0.98); }
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 12px;
+  margin: 24px 0;
+}
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+.divider span { padding: 0 12px; }
+
+.social-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-social {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-social:hover { background: #f3f4f6; }
+
+.footer-text {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+}
+.footer-text a {
+  color: #111827;
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-text a:hover { text-decoration: underline; }`,
   },
   {
     id: 'login-glassmorphism',
@@ -684,11 +902,230 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'Uses backdrop-filter blur on a semi-transparent card over a purple-to-coral gradient, with soft floating blob shapes behind it. A modern, premium look suited to consumer apps and SaaS marketing sites.',
     swatch: 'linear-gradient(135deg, #6a5cff, #b06ab3, #ff8f8f)',
     icon: 'pi pi-sparkles',
-    previewUrl: '/templates/login-pages/02-glassmorphism/index.html',
+    previewUrl: '/template-previews/login-pages/02-glassmorphism/index.html',
     tags: ['Glass', 'Gradient', 'Modern'],
     seoTitle: 'Glassmorphism Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free glassmorphism login page template with a frosted-glass card, backdrop blur and a vivid gradient backdrop. Pure HTML & CSS, ready to copy for SaaS and consumer apps.',
+    previewImage: '/images/login/02-glassmorphism.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glassmorphism Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free glassmorphism login page template with a frosted-glass card, backdrop blur and a vivid gradient backdrop. Pure HTML & CSS, ready to copy for SaaS and consumer apps.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/02-glassmorphism">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Glassmorphism Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free glassmorphism login page template with a frosted-glass card, backdrop blur and a vivid gradient backdrop. Pure HTML & CSS, ready to copy for SaaS and consumer apps.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/02-glassmorphism">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/02-glassmorphism.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glassmorphism Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free glassmorphism login page template with a frosted-glass card, backdrop blur and a vivid gradient backdrop. Pure HTML & CSS, ready to copy for SaaS and consumer apps.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/02-glassmorphism.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">✦</div>
+      <h1>Welcome back</h1>
+      <p class="subtitle">Sign in to continue your journey</p>
+
+      <form class="login-form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" placeholder="••••••••" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">Google</button>
+        <button class="btn-social" type="button">Apple</button>
+      </div>
+
+      <p class="footer-text">New here? <a href="#">Create an account</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  background: linear-gradient(135deg, #6a5cff 0%, #b06ab3 45%, #ff8f8f 100%);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.bg-shape {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: .55;
+  z-index: 0;
+}
+.shape-1 {
+  width: 380px; height: 380px;
+  top: -120px; left: -100px;
+  background: radial-gradient(circle at 30% 30%, #ffd36e, transparent 70%);
+}
+.shape-2 {
+  width: 420px; height: 420px;
+  bottom: -140px; right: -120px;
+  background: radial-gradient(circle at 60% 60%, #5ee7ff, transparent 70%);
+}
+
+.login-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 22px;
+  padding: 40px 36px;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 20px 50px rgba(31, 15, 60, 0.35);
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.login-form { display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; }
+
+.field input {
+  font: inherit;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, background .15s;
+}
+.field input::placeholder { color: rgba(255, 255, 255, 0.65); }
+.field input:focus {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+
+.checkbox { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.checkbox input { accent-color: #fff; }
+
+.link { color: #fff; font-weight: 600; text-decoration: none; opacity: .9; }
+.link:hover { opacity: 1; text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  color: #6a4bd6;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .1s, box-shadow .15s;
+}
+.btn-primary:hover { box-shadow: 0 10px 24px rgba(255, 255, 255, 0.35); }
+.btn-primary:active { transform: scale(0.98); }
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  margin: 24px 0;
+}
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.divider span { padding: 0 12px; }
+
+.social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-social {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-social:hover { background: rgba(255, 255, 255, 0.22); }
+
+.footer-text { margin-top: 24px; text-align: center; font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+.footer-text a { color: #fff; font-weight: 700; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }`,
   },
   {
     id: 'login-neumorphism',
@@ -701,11 +1138,196 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'A monochrome soft-UI style where every input and button appears pressed into or raised out of the background using paired light/dark box-shadows. Distinctive and tactile, best used sparingly for accessibility.',
     swatch: 'linear-gradient(135deg, #e6e9ef, #c9d0dc)',
     icon: 'pi pi-circle',
-    previewUrl: '/templates/login-pages/03-neumorphism/index.html',
+    previewUrl: '/template-previews/login-pages/03-neumorphism/index.html',
     tags: ['Soft UI', 'Monochrome'],
     seoTitle: 'Neumorphism Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free neumorphic (soft UI) login page template with embossed, dual-shadow inputs and buttons. Monochrome HTML & CSS code you can copy and customize.',
+    previewImage: '/images/login/03-neumorphism.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neumorphism Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free neumorphic (soft UI) login page template with embossed, dual-shadow inputs and buttons. Monochrome HTML & CSS code you can copy and customize.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/03-neumorphism">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Neumorphism Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free neumorphic (soft UI) login page template with embossed, dual-shadow inputs and buttons. Monochrome HTML & CSS code you can copy and customize.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/03-neumorphism">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/03-neumorphism.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Neumorphism Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free neumorphic (soft UI) login page template with embossed, dual-shadow inputs and buttons. Monochrome HTML & CSS code you can copy and customize.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/03-neumorphism.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">N</div>
+      <h1>Sign in</h1>
+      <p class="subtitle">Welcome back, we missed you</p>
+
+      <form class="login-form">
+        <label class="field">
+          <input type="email" placeholder="Email address" required>
+        </label>
+        <label class="field">
+          <input type="password" placeholder="Password" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+      </form>
+
+      <div class="social-row">
+        <button class="btn-social" type="button" aria-label="Google">G</button>
+        <button class="btn-social" type="button" aria-label="Facebook">f</button>
+        <button class="btn-social" type="button" aria-label="Apple"></button>
+      </div>
+
+      <p class="footer-text">Don't have an account? <a href="#">Sign up</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  min-height: 100vh;
+  background: #e6e9ef;
+  color: #3b4252;
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: #e6e9ef;
+  border-radius: 28px;
+  padding: 44px 36px;
+  box-shadow:
+    12px 12px 24px rgba(163, 177, 198, 0.6),
+    -12px -12px 24px rgba(255, 255, 255, 0.85);
+}
+
+.brand-mark {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #6c7a9c;
+  box-shadow:
+    6px 6px 12px rgba(163, 177, 198, 0.6),
+    -6px -6px 12px rgba(255, 255, 255, 0.85);
+}
+
+h1 { text-align: center; font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.subtitle { text-align: center; color: #8a94ac; font-size: 13px; margin-bottom: 30px; }
+
+.login-form { display: flex; flex-direction: column; gap: 20px; }
+
+.field input {
+  width: 100%;
+  font: inherit;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 14px;
+  background: #e6e9ef;
+  color: #3b4252;
+  font-size: 14px;
+  outline: none;
+  box-shadow:
+    inset 5px 5px 10px rgba(163, 177, 198, 0.55),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.85);
+}
+.field input::placeholder { color: #9aa4bd; }
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 12.5px; }
+
+.checkbox { display: flex; align-items: center; gap: 8px; color: #6c7a9c; cursor: pointer; }
+.checkbox input { accent-color: #7c8db5; }
+
+.link { color: #6c7a9c; font-weight: 600; text-decoration: none; }
+.link:hover { color: #4b5878; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #e6e9ef;
+  color: #4b5878;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    6px 6px 12px rgba(163, 177, 198, 0.6),
+    -6px -6px 12px rgba(255, 255, 255, 0.85);
+  transition: box-shadow .15s, transform .1s;
+}
+.btn-primary:active {
+  box-shadow:
+    inset 4px 4px 10px rgba(163, 177, 198, 0.6),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+  transform: scale(0.99);
+}
+
+.social-row {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.btn-social {
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: #e6e9ef;
+  color: #6c7a9c;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    5px 5px 10px rgba(163, 177, 198, 0.55),
+    -5px -5px 10px rgba(255, 255, 255, 0.85);
+}
+.btn-social:active {
+  box-shadow:
+    inset 3px 3px 6px rgba(163, 177, 198, 0.6),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.85);
+}
+
+.footer-text { margin-top: 26px; text-align: center; font-size: 13px; color: #8a94ac; }
+.footer-text a { color: #4b5878; font-weight: 700; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }`,
   },
   {
     id: 'login-dark-neon',
@@ -718,11 +1340,205 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'Deep near-black background with blurred violet and cyan glow blobs, a frosted dark card, and a neon gradient button. Suited to developer tools, gaming, and tech-forward products.',
     swatch: 'linear-gradient(135deg, #8b5cf6, #22d3ee)',
     icon: 'pi pi-bolt',
-    previewUrl: '/templates/login-pages/04-dark-neon/index.html',
+    previewUrl: '/template-previews/login-pages/04-dark-neon/index.html',
     tags: ['Dark Mode', 'Neon', 'Gradient'],
     seoTitle: 'Dark Neon Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free dark-mode neon login page template with violet-to-cyan glow accents and a frosted dark card. Free HTML & CSS code for developer tools and gaming sites.',
+    previewImage: '/images/login/04-dark-neon.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Neon Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free dark-mode neon login page template with violet-to-cyan glow accents and a frosted dark card. Free HTML & CSS code for developer tools and gaming sites.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/04-dark-neon">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dark Neon Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free dark-mode neon login page template with violet-to-cyan glow accents and a frosted dark card. Free HTML & CSS code for developer tools and gaming sites.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/04-dark-neon">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/04-dark-neon.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dark Neon Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free dark-mode neon login page template with violet-to-cyan glow accents and a frosted dark card. Free HTML & CSS code for developer tools and gaming sites.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/04-dark-neon.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">⚡</div>
+      <h1>Access your account</h1>
+      <p class="subtitle">Enter your credentials to continue</p>
+
+      <form class="login-form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" placeholder="••••••••" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">Google</button>
+        <button class="btn-social" type="button">GitHub</button>
+      </div>
+
+      <p class="footer-text">New here? <a href="#">Create an account</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  min-height: 100vh;
+  background: #05060a;
+  color: #f1f5f9;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .45;
+  z-index: 0;
+}
+.glow-1 { width: 420px; height: 420px; top: -100px; left: -80px; background: #8b5cf6; }
+.glow-2 { width: 420px; height: 420px; bottom: -120px; right: -80px; background: #22d3ee; }
+
+.login-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(17, 24, 39, 0.65);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 20px;
+  padding: 40px 36px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 0 0 1px rgba(139,92,246,.08), 0 20px 60px rgba(0,0,0,.6);
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.6);
+}
+
+h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 28px; }
+
+.login-form { display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #cbd5e1; }
+
+.field input {
+  font: inherit;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f1f5f9;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.field input::placeholder { color: #64748b; }
+.field input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+
+.checkbox { display: flex; align-items: center; gap: 8px; color: #cbd5e1; cursor: pointer; }
+.checkbox input { accent-color: #8b5cf6; }
+
+.link { color: #22d3ee; font-weight: 600; text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  color: #05060a;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow .15s, transform .1s;
+}
+.btn-primary:hover { box-shadow: 0 0 30px rgba(139, 92, 246, 0.55); }
+.btn-primary:active { transform: scale(0.98); }
+
+.divider { display: flex; align-items: center; text-align: center; color: #64748b; font-size: 12px; margin: 24px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: rgba(148, 163, 184, 0.2); }
+.divider span { padding: 0 12px; }
+
+.social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-social {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.btn-social:hover { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.08); }
+
+.footer-text { margin-top: 24px; text-align: center; font-size: 13px; color: #94a3b8; }
+.footer-text a { color: #22d3ee; font-weight: 700; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }`,
   },
   {
     id: 'login-split-screen',
@@ -735,11 +1551,212 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'The left half is a gradient brand panel with a headline and decorative shapes; the right half is a plain white form panel. Reads as more premium and marketing-forward than a single centered card, and stacks to one column on mobile.',
     swatch: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
     icon: 'pi pi-table',
-    previewUrl: '/templates/login-pages/05-split-screen/index.html',
+    previewUrl: '/template-previews/login-pages/05-split-screen/index.html',
     tags: ['Two-column', 'Marketing', 'Responsive'],
     seoTitle: 'Split Screen Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free split-screen login page template: a gradient brand panel beside a plain sign-in form. Responsive HTML & CSS code, ready to copy for marketing sites.',
+    previewImage: '/images/login/05-split-screen.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Split Screen Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free split-screen login page template: a gradient brand panel beside a plain sign-in form. Responsive HTML & CSS code, ready to copy for marketing sites.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/05-split-screen">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Split Screen Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free split-screen login page template: a gradient brand panel beside a plain sign-in form. Responsive HTML & CSS code, ready to copy for marketing sites.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/05-split-screen">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/05-split-screen.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Split Screen Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free split-screen login page template: a gradient brand panel beside a plain sign-in form. Responsive HTML & CSS code, ready to copy for marketing sites.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/05-split-screen.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="split-wrap">
+    <section class="panel panel-visual">
+      <div class="visual-content">
+        <div class="brand-mark">S</div>
+        <h2>Do great things<br>with your team</h2>
+        <p>Join thousands of teams already collaborating faster and smarter.</p>
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
+    </section>
+
+    <section class="panel panel-form">
+      <div class="form-inner">
+        <h1>Sign in</h1>
+        <p class="subtitle">Enter your details to access your account</p>
+
+        <form class="login-form">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" placeholder="you@example.com" required>
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input type="password" placeholder="••••••••" required>
+          </label>
+
+          <div class="row-between">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn-primary">Sign In</button>
+        </form>
+
+        <div class="divider"><span>or</span></div>
+
+        <div class="social-row">
+          <button class="btn-social" type="button">Continue with Google</button>
+        </div>
+
+        <p class="footer-text">Don't have an account? <a href="#">Sign up for free</a></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  color: #111827;
+}
+
+.split-wrap {
+  min-height: 100vh;
+  display: flex;
+}
+
+.panel { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; }
+
+.panel-visual {
+  background: linear-gradient(155deg, #4f46e5 0%, #7c3aed 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.panel-visual::before {
+  content: "";
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  top: -180px; right: -160px;
+}
+.panel-visual::after {
+  content: "";
+  position: absolute;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  bottom: -140px; left: -100px;
+}
+
+.visual-content { max-width: 380px; position: relative; z-index: 1; }
+
+.brand-mark {
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.visual-content h2 { font-size: 32px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
+.visual-content p { color: rgba(255, 255, 255, 0.85); font-size: 15px; line-height: 1.6; margin-bottom: 30px; }
+
+.dots { display: flex; gap: 8px; }
+.dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); }
+.dots span:first-child { width: 22px; border-radius: 6px; background: #fff; }
+
+.panel-form { background: #ffffff; }
+.form-inner { width: 100%; max-width: 380px; }
+
+h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.subtitle { color: #6b7280; font-size: 14px; margin-bottom: 30px; }
+
+.login-form { display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #374151; }
+
+.field input {
+  font: inherit;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.field input:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12); }
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+.checkbox { display: flex; align-items: center; gap: 8px; color: #374151; cursor: pointer; }
+.checkbox input { accent-color: #4f46e5; }
+.link { color: #4f46e5; text-decoration: none; font-weight: 600; }
+.link:hover { text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+}
+.btn-primary:hover { background: #4338ca; }
+.btn-primary:active { transform: scale(0.98); }
+
+.divider { display: flex; align-items: center; text-align: center; color: #9ca3af; font-size: 12px; margin: 24px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #e5e7eb; }
+.divider span { padding: 0 12px; }
+
+.btn-social {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-social:hover { background: #f3f4f6; }
+
+.footer-text { margin-top: 24px; text-align: center; font-size: 13px; color: #6b7280; }
+.footer-text a { color: #4f46e5; font-weight: 600; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }
+
+@media (max-width: 860px) {
+  .split-wrap { flex-direction: column; }
+  .panel-visual { min-height: 260px; padding: 40px 24px; }
+  .visual-content h2 { font-size: 24px; }
+  .panel-form { padding: 40px 24px; }
+}`,
   },
   {
     id: 'login-material',
@@ -752,11 +1769,191 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'Follows Material Design conventions: elevated white card, filled inputs with animated floating labels, an uppercase filled button, and Roboto-style type. Familiar to Android and Google-ecosystem users.',
     swatch: '#1a73e8',
     icon: 'pi pi-android',
-    previewUrl: '/templates/login-pages/06-material/index.html',
+    previewUrl: '/template-previews/login-pages/06-material/index.html',
     tags: ['Material', 'Google', 'Familiar'],
     seoTitle: 'Material Design Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free Material Design login page template with elevated card, filled inputs and floating labels. Free HTML & CSS code following Google Material conventions.',
+    previewImage: '/images/login/06-material.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Design Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free Material Design login page template with elevated card, filled inputs and floating labels. Free HTML & CSS code following Google Material conventions.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/06-material">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Material Design Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free Material Design login page template with elevated card, filled inputs and floating labels. Free HTML & CSS code following Google Material conventions.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/06-material">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/06-material.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Material Design Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free Material Design login page template with elevated card, filled inputs and floating labels. Free HTML & CSS code following Google Material conventions.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/06-material.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">M</div>
+      <h1>Sign in</h1>
+      <p class="subtitle">Use your account to continue</p>
+
+      <form class="login-form">
+        <div class="field">
+          <input type="email" id="email" placeholder=" " required>
+          <label for="email">Email address</label>
+        </div>
+        <div class="field">
+          <input type="password" id="password" placeholder=" " required>
+          <label for="password">Password</label>
+        </div>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">SIGN IN</button>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">Continue with Google</button>
+      </div>
+
+      <p class="footer-text">Don't have an account? <a href="#">Register now</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background: #fafafa;
+  color: #202124;
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 44px 40px;
+  box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+}
+
+.brand-mark {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #1a73e8;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h1 { font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+.subtitle { color: #5f6368; font-size: 14px; margin-bottom: 32px; }
+
+.login-form { display: flex; flex-direction: column; gap: 24px; }
+
+.field { position: relative; }
+
+.field input {
+  width: 100%;
+  font: inherit;
+  padding: 14px 12px 6px;
+  border: none;
+  border-bottom: 2px solid #dadce0;
+  background: #f4f4f5;
+  border-radius: 4px 4px 0 0;
+  font-size: 15px;
+  outline: none;
+  transition: border-color .15s, background .15s;
+}
+.field input:focus { border-color: #1a73e8; background: #eef4fd; }
+
+.field label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-size: 15px;
+  color: #5f6368;
+  pointer-events: none;
+  transition: all .15s ease;
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  top: 4px;
+  font-size: 11px;
+  color: #1a73e8;
+}
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 13px; margin-top: -6px; }
+.checkbox { display: flex; align-items: center; gap: 8px; color: #3c4043; cursor: pointer; }
+.checkbox input { accent-color: #1a73e8; }
+.link { color: #1a73e8; text-decoration: none; font-weight: 500; }
+.link:hover { text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  cursor: pointer;
+  transition: background .15s, box-shadow .15s;
+}
+.btn-primary:hover { background: #1765cc; box-shadow: 0 1px 3px rgba(60,64,67,.4); }
+.btn-primary:active { background: #185abc; }
+
+.divider { display: flex; align-items: center; text-align: center; color: #80868b; font-size: 11px; letter-spacing: .5px; margin: 26px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #dadce0; }
+.divider span { padding: 0 12px; }
+
+.btn-social {
+  width: 100%;
+  padding: 11px;
+  border-radius: 6px;
+  border: 1px solid #dadce0;
+  background: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #3c4043;
+  cursor: pointer;
+  transition: background .15s, box-shadow .15s;
+}
+.btn-social:hover { background: #f7f8f8; box-shadow: 0 1px 2px rgba(60,64,67,.2); }
+
+.footer-text { margin-top: 26px; text-align: center; font-size: 13.5px; color: #5f6368; }
+.footer-text a { color: #1a73e8; font-weight: 600; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }`,
   },
   {
     id: 'login-brutalist',
@@ -769,11 +1966,183 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'A bold, unapologetic style: thick black borders, hard offset shadows, a bright yellow backdrop and monospace type. Great for portfolios, indie tools, and anything that wants to stand out from typical SaaS design.',
     swatch: '#ffde59',
     icon: 'pi pi-stop',
-    previewUrl: '/templates/login-pages/07-brutalist/index.html',
+    previewUrl: '/template-previews/login-pages/07-brutalist/index.html',
     tags: ['Brutalist', 'Retro', 'Bold'],
     seoTitle: 'Brutalist Retro Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free brutalist login page template with thick black borders, offset drop shadows and monospace type. Bold, free HTML & CSS code for portfolios and indie tools.',
+    previewImage: '/images/login/07-brutalist.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brutalist Retro Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free brutalist login page template with thick black borders, offset drop shadows and monospace type. Bold, free HTML & CSS code for portfolios and indie tools.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/07-brutalist">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brutalist Retro Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free brutalist login page template with thick black borders, offset drop shadows and monospace type. Bold, free HTML & CSS code for portfolios and indie tools.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/07-brutalist">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/07-brutalist.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brutalist Retro Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free brutalist login page template with thick black borders, offset drop shadows and monospace type. Bold, free HTML & CSS code for portfolios and indie tools.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/07-brutalist.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">LOGIN.SYS</div>
+      <h1>SIGN IN</h1>
+      <p class="subtitle">// enter credentials to proceed</p>
+
+      <form class="login-form">
+        <label class="field">
+          <span>EMAIL</span>
+          <input type="email" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span>PASSWORD</span>
+          <input type="password" placeholder="********" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>REMEMBER ME</span>
+          </label>
+          <a href="#" class="link">FORGOT?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">ENTER →</button>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">GOOGLE</button>
+        <button class="btn-social" type="button">GITHUB</button>
+      </div>
+
+      <p class="footer-text">NO ACCOUNT? <a href="#">SIGN UP</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Courier New", ui-monospace, Menlo, monospace;
+  min-height: 100vh;
+  background: #ffde59;
+  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: #0a0a0a;
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border: 4px solid #0a0a0a;
+  border-radius: 0;
+  padding: 36px 32px;
+  box-shadow: 10px 10px 0 #0a0a0a;
+}
+
+.brand-mark {
+  display: inline-block;
+  background: #0a0a0a;
+  color: #ffde59;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 6px 10px;
+  margin-bottom: 20px;
+}
+
+h1 { font-size: 30px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+.subtitle { color: #0a0a0a; font-size: 13px; margin-bottom: 26px; opacity: .7; }
+
+.login-form { display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .5px; }
+
+.field input {
+  font: inherit;
+  padding: 12px 14px;
+  border: 3px solid #0a0a0a;
+  border-radius: 0;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  transition: box-shadow .1s;
+}
+.field input:focus { box-shadow: 4px 4px 0 #ff5c8a; }
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 11.5px; font-weight: 700; }
+.checkbox { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.checkbox input { accent-color: #0a0a0a; }
+.link { color: #0a0a0a; text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 13px;
+  border: 3px solid #0a0a0a;
+  border-radius: 0;
+  background: #0a0a0a;
+  color: #ffde59;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 6px 6px 0 #ff5c8a;
+  transition: transform .1s, box-shadow .1s;
+}
+.btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 #ff5c8a; }
+.btn-primary:active { transform: translate(0, 0); box-shadow: 3px 3px 0 #ff5c8a; }
+
+.divider { display: flex; align-items: center; text-align: center; font-size: 11px; font-weight: 700; margin: 24px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 3px; background: #0a0a0a; }
+.divider span { padding: 0 12px; }
+
+.social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-social {
+  padding: 10px;
+  border: 3px solid #0a0a0a;
+  background: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #0a0a0a;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #0a0a0a;
+  transition: transform .1s, box-shadow .1s;
+}
+.btn-social:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #0a0a0a; }
+.btn-social:active { transform: translate(0, 0); box-shadow: 2px 2px 0 #0a0a0a; }
+
+.footer-text { margin-top: 24px; text-align: center; font-size: 12px; font-weight: 700; }
+.footer-text a { color: #ff5c8a; text-decoration: underline; }`,
   },
   {
     id: 'login-foundation-brand',
@@ -786,11 +2155,196 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'Built directly from the Fatima Hope Foundation design tokens (--color-primary green and --color-secondary gold), this style matches the rest of the site exactly and is the natural default if a real login page is ever added to the app.',
     swatch: 'linear-gradient(135deg, #0F6A44, #D4AF37)',
     icon: 'pi pi-heart-fill',
-    previewUrl: '/templates/login-pages/08-foundation-brand/index.html',
+    previewUrl: '/template-previews/login-pages/08-foundation-brand/index.html',
     tags: ['On-brand', 'Green', 'Gold'],
     seoTitle: 'Foundation Brand Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free on-brand login page template using a green-and-gold nonprofit color palette. Free HTML & CSS code you can restyle with your own brand colors.',
+    previewImage: '/images/login/08-foundation-brand.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundation Brand Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free on-brand login page template using a green-and-gold nonprofit color palette. Free HTML & CSS code you can restyle with your own brand colors.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/08-foundation-brand">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Foundation Brand Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free on-brand login page template using a green-and-gold nonprofit color palette. Free HTML & CSS code you can restyle with your own brand colors.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/08-foundation-brand">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/08-foundation-brand.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Foundation Brand Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free on-brand login page template using a green-and-gold nonprofit color palette. Free HTML & CSS code you can restyle with your own brand colors.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/08-foundation-brand.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">FHF</div>
+      <h1>Welcome back</h1>
+      <p class="subtitle">Sign in to continue supporting our mission</p>
+
+      <form class="login-form">
+        <label class="field">
+          <span>Email address</span>
+          <input type="email" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" placeholder="••••••••" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">Google</button>
+        <button class="btn-social" type="button">Facebook</button>
+      </div>
+
+      <p class="footer-text">New to Fatima Hope Foundation? <a href="#">Create an account</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `:root {
+  --color-primary: #0F6A44;
+  --color-primary-dark: #0B4F33;
+  --color-primary-light: #15925E;
+  --color-secondary: #D4AF37;
+  --color-secondary-light: #E6C965;
+  --color-bg: #F8FAFC;
+  --color-text: #1F2937;
+  --color-text-muted: #6B7280;
+  --color-border: rgba(31, 41, 55, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: linear-gradient(160deg, #F8FAFC 0%, #EAF5EF 55%, #F8FAFC 100%);
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: 0 1px 2px rgba(15, 106, 68, 0.04), 0 20px 40px rgba(15, 106, 68, 0.1);
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .5px;
+  box-shadow: 0 8px 20px rgba(15, 106, 68, 0.3);
+}
+
+h1 { text-align: center; font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+.subtitle { text-align: center; color: var(--color-text-muted); font-size: 14px; margin-bottom: 28px; }
+
+.login-form { display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #374151; }
+
+.field input {
+  font: inherit;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d7dce2;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.field input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(15, 106, 68, 0.12);
+}
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+.checkbox { display: flex; align-items: center; gap: 8px; color: #374151; cursor: pointer; }
+.checkbox input { accent-color: var(--color-primary); }
+.link { color: var(--color-primary); text-decoration: none; font-weight: 600; }
+.link:hover { text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow .15s, transform .1s;
+}
+.btn-primary:hover { box-shadow: 0 10px 24px rgba(15, 106, 68, 0.35); }
+.btn-primary:active { transform: scale(0.98); }
+
+.divider { display: flex; align-items: center; text-align: center; color: #9aa4b2; font-size: 12px; margin: 24px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--color-border); }
+.divider span { padding: 0 12px; }
+
+.social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-social {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d7dce2;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.btn-social:hover { border-color: var(--color-secondary); background: #FDF8EC; }
+
+.footer-text { margin-top: 24px; text-align: center; font-size: 13px; color: var(--color-text-muted); }
+.footer-text a { color: var(--color-primary); font-weight: 700; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }`,
   },
   {
     id: 'login-animated-gradient',
@@ -803,11 +2357,196 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'A CSS keyframe animation slowly cycles the background through warm-to-cool tones, while the glass card gently floats up and down. Eye-catching for a landing/marketing-style sign-in without needing any JavaScript.',
     swatch: 'linear-gradient(135deg, #ff5f6d, #ffc371, #24c6dc, #514a9d)',
     icon: 'pi pi-sun',
-    previewUrl: '/templates/login-pages/09-animated-gradient/index.html',
+    previewUrl: '/template-previews/login-pages/09-animated-gradient/index.html',
     tags: ['Animated', 'Gradient', 'CSS-only'],
     seoTitle: 'Animated Gradient Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free animated gradient login page template with a slow, shifting CSS-only background and a floating glass card. No JavaScript needed — free HTML & CSS.',
+    previewImage: '/images/login/09-animated-gradient.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Gradient Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free animated gradient login page template with a slow, shifting CSS-only background and a floating glass card. No JavaScript needed — free HTML & CSS.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/09-animated-gradient">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Animated Gradient Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free animated gradient login page template with a slow, shifting CSS-only background and a floating glass card. No JavaScript needed — free HTML & CSS.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/09-animated-gradient">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/09-animated-gradient.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Animated Gradient Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free animated gradient login page template with a slow, shifting CSS-only background and a floating glass card. No JavaScript needed — free HTML & CSS.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/09-animated-gradient.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">◆</div>
+      <h1>Welcome back</h1>
+      <p class="subtitle">Sign in to your workspace</p>
+
+      <form class="login-form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" placeholder="••••••••" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">Google</button>
+        <button class="btn-social" type="button">Apple</button>
+      </div>
+
+      <p class="footer-text">Don't have an account? <a href="#">Sign up</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  background: linear-gradient(-45deg, #ff5f6d, #ffc371, #24c6dc, #514a9d);
+  background-size: 400% 400%;
+  animation: gradientShift 16s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 22px;
+  padding: 40px 36px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.subtitle { color: rgba(255, 255, 255, 0.85); font-size: 14px; margin-bottom: 28px; }
+
+.login-form { display: flex; flex-direction: column; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; }
+
+.field input {
+  font: inherit;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, background .15s;
+}
+.field input::placeholder { color: rgba(255, 255, 255, 0.7); }
+.field input:focus { border-color: #fff; background: rgba(255, 255, 255, 0.18); }
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+.checkbox { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.checkbox input { accent-color: #fff; }
+.link { color: #fff; font-weight: 600; text-decoration: none; opacity: .9; }
+.link:hover { opacity: 1; text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  color: #514a9d;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .1s, box-shadow .15s;
+}
+.btn-primary:hover { box-shadow: 0 10px 26px rgba(255, 255, 255, 0.4); }
+.btn-primary:active { transform: scale(0.98); }
+
+.divider { display: flex; align-items: center; text-align: center; color: rgba(255, 255, 255, 0.8); font-size: 12px; margin: 24px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: rgba(255, 255, 255, 0.35); }
+.divider span { padding: 0 12px; }
+
+.social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-social {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-social:hover { background: rgba(255, 255, 255, 0.2); }
+
+.footer-text { margin-top: 24px; text-align: center; font-size: 13px; color: rgba(255, 255, 255, 0.85); }
+.footer-text a { color: #fff; font-weight: 700; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }`,
   },
   {
     id: 'login-pastel-illustration',
@@ -820,11 +2559,199 @@ export const SEED_TEMPLATES: TemplateItem[] = [
       'Soft pastel pink, mint and peach blobs sit behind a large rounded white card with playful copy and an emoji-driven submit button. A friendly, approachable tone suited to community, education or wellness products.',
     swatch: 'linear-gradient(135deg, #ffd6e8, #c9f0e0, #ffe9b3)',
     icon: 'pi pi-heart',
-    previewUrl: '/templates/login-pages/10-pastel-illustration/index.html',
+    previewUrl: '/template-previews/login-pages/10-pastel-illustration/index.html',
     tags: ['Pastel', 'Playful', 'Rounded'],
     seoTitle: 'Pastel Illustration Login Page Template — Free HTML & CSS',
     metaDescription:
       'Free pastel illustration login page template with playful blob shapes and a rounded card. Friendly, free HTML & CSS code for community and wellness products.',
+    previewImage: '/images/login/10-pastel-illustration.png',
+    htmlCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastel Illustration Login Page Template — Free HTML & CSS</title>
+<meta name="description" content="Free pastel illustration login page template with playful blob shapes and a rounded card. Friendly, free HTML & CSS code for community and wellness products.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fatimahopefoundation.com/templates/login-pages/10-pastel-illustration">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pastel Illustration Login Page Template — Free HTML & CSS">
+<meta property="og:description" content="Free pastel illustration login page template with playful blob shapes and a rounded card. Friendly, free HTML & CSS code for community and wellness products.">
+<meta property="og:url" content="https://fatimahopefoundation.com/templates/login-pages/10-pastel-illustration">
+<meta property="og:image" content="https://fatimahopefoundation.com/images/login/10-pastel-illustration.png">
+<meta property="og:site_name" content="Fatima Hope Foundation">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pastel Illustration Login Page Template — Free HTML & CSS">
+<meta name="twitter:description" content="Free pastel illustration login page template with playful blob shapes and a rounded card. Friendly, free HTML & CSS code for community and wellness products.">
+<meta name="twitter:image" content="https://fatimahopefoundation.com/images/login/10-pastel-illustration.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <main class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">🔒</div>
+      <h1>Hey, welcome!</h1>
+      <p class="subtitle">Log in to pick up right where you left off</p>
+
+      <form class="login-form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" placeholder="you@example.com" required>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" placeholder="••••••••" required>
+        </label>
+
+        <div class="row-between">
+          <label class="checkbox">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Let's go 🚀</button>
+      </form>
+
+      <div class="divider"><span>or continue with</span></div>
+
+      <div class="social-row">
+        <button class="btn-social" type="button">Google</button>
+        <button class="btn-social" type="button">Facebook</button>
+      </div>
+
+      <p class="footer-text">New around here? <a href="#">Create an account</a></p>
+    </section>
+  </main>
+</body>
+</html>`,
+    cssCode: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  min-height: 100vh;
+  color: #3f3350;
+  background: #fdf3ec;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(6px);
+  opacity: .7;
+  z-index: 0;
+}
+.blob-1 { width: 340px; height: 340px; top: -100px; left: -80px; background: #ffd6e8; }
+.blob-2 { width: 300px; height: 300px; bottom: -100px; right: -80px; background: #c9f0e0; }
+.blob-3 { width: 220px; height: 220px; top: 40%; right: 8%; background: #ffe9b3; opacity: .5; }
+
+.login-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 42px 36px;
+  box-shadow: 0 24px 60px rgba(180, 140, 180, 0.25);
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  background: #fff0f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+h1 { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+.subtitle { color: #8a7c99; font-size: 14px; margin-bottom: 28px; line-height: 1.5; }
+
+.login-form { display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: #4c3d5c; }
+
+.field input {
+  font: inherit;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 2px solid #f1e6f0;
+  background: #fdfaff;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.field input:focus {
+  border-color: #f2a7c3;
+  box-shadow: 0 0 0 4px rgba(242, 167, 195, 0.18);
+}
+
+.row-between { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+.checkbox { display: flex; align-items: center; gap: 8px; color: #4c3d5c; cursor: pointer; }
+.checkbox input { accent-color: #f2a7c3; }
+.link { color: #e8739d; font-weight: 700; text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 13px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff9ec3, #ffc98a);
+  color: #4c1d33;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .1s, box-shadow .15s;
+}
+.btn-primary:hover { box-shadow: 0 12px 26px rgba(255, 158, 195, 0.5); }
+.btn-primary:active { transform: scale(0.98); }
+
+.divider { display: flex; align-items: center; text-align: center; color: #b3a3c2; font-size: 12px; margin: 24px 0; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #f1e6f0; }
+.divider span { padding: 0 12px; }
+
+.social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-social {
+  padding: 10px;
+  border-radius: 14px;
+  border: 2px solid #f1e6f0;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4c3d5c;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.btn-social:hover { background: #fff7fb; border-color: #f2a7c3; }
+
+.footer-text { margin-top: 24px; text-align: center; font-size: 13px; color: #8a7c99; }
+.footer-text a { color: #e8739d; font-weight: 800; text-decoration: none; }
+.footer-text a:hover { text-decoration: underline; }`,
   },
 ];
 

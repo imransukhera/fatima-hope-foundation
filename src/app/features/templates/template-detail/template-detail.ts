@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, computed, inject, signal } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -39,6 +39,15 @@ export class TemplateDetail implements OnInit {
     const url = this.template()?.previewUrl ?? '';
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   });
+
+  protected readonly copiedLabel = signal<'html' | 'css' | null>(null);
+
+  protected copyCode(code: string, label: 'html' | 'css'): void {
+    navigator.clipboard.writeText(code).then(() => {
+      this.copiedLabel.set(label);
+      setTimeout(() => this.copiedLabel.set(null), 2000);
+    });
+  }
 
   protected readonly otherTemplates = computed(() =>
     this.templatesService

@@ -1,18 +1,18 @@
 @if (template(); as t) {
-  <section class="detail-hero" [style.background]="t.swatch">
-    <div class="detail-hero-overlay"></div>
-    <div class="container-fhf detail-hero-content">
-      <a [routerLink]="['/templates', t.categorySlug]" class="back-link"><i class="pi pi-arrow-left"></i> Back to {{ t.category }}s</a>
+  <section class="template-hero" [style.background]="t.swatch">
+    <div class="template-hero-overlay"></div>
+    <div class="container-fhf template-hero-content">
+      <a [routerLink]="['/templates', t.categorySlug]" class="template-back-link"><i class="pi pi-arrow-left"></i> Back to {{ t.category }}s</a>
       <span class="detail-icon"><i [class]="t.icon"></i></span>
       <span class="detail-category">{{ t.category }}</span>
-      <h1 class="font-display">{{ t.title }}</h1>
+      <h1 class="font-display" style="color: white !important;">{{ t.title }}</h1>
       <p>{{ t.summary }}</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container-fhf detail-grid">
-      <div class="detail-body" [appScrollReveal]="0">
+  <section class="section lg:col-10 md:col-11 col-12">
+    <div class="container-fhf detail-grid ">
+      <div class="detail-body">
         <h2>About This Template</h2>
         <p>{{ t.description }}</p>
 
@@ -42,16 +42,46 @@
         }
 
         <a [href]="t.previewUrl" target="_blank" rel="noopener" class="btn-primary open-preview">
-          <i class="pi pi-external-link"></i> Open Full Preview
+          Full Preview
         </a>
 
-        <div class="preview-frame-wrap" [appScrollReveal]="50">
-          <div class="preview-frame-bar">
-            <span></span><span></span><span></span>
-            <a [href]="t.previewUrl" target="_blank" rel="noopener">{{ t.previewUrl }}</a>
+        @if (t.previewImage) {
+          <div class="preview-image-wrap" [appScrollReveal]="50">
+            <img [src]="t.previewImage" [alt]="t.title + ' login page template preview'" loading="lazy">
           </div>
-          <iframe [src]="previewSrc()" title="Live preview of {{ t.title }}" loading="lazy"></iframe>
-        </div>
+
+          @if (t.htmlCode) {
+            <div class="code-block" [appScrollReveal]="50">
+              <div class="code-block-bar">
+                <span>index.html</span>
+                <button type="button" class="btn-copy" (click)="copyCode(t.htmlCode, 'html')">
+                  {{ copiedLabel() === 'html' ? 'Copied!' : 'Copy' }}
+                </button>
+              </div>
+              <pre><code>{{ t.htmlCode }}</code></pre>
+            </div>
+          }
+
+          @if (t.cssCode) {
+            <div class="code-block" [appScrollReveal]="50">
+              <div class="code-block-bar">
+                <span>style.css</span>
+                <button type="button" class="btn-copy" (click)="copyCode(t.cssCode, 'css')">
+                  {{ copiedLabel() === 'css' ? 'Copied!' : 'Copy' }}
+                </button>
+              </div>
+              <pre><code>{{ t.cssCode }}</code></pre>
+            </div>
+          }
+        } @else {
+          <div class="preview-frame-wrap" [appScrollReveal]="50">
+            <div class="preview-frame-bar">
+              <span></span><span></span><span></span>
+              <a [href]="t.previewUrl" target="_blank" rel="noopener">{{ t.previewUrl }}</a>
+            </div>
+            <iframe [src]="previewSrc()" title="Live preview of {{ t.title }}" loading="lazy"></iframe>
+          </div>
+        }
       </div>
 
       <aside class="detail-sidebar" [appScrollReveal]="100">
@@ -65,12 +95,5 @@
       </aside>
     </div>
   </section>
-} @else {
-  <section class="section not-found">
-    <div class="container-fhf">
-      <h1>Template Not Found</h1>
-      <p>We couldn't find the template you're looking for.</p>
-      <a routerLink="/templates" class="btn-primary">Browse All Templates</a>
-    </div>
-  </section>
+
 }
