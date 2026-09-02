@@ -2,6 +2,7 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 import {
   SEED_BLOG,
   SEED_COURSES,
+  SEED_JOBS,
   SEED_PROGRAMS,
   SEED_TEMPLATE_CATEGORIES,
   SEED_TEMPLATES,
@@ -35,6 +36,13 @@ export const serverRoutes: ServerRoute[] = [
     },
   },
   {
+    path: 'careers/:slug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return SEED_JOBS.map((job) => ({ slug: job.slug }));
+    },
+  },
+  {
     path: 'templates/:category',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
@@ -59,6 +67,6 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'donate/success', renderMode: RenderMode.Prerender },
   { path: 'donate/cancel', renderMode: RenderMode.Prerender },
   // Everything else (Home, About, Programs, Impact, Gallery, Events, Blog, Volunteer,
-  // Contact, Admin, 404) is static enough to prerender at build time.
+  // Careers, Contact, Admin, 404) is static enough to prerender at build time.
   { path: '**', renderMode: RenderMode.Prerender },
 ];

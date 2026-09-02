@@ -1,0 +1,36 @@
+<section class="page-hero">
+  <div class="container-fhf">
+    <span class="eyebrow">Join Our Team</span>
+    <h1 class="font-display">Careers at Fatima Hope Foundation</h1>
+    <p>Help us restore dignity and hope to families across Pakistan. Explore our current openings below.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-fhf">
+    @if (openJobs().length === 0) {
+      <div class="card-surface no-openings">
+        <i class="pi pi-briefcase"></i>
+        <h3>No Openings Right Now</h3>
+        <p>We don't have any open positions at the moment, but we're always glad to hear from passionate people. Reach out via our <a routerLink="/contact">contact page</a>.</p>
+      </div>
+    } @else {
+      <div class="jobs-grid">
+        @for (job of openJobs(); track job.id; let i = $index) {
+          <article class="job-card card-surface" [appScrollReveal]="(i % 3) * 100">
+            <div class="job-body">
+              <span class="job-type">{{ job.type }}</span>
+              <h3>{{ job.title }}</h3>
+              <p class="job-meta"><i class="pi pi-building"></i> {{ job.department }} &middot; <i class="pi pi-map-marker"></i> {{ job.location }}</p>
+              <p class="job-summary">{{ job.summary }}</p>
+
+              <a [routerLink]="['/careers', job.slug]" class="job-link">
+                Apply Now <i class="pi pi-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</section>

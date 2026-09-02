@@ -8,6 +8,7 @@ import {
   CourseModule,
   EventItem,
   GalleryItem,
+  JobOpening,
   ProgramItem,
   StatItem,
   TemplateCategory,
@@ -3339,5 +3340,86 @@ const OPENAI_API_KEY = "sk-proj-xxxxxx...";</code></pre>
         <a href="/templates/login-pages">Explore Login Page Templates</a>
       </div>
     `,
+  },
+];
+
+export const SEED_JOBS: JobOpening[] = [
+  {
+    id: 'program-coordinator',
+    slug: 'program-coordinator',
+    title: 'Program Coordinator',
+    department: 'Programs',
+    location: 'Lahore, Pakistan',
+    type: 'Full-time',
+    summary:
+      'Coordinate the delivery of our food, medical, and education programs, working directly with field teams and beneficiary families.',
+    description:
+      'We are looking for an organized, compassionate Program Coordinator to plan and oversee the day-to-day delivery of our food ration, medical assistance, and education support programs. You will work closely with field volunteers, track program impact, and ensure resources reach the families who need them most.',
+    responsibilities: [
+      'Plan and schedule monthly distribution and outreach activities across program areas.',
+      'Coordinate with field volunteers and partner organizations to ensure smooth program delivery.',
+      'Maintain accurate records of beneficiaries and track program impact metrics.',
+      'Prepare weekly and monthly progress reports for leadership.',
+    ],
+    requirements: [
+      "Bachelor's degree in Social Work, Public Administration, or a related field.",
+      '2+ years of experience in NGO program coordination or community outreach.',
+      'Strong organizational and communication skills.',
+      'Willingness to travel to field sites within Pakistan.',
+    ],
+    postedAt: '2026-08-01',
+    status: 'open',
+  },
+  {
+    id: 'social-media-officer',
+    slug: 'social-media-officer',
+    title: 'Social Media & Content Officer',
+    department: 'Marketing & Communications',
+    location: 'Remote (Pakistan)',
+    type: 'Part-time',
+    summary:
+      'Tell the stories of the families and communities we serve through compelling social media content and campaigns.',
+    description:
+      'We are seeking a creative Social Media & Content Officer to grow our online presence, share the impact of our programs, and support fundraising campaigns through storytelling. You will create photo, video, and written content that connects donors with the people we serve.',
+    responsibilities: [
+      'Plan and publish content across Facebook, Instagram, and WhatsApp channels.',
+      'Capture photos and short videos during program visits and events.',
+      'Write donor-facing updates and campaign copy.',
+      'Track engagement and report on content performance.',
+    ],
+    requirements: [
+      '1+ years of experience managing social media for a brand, NGO, or cause.',
+      'Comfortable with basic photo/video editing tools.',
+      'Excellent written English and Urdu.',
+      'A genuine interest in nonprofit and community work.',
+    ],
+    postedAt: '2026-07-20',
+    status: 'open',
+  },
+  {
+    id: 'field-volunteer-supervisor',
+    slug: 'field-volunteer-supervisor',
+    title: 'Field Volunteer Supervisor',
+    department: 'Operations',
+    location: 'Karachi, Pakistan',
+    type: 'Contract',
+    summary:
+      'Lead and support our on-ground volunteer teams during distribution drives, medical camps, and community events.',
+    description:
+      'The Field Volunteer Supervisor leads teams of volunteers during ration distributions, medical camps, and community events, ensuring activities run safely, efficiently, and with dignity for the families we serve.',
+    responsibilities: [
+      'Brief and supervise volunteer teams before and during field activities.',
+      'Ensure distribution and registration processes run smoothly and fairly.',
+      'Resolve on-site issues and escalate concerns to program staff.',
+      'Collect attendance and activity data from each event.',
+    ],
+    requirements: [
+      'Prior experience supervising teams or volunteers, ideally in an NGO setting.',
+      'Strong interpersonal and problem-solving skills.',
+      'Able to work occasional weekends for scheduled events.',
+      'Based in or near Karachi.',
+    ],
+    postedAt: '2026-08-10',
+    status: 'open',
   },
 ];

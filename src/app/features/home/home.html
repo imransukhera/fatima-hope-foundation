@@ -196,12 +196,38 @@
         <i class="pi pi-heart-fill" aria-hidden="true"></i> Donate Now
       </app-button>
       
-      <app-button 
-        variant="outline" 
+      <app-button
+        variant="outline"
         routerLink="/volunteer"
         aria-label="Become a volunteer with Fatima Hope Foundation"
       >
         <i class="pi pi-users" aria-hidden="true"></i> Become a Volunteer
+      </app-button>
+    </div>
+  </div>
+</section>
+
+<!-- Careers -->
+<!-- Careers / Join Our Team Section -->
+<section class="section careers-section" aria-label="Careers at Fatima Hope Foundation">
+  <div class="container-fhf">
+    <div class="careers-card glass" [appScrollReveal]="0">
+      <div class="careers-icon" aria-hidden="true">
+        <i class="pi pi-briefcase"></i>
+      </div>
+      <div class="careers-body">
+        <span class="eyebrow">We're Hiring</span>
+        <h2 class="font-display">Build Your Career While Building Hope</h2>
+        <p>
+          Join our team of dedicated professionals working to bring food, healthcare, education, and dignity to families across Southern Punjab.
+        </p>
+      </div>
+      <app-button
+        variant="primary"
+        routerLink="/careers"
+        aria-label="Explore current career opportunities at Fatima Hope Foundation"
+      >
+        Explore Careers <i class="pi pi-arrow-right" aria-hidden="true"></i>
       </app-button>
     </div>
   </div>

@@ -28,6 +28,13 @@ service firebase.storage {
       allow read, delete: if isAdmin();
     }
 
+    // Job application resumes: anyone can upload their own resume when
+    // applying, but only admins can read/list/delete them afterward.
+    match /careers/resumes/{fileName} {
+      allow create: if isValidDocument();
+      allow read, delete: if isAdmin();
+    }
+
     // Gallery and program images: public read, admin-managed uploads.
     match /gallery/{fileName} {
       allow read: if true;

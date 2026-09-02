@@ -1,0 +1,140 @@
+@if (job(); as j) {
+  <section class="page-hero">
+    <div class="container-fhf">
+      <a routerLink="/careers" class="back-link back-link--dark"><i class="pi pi-arrow-left"></i> All Openings</a>
+      <span class="job-type">{{ j.type }}</span>
+      <h1 class="font-display">{{ j.title }}</h1>
+      <p class="job-meta"><i class="pi pi-building"></i> {{ j.department }} &middot; <i class="pi pi-map-marker"></i> {{ j.location }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-fhf detail-grid">
+      <div class="detail-body" [appScrollReveal]="0">
+        <h2>About This Role</h2>
+        <p>{{ j.description }}</p>
+
+        @if (j.responsibilities?.length) {
+          <div class="list-section">
+            <h2>Responsibilities</h2>
+            <ul class="check-list">
+              @for (item of j.responsibilities; track item) {
+                <li><i class="pi pi-check-circle" aria-hidden="true"></i><span>{{ item }}</span></li>
+              }
+            </ul>
+          </div>
+        }
+
+        @if (j.requirements?.length) {
+          <div class="list-section">
+            <h2>Requirements</h2>
+            <ul class="check-list">
+              @for (item of j.requirements; track item) {
+                <li><i class="pi pi-check-circle" aria-hidden="true"></i><span>{{ item }}</span></li>
+              }
+            </ul>
+          </div>
+        }
+
+        <div class="apply-form-wrap card-surface">
+          <h2>Apply Now</h2>
+          @if (submitted()) {
+            <div class="success-state">
+              <i class="pi pi-check-circle"></i>
+              <h3>Application Received!</h3>
+              <p>Thank you for applying for {{ j.title }}. Our team will review your application and reach out if there's a fit.</p>
+            </div>
+          } @else {
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="field-row">
+                <div class="field">
+                  <label for="fullName">Full Name</label>
+                  <input id="fullName" type="text" formControlName="fullName" placeholder="Your name" />
+                  @if (form.controls.fullName.invalid && form.controls.fullName.touched) {
+                    <span class="error-msg">Please enter your name.</span>
+                  }
+                </div>
+                <div class="field">
+                  <label for="email">Email Address</label>
+                  <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
+                  @if (form.controls.email.invalid && form.controls.email.touched) {
+                    <span class="error-msg">Please enter a valid email.</span>
+                  }
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" type="tel" formControlName="phone" placeholder="03xx-xxxxxxx" />
+                  @if (form.controls.phone.invalid && form.controls.phone.touched) {
+                    <span class="error-msg">Please enter your phone number.</span>
+                  }
+                </div>
+                <div class="field">
+                  <label for="city">City</label>
+                  <input id="city" type="text" formControlName="city" placeholder="Your city" />
+                  @if (form.controls.city.invalid && form.controls.city.touched) {
+                    <span class="error-msg">Please enter your city.</span>
+                  }
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="coverMessage">Why are you a good fit for this role?</label>
+                <textarea id="coverMessage" rows="4" formControlName="coverMessage" placeholder="Tell us a bit about your experience..."></textarea>
+                @if (form.controls.coverMessage.invalid && form.controls.coverMessage.touched) {
+                  <span class="error-msg">Please write at least 20 characters about your fit for this role.</span>
+                }
+              </div>
+
+              <div class="field">
+                <label>Resume / CV</label>
+                <label class="file-upload">
+                  <i class="pi pi-upload"></i>
+                  <span>{{ resumeFileName() || 'Choose a file to upload' }}</span>
+                  <input type="file" accept=".pdf,.doc,.docx" (change)="onFileSelected($event)" hidden />
+                </label>
+              </div>
+
+              @if (error()) {
+                <p class="error-msg error-msg--banner">
+                  <i class="pi pi-exclamation-triangle"></i> Couldn't submit your application — please try again or WhatsApp us directly.
+                </p>
+              }
+
+              <button type="submit" class="btn-primary" [disabled]="submitting()">
+                @if (submitting()) {
+                  <i class="pi pi-spin pi-spinner"></i> Submitting...
+                } @else {
+                  <i class="pi pi-send"></i> Submit Application
+                }
+              </button>
+            </form>
+          }
+        </div>
+      </div>
+
+      <aside class="detail-sidebar" [appScrollReveal]="100">
+        <h3>Other Openings</h3>
+        @for (other of otherJobs(); track other.id) {
+          <a class="sidebar-card" [routerLink]="['/careers', other.slug]">
+            <span class="sidebar-icon"><i class="pi pi-briefcase"></i></span>
+            <span>{{ other.title }}</span>
+          </a>
+        }
+        @if (otherJobs().length === 0) {
+          <p class="no-other">No other openings right now.</p>
+        }
+      </aside>
+    </div>
+  </section>
+} @else {
+  <section class="section not-found">
+    <div class="container-fhf">
+      <h1>Job Not Found</h1>
+      <p>We couldn't find the job opening you're looking for.</p>
+      <a routerLink="/careers" class="btn-primary">Browse All Openings</a>
+    </div>
+  </section>
+}

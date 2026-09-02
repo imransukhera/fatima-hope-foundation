@@ -199,6 +199,35 @@ export interface VolunteerApplication {
   createdAt?: unknown;
 }
 
+export interface JobOpening {
+  id: string;
+  slug: string;
+  title: string;
+  department: string;
+  location: string;
+  type: 'Full-time' | 'Part-time' | 'Contract' | 'Volunteer' | 'Internship';
+  summary: string;
+  description: string;
+  responsibilities?: string[];
+  requirements?: string[];
+  postedAt?: string;
+  status: 'open' | 'closed';
+}
+
+export interface JobApplication {
+  id?: string;
+  jobId: string;
+  jobTitle: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  city: string;
+  coverMessage: string;
+  resumeUrl?: string;
+  status: 'new' | 'reviewed' | 'shortlisted' | 'rejected' | 'hired';
+  createdAt?: unknown;
+}
+
 export interface ContactMessage {
   id?: string;
   name: string;

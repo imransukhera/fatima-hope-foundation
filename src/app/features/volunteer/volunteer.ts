@@ -98,7 +98,7 @@ export class Volunteer implements OnInit {
       skills: this.selectedSkills(),
       availability,
       motivation,
-      resumeUrl,
+      ...(resumeUrl ? { resumeUrl } : {}),
     });
 
     this.submitting.set(false);

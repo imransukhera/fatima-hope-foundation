@@ -26,7 +26,7 @@ export class SeoService {
   update(data: SeoData): void {
     const fullTitle = `${data.title} | Fatima Hope Foundation`;
     const url = `${environment.appUrl}${data.path ?? ''}`;
-    const image = data.image ?? `${environment.appUrl}/og-image.jpg`;
+    const image = data.image ?? `${environment.appUrl}/images/logo.jpeg`;
 
     const ogTitle = data.ogTitle ?? fullTitle;
     const ogDescription = data.ogDescription ?? data.description;

@@ -56,6 +56,11 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    match /jobs/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
     match /settings/{docId} {
       allow read: if true;
       allow write: if isAdmin();
@@ -84,6 +89,14 @@ service cloud.firestore {
     match /contactMessages/{docId} {
       allow create: if request.resource.data.email is string
         && request.resource.data.message is string
+        && request.resource.data.status == 'new';
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /jobApplications/{docId} {
+      allow create: if request.resource.data.email is string
+        && request.resource.data.fullName is string
+        && request.resource.data.jobId is string
         && request.resource.data.status == 'new';
       allow read, update, delete: if isAdmin();
     }

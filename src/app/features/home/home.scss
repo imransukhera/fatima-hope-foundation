@@ -433,3 +433,54 @@
 
   .hero-actions { justify-content: center; }
 }
+
+// ---------------------------------------------------------------------------
+// Careers
+// ---------------------------------------------------------------------------
+.careers-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: var(--radius-lg);
+}
+
+.careers-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.careers-body {
+  max-width: 46ch;
+
+  .eyebrow { margin-bottom: 0.75rem; }
+
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin: 0 0 0.75rem;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .careers-card {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+}
