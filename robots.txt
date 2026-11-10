@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /donate/success
+Disallow: /donate/cancel
+
+Sitemap: https://fatimahopefoundation.com/sitemap.xml
